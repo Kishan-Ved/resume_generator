@@ -6,13 +6,19 @@ let PORs = [];
 function addNewIntern() {
   // Get values from the form
   let title = document.getElementById("internTitleF").value;
+  let info = document.getElementById("internInfoF").value;
+  let link = document.getElementById("internLinkF").value;
   let description = document.getElementById("interndescriptionF").value;
+  let description2 = document.getElementById("interndescription2F").value;
   let year = document.getElementById("yearinternF").value;
 
   // Create new internship object and add to array
   internships.push({
     title: title,
+    info: info,
+    link: link,
     description: description,
+    description2: description2,
     year: year
   });
 
@@ -21,7 +27,10 @@ function addNewIntern() {
 
   // Clear form fields
   document.getElementById("internTitleF").value = "";
+  document.getElementById("internInfoF").value = "";
+  document.getElementById("internLinkF").value = "";
   document.getElementById("interndescriptionF").value = "";
+  document.getElementById("interndescription2F").value = "";
   document.getElementById("yearinternF").value = "";
 }
 
@@ -29,8 +38,12 @@ function updateInternshipList() {
   // Get the list element
   let internList = document.getElementById("internlistT");
 
-  // Clear existing list
+  // Get the span element to display internship details
+  let internsSpan = document.getElementById("userEnteredInternships");
+
+  // Clear existing list and content in the "interns" span
   internList.innerHTML = "";
+  internsSpan.innerHTML = "";
 
   // Loop through each internship in the array
   for (let internship of internships) {
@@ -53,25 +66,47 @@ function updateInternshipList() {
     descriptionElement.textContent = internship.description;
     newListItem.appendChild(descriptionElement);
 
+    let descriptionElement2 = document.createElement("p");
+    descriptionElement2.classList.add("text-sm", "p-0", "my-0", "justify-content");
+    descriptionElement2.textContent = internship.description2;
+    newListItem.appendChild(descriptionElement2);
+
     // Append the new list item to the existing list
     internList.appendChild(newListItem);
+
+    // Append additional content to the "interns" span
+    internsSpan.innerHTML += "\\item \\textbf{" + escapeLaTeX(internship.title) + "} \\hfill [" + escapeLaTeX(internship.year) + "]\\\\\\emph{("+ internship.info +") | \n\\href{"+ internship.link +"}{Project Link}} \\\\[-0.7cm]\n" +
+      "\\begin{itemize}\\itemsep  \\isep\n" +
+      "   \\item " + escapeLaTeX(internship.description) + "\n" +
+      "   \\item " + escapeLaTeX(internship.description2) +
+      "\n   \\end{itemize}"+
+      "";
   }
 }
 
-// Initialize an empty array to store projects
+// Helper function to escape special characters in LaTeX
+function escapeLaTeX(text) {
+  return text.replace(/([&%$#{}_])/g, "\\$1");
+}
 
 
 // Function to add a new project
 function addNewProject() {
   // Get values from the form
-  let title = document.getElementById("ProjectTitleF").value;
-  let description = document.getElementById("ProjectdescriptionF").value;
+  let title = document.getElementById("projectTitleF").value;
+  let info = document.getElementById("projectInfoF").value;
+  let link = document.getElementById("projectLinkF").value;
+  let description = document.getElementById("projectdescriptionF").value;
+  let description2 = document.getElementById("projectdescription2F").value;
   let year = document.getElementById("yearprojectF").value;
 
-  // Create a new project object and add it to the array
+  // Create new internship object and add to array
   projects.push({
     title: title,
+    info: info,
+    link: link,
     description: description,
+    description2: description2,
     year: year
   });
 
@@ -79,22 +114,29 @@ function addNewProject() {
   updateProjectList();
 
   // Clear form fields
-  document.getElementById("ProjectTitleF").value = "";
-  document.getElementById("ProjectdescriptionF").value = "";
+  document.getElementById("projectTitleF").value = "";
+  document.getElementById("projectInfoF").value = "";
+  document.getElementById("projectLinkF").value = "";
+  document.getElementById("projectdescriptionF").value = "";
+  document.getElementById("projectdescription2F").value = "";
   document.getElementById("yearprojectF").value = "";
 }
 
 // Function to update the project list on the webpage
 function updateProjectList() {
   // Get the list element
-  let projectList = document.getElementById("projectList");
+  let projectList = document.getElementById("projectlist");
 
-  // Clear existing list
+  // Get the span element to display internship details
+  let projectsSpan = document.getElementById("userEnteredProjects");
+
+  // Clear existing list and content in the "interns" span
   projectList.innerHTML = "";
+  projectsSpan.innerHTML = "";
 
-  // Loop through each project in the array
+  // Loop through each internship in the array
   for (let project of projects) {
-    // Create a new list item element
+    // Create new list item element
     let newListItem = document.createElement("li");
 
     // Create elements for title, description, and year with appropriate content
@@ -113,8 +155,21 @@ function updateProjectList() {
     descriptionElement.textContent = project.description;
     newListItem.appendChild(descriptionElement);
 
+    let descriptionElement2 = document.createElement("p");
+    descriptionElement2.classList.add("text-sm", "p-0", "my-0", "justify-content");
+    descriptionElement2.textContent = project.description2;
+    newListItem.appendChild(descriptionElement2);
+
     // Append the new list item to the existing list
     projectList.appendChild(newListItem);
+
+    // Append additional content to the "interns" span
+    projectsSpan.innerHTML += "\\item \\textbf{" + escapeLaTeX(project.title) + "} \\hfill [" + escapeLaTeX(project.year) + "]\\\\\\emph{("+ project.info +") | \n\\href{"+ project.link +"}{Project Link}} \\\\[-0.7cm]\n" +
+      "\\begin{itemize}\\itemsep  \\isep\n" +
+      "   \\item " + escapeLaTeX(project.description) + "\n" +
+      "   \\item " + escapeLaTeX(project.description2) +
+      "\n   \\end{itemize}"+
+      "";
   }
 }
 
@@ -123,13 +178,14 @@ function updateProjectList() {
 // Function to add a new skill
 function addNewSkill() {
   // Get values from the form
-  let skillType = document.getElementById("skilltypeF").value;
-  let skillDescription = document.getElementById("skilldescriptionF").value;
+  let type = document.getElementById("skilltypeF").value;
+  let description = document.getElementById("skilldescriptionF").value;
+  
 
-  // Create a new skill object and add it to the array
+  // Create new internship object and add to array
   skills.push({
-    type: skillType,
-    description: skillDescription
+    type : type,
+    description: description
   });
 
   // Update the display list
@@ -138,15 +194,17 @@ function addNewSkill() {
   // Clear form fields
   document.getElementById("skilltypeF").value = "";
   document.getElementById("skilldescriptionF").value = "";
+  
 }
 
 // Function to update the skill list on the webpage
 function updateSkillList() {
   // Get the list element
   let skillList = document.getElementById("skillList");
-
+  let skillsSpan = document.getElementById("userEnteredSkills");
   // Clear existing list
   skillList.innerHTML = "";
+  skillsSpan.innerHTML = "";
 
   // Loop through each skill in the array
   for (let skill of skills) {
@@ -166,6 +224,9 @@ function updateSkillList() {
 
     // Append the new list item to the existing list
     skillList.appendChild(newListItem);
+
+    // Append additional content to the "interns" span
+    skillsSpan.innerHTML += "\\item \\textbf{"+skill.type+":} "+skill.description+"\n";
   }
 }
 
@@ -178,12 +239,14 @@ function addNewPOR() {
   // Get values from the form
   let PORName = document.getElementById("PORNameF").value;
   let PORDescription = document.getElementById("PORdescriptionF").value;
+  let PORDescription2 = document.getElementById("PORdescription2F").value;
   let PORDuration = document.getElementById("PORdurationF").value;
 
   // Create a new POR object and add it to the array
   PORs.push({
     name: PORName,
     description: PORDescription,
+    description2: PORDescription2,
     duration: PORDuration
   });
 
@@ -193,6 +256,7 @@ function addNewPOR() {
   // Clear form fields
   document.getElementById("PORNameF").value = "";
   document.getElementById("PORdescriptionF").value = "";
+  document.getElementById("PORdescription2F").value = "";
   document.getElementById("PORdurationF").value = "";
 }
 
@@ -200,33 +264,46 @@ function addNewPOR() {
 function updatePORList() {
   // Get the list element
   let PORList = document.getElementById("PORList");
-
+  let PORSpan = document.getElementById("userEnteredPORs");
   // Clear existing list
   PORList.innerHTML = "";
+  PORSpan.innerHTML = "";
 
   // Loop through each POR in the array
-  for (let POR of PORs) {
+  for (let porr of PORs) {
     // Create a new list item element
     let newListItem = document.createElement("li");
 
     // Create elements for POR name, duration, and description with appropriate content
     let PORNameElement = document.createElement("p");
     PORNameElement.classList.add("fw-bold", "my-0", "p-0");
-    PORNameElement.textContent = POR.name;
+    PORNameElement.textContent = porr.name;
     newListItem.appendChild(PORNameElement);
 
     let PORDurationElement = document.createElement("p");
     PORDurationElement.classList.add("text-sm-end", "fw-bold", "my-0");
-    PORDurationElement.textContent = "[" + POR.duration + "]";
+    PORDurationElement.textContent = "[" + porr.duration + "]";
     newListItem.appendChild(PORDurationElement);
 
     let PORDescriptionElement = document.createElement("p");
     PORDescriptionElement.classList.add("text-sm", "p-0", "my-0", "justify-content");
-    PORDescriptionElement.textContent = POR.description;
+    PORDescriptionElement.textContent = porr.description;
     newListItem.appendChild(PORDescriptionElement);
+
+    let PORDescriptionElement2 = document.createElement("p");
+    PORDescriptionElement2.classList.add("text-sm", "p-0", "my-0", "justify-content");
+    PORDescriptionElement2.textContent = porr.description2;
+    newListItem.appendChild(PORDescriptionElement2);
 
     // Append the new list item to the existing list
     PORList.appendChild(newListItem);
+
+    PORSpan.innerHTML += "\\item \\textbf{"+porr.name+"}\n"+
+    "\\hfill ["+porr.duration+"] \\\\[-0.7cm]\n"+
+    "   \\begin{itemize} \\itemsep \\isep\n"+
+    "      \\item "+porr.description+"\n"+
+    "      \\item "+porr.description2+"\n"+
+    "        \\end{itemize}\n";
   }
 }
 
@@ -264,50 +341,13 @@ function generateCV() {
     //Internships
     document.getElementById("internTitleT").innerHTML=document.getElementById("internTitleF").value;
     document.getElementById("interndescriptionT").innerHTML=document.getElementById("interndescriptionF").value;
+    document.getElementById("interndescription2T").innerHTML=document.getElementById("interndescription2F").value;
     document.getElementById("yearinternT").innerHTML=document.getElementById("yearinternF").value;
 
-    // //adding another intern
-    // let internlist=document.getElementById("interns")
-
-    // let str="";
-
-    // for (let intern of internlist){
-    //     str=str+`<li> ${intern.value} </li>`;
-
-    // } 
-
-    // document.getElementById("internlistT").innerHTML=str;
-
-    // let internList = document.getElementById("internlistT");
-    // internList.innerHTML = ""; // Clear the existing content
-
-    // // Loop through internship data and create list items
-    // for (let internship of internships) {
-    //     let newListItem = document.createElement("li");
-
-    //     let titleElement = document.createElement("p");
-    //     titleElement.classList.add("col-8", "fw-bold", "my-0");
-    //     titleElement.textContent = internship.title;
-    //     newListItem.appendChild(titleElement);
-
-    //     let yearElement = document.createElement("p");
-    //     yearElement.classList.add("col-2", "fw-bold", "my-0")
-    //     yearElement.textContent = internship.year;
-    //     newListItem.appendChild(yearElement);
-
-    //     let descriptionElement = document.createElement("p");
-    //     descriptionElement.textContent = internship.description;
-    //     newListItem.appendChild(descriptionElement);
-
-        
-
-    //     internList.appendChild(newListItem);
-    // }
-
-
     //projects
-    document.getElementById("ProjectTitleT").innerHTML=document.getElementById("ProjectTitleF").value;
-    document.getElementById("ProjectdescriptionT").innerHTML=document.getElementById("ProjectdescriptionF").value;
+    document.getElementById("projectTitleT").innerHTML=document.getElementById("projectTitleF").value;
+    document.getElementById("projectDescriptionT").innerHTML=document.getElementById("projectdescriptionF").value;
+    document.getElementById("projectDescription2T").innerHTML=document.getElementById("projectdescription2F").value;   
     document.getElementById("yearprojectT").innerHTML=document.getElementById("yearprojectF").value;
 
     //skills
@@ -318,6 +358,7 @@ function generateCV() {
     document.getElementById("PORNameT").innerHTML=document.getElementById("PORNameF").value;
     document.getElementById("PORdurationT").innerHTML=document.getElementById("PORdurationF").value;
     document.getElementById("PORdescriptionT").innerHTML=document.getElementById("PORdescriptionF").value;
+    document.getElementById("PORdescription2T").innerHTML=document.getElementById("PORdescription2F").value;
 
     document.getElementById("cv-form").style.display="none";
     document.getElementById("CVtemplate").style.display="block";
@@ -325,44 +366,98 @@ function generateCV() {
     
 }
 
-// function downloadPDF() {
-//     // Select the element containing the content you want to convert to PDF
-//     const element = document.getElementById("CVtemplate");
 
-//     // Create a new jsPDF instance
-//     const pdf = new jsPDF({
-//         orientation: 'portrait',
-//         unit: 'mm',
-//         format: 'a4',
-//     });
 
-//     // Convert the HTML element to a canvas using html2canvas
-//     html2canvas(element).then((canvas) => {
-//         // Convert the canvas to an image data URL
-//         const dataURL = canvas.toDataURL('image/png');
+// window.onload = function () {
+//     const downloadButton = document.getElementById("download");
 
-//         // Add the image to the PDF
-//         pdf.addImage(dataURL, 'PNG', 0, 0, 210, 297); // A4 size: 210 x 297 mm
-
-//         // Save the PDF
-//         pdf.save('Generated_PDF.pdf');
-//     });
-// }
-
-window.onload = function () {
-    const downloadButton = document.getElementById("download");
-
-    downloadButton.addEventListener("click", () => {
-        const cv = document.getElementById("Cvtemplate");
+//     downloadButton.addEventListener("click", () => {
+//         const cv = document.getElementById("Cvtemplate");
         
-        // Set A4 size (210mm x 297mm) for the HTML element
-        cv.style.width = "210mm";
-        cv.style.height = "297mm";
-        cv.style.margin="2px";
+//         // Set A4 size (210mm x 297mm) for the HTML element
+//         cv.style.width = "210mm";
+//         cv.style.height = "297mm";
+//         cv.style.margin="2px";
 
-        html2pdf().from(cv).save();
-    });
-};
+//         html2pdf().from(cv).save();
+//     });
+// };
+
+
+function copyToClipboard() {
+  // Get the user-entered values
+  let userName = document.getElementById("nameF").value;
+  let userYear = document.getElementById("CGradF").value;
+  let userEmail = document.getElementById("emailF").value;
+  let userBranch = document.getElementById("BranchF").value;
+  let userContact = document.getElementById("contactF").value;
+  let userGithub = document.getElementById("gitF").value;
+  let userLinkedIn = document.getElementById("linkedinF").value;
+  let userWebsite = document.getElementById("websiteF").value;
+
+  document.getElementById("userEnteredYear").innerText = userYear;
+  document.getElementById("userEnteredEmail").innerText = userEmail;
+  document.getElementById("userEnteredEmailText").innerText = userEmail;
+
+  document.getElementById("userEnteredContact").innerText = userContact;
+  document.getElementById("userEnteredGithub").innerText = userGithub;
+  document.getElementById("userEnteredLinkedIn").innerText = userLinkedIn;
+  document.getElementById("userEnteredWebsite").innerText = userWebsite;
+  document.getElementById("userEnteredName").innerText = userName;
+  document.getElementById("userEnteredBranch").innerText = userBranch;
+
+  // Get the user-entered values for B.Tech details
+  let userCPI = document.getElementById("CPIF").value;
+  let userYOJ = document.getElementById("YOJF").value;
+
+  // Update the values for B.Tech details in the LaTeX code
+  document.getElementById("userEnteredCPI").innerText = userCPI;
+  document.getElementById("userEnteredYOJ").innerText = userYOJ;
+
+  // Get the user-entered values for Class 12th details
+  let userInstituteTwelve = document.getElementById("institutetwelveF").value;
+  let userMarksTwelve = document.getElementById("markstwelveF").value;
+  let userYearTwelve = document.getElementById("yeartwelveF").value;
+
+  // Update the values for Class 12th details in the LaTeX code
+  document.getElementById("userEnteredInstituteTwelve").innerText = userInstituteTwelve;
+  document.getElementById("userEnteredMarksTwelve").innerText = userMarksTwelve;
+  document.getElementById("userEnteredYearTwelve").innerText = userYearTwelve;
+
+  // Get the user-entered values for Class 10th details
+  let userInstituteTen = document.getElementById("institutetenF").value;
+  let userMarksTen = document.getElementById("markstenF").value;
+  let userYearTen = document.getElementById("yeartenF").value;
+
+  // Update the values for Class 10th details in the LaTeX code
+  document.getElementById("userEnteredInstituteTen").innerText = userInstituteTen;
+  document.getElementById("userEnteredMarksTen").innerText = userMarksTen;
+  document.getElementById("userEnteredYearTen").innerText = userYearTen;
+
+  // Get the updated LaTeX code
+  let latexCode = document.getElementById("latexCode").innerText;
+
+  // Create a temporary textarea element
+  var tempTextarea = document.createElement("textarea");
+
+  // Set the textarea value to the updated LaTeX code
+  tempTextarea.value = latexCode;
+
+  // Append the textarea element to the DOM
+  document.body.appendChild(tempTextarea);
+
+  // Select the text in the textarea
+  tempTextarea.select();
+
+  // Execute the "copy" command
+  document.execCommand("copy");
+
+  // Remove the temporary textarea element
+  document.body.removeChild(tempTextarea);
+
+  // Optionally, provide feedback to the user
+  alert("Copied LaTeX code to clipboard. Paste in any LaTeX editor. Eg: Overleaf.");
+}
 
 
 setInterval(generateCV, 100);
