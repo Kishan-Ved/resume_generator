@@ -6,10 +6,22 @@
     margin-right: 3px;
     margin-left: 0px;
 }
+.cv-template {
+    font-family: 'Times New Roman', 'Times', 'serif';
+}
 
 body{
     padding: 2px;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+
 }
+.cv-form{
+    background-color: gray;
+}
+/* .colorbtn{
+    color:black;
+} */
 
 /* Footer styling */
 
