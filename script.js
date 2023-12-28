@@ -405,6 +405,7 @@ function copyToClipboard() {
   document.getElementById("userEnteredWebsite").innerText = userWebsite;
   document.getElementById("userEnteredName").innerText = userName;
   document.getElementById("userEnteredBranch").innerText = userBranch;
+  document.getElementById("userEnteredBranch2").innerText = userBranch;
 
   // Get the user-entered values for B.Tech details
   let userCPI = document.getElementById("CPIF").value;
