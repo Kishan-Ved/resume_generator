@@ -9,3 +9,4 @@ Steps for contribution:
 6. git add .
 7. git commit -m "commit message"
 8. git push origin your_branch_name
+9. Make a PR
