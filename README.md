@@ -40,13 +40,14 @@ Steps for contribution:
 
 1. Fork, https://github.com/Kishan-Ved/resume_generator
 2. Execute, `git clone https://github.com/Kishan-Ved/resume_generator.git`
-3. Execute, `git remote add origin_user https://github.com/<your-github-username>/resume_generator/`
-4. Execute, `git checkout -b <your-new-branch-for-editing>`.
-5. Make changes to the code.
-6. Execute, `git add .`.
-7. Execute, `git commit -m "your-commit-message"`.
-8. Execute, `git push origin_user <your-current-branch>`.
-9. Make a PR.
+3. Change your working directory to `../resume_generator`.
+4. Execute, `git remote add origin_user https://github.com/<your-github-username>/resume_generator/`
+5. Execute, `git checkout -b <your-new-branch-for-editing>`.
+6. Make changes to the code.
+7. Execute, `git add .`.
+8. Execute, `git commit -m "your-commit-message"`.
+9. Execute, `git push origin_user <your-current-branch>`.
+10. Make a PR.
 
 For future contributions just follow steps 4 to 9. Make sure that before starting work, always checkout to main and pull the recent changes using the remote `origin_user` and then start following steps 4 to 9.
 
