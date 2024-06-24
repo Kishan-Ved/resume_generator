@@ -52,3 +52,7 @@ Steps for contribution:
 For future contributions just follow steps 4 to 9. Make sure that before starting work, always checkout to main and pull the recent changes using the remote `origin_user` and then start following steps 4 to 9.
 
 Happy Contributing!
+
+---
+
+Made with 🩷 by Kishan Ved.
