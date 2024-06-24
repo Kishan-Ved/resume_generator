@@ -75,11 +75,11 @@ function updateInternshipList() {
     internList.appendChild(newListItem);
 
     // Append additional content to the "interns" span
-    internsSpan.innerHTML += "\\item \\textbf{" + escapeLaTeX(internship.title) + "} \\hfill [" + escapeLaTeX(internship.year) + "]\\\\\\emph{("+ internship.info +") | \n\\href{"+ internship.link +"}{Project Link}} \\\\[-0.7cm]\n" +
+    internsSpan.innerHTML += "\\item \\textbf{" + escapeLaTeX(internship.title) + "} \\hfill [" + escapeLaTeX(internship.year) + "]\\\\\\emph{(" + internship.info + ") | \n\\href{" + internship.link + "}{Project Link}} \\\\[-0.7cm]\n" +
       "\\begin{itemize}\\itemsep  \\isep\n" +
       "   \\item " + escapeLaTeX(internship.description) + "\n" +
       "   \\item " + escapeLaTeX(internship.description2) +
-      "\n   \\end{itemize}"+
+      "\n   \\end{itemize}" +
       "";
   }
 }
@@ -164,11 +164,11 @@ function updateProjectList() {
     projectList.appendChild(newListItem);
 
     // Append additional content to the "interns" span
-    projectsSpan.innerHTML += "\\item \\textbf{" + escapeLaTeX(project.title) + "} \\hfill [" + escapeLaTeX(project.year) + "]\\\\\\emph{("+ project.info +") | \n\\href{"+ project.link +"}{Project Link}} \\\\[-0.7cm]\n" +
+    projectsSpan.innerHTML += "\\item \\textbf{" + escapeLaTeX(project.title) + "} \\hfill [" + escapeLaTeX(project.year) + "]\\\\\\emph{(" + project.info + ") | \n\\href{" + project.link + "}{Project Link}} \\\\[-0.7cm]\n" +
       "\\begin{itemize}\\itemsep  \\isep\n" +
       "   \\item " + escapeLaTeX(project.description) + "\n" +
       "   \\item " + escapeLaTeX(project.description2) +
-      "\n   \\end{itemize}"+
+      "\n   \\end{itemize}" +
       "";
   }
 }
@@ -180,11 +180,11 @@ function addNewSkill() {
   // Get values from the form
   let type = document.getElementById("skilltypeF").value;
   let description = document.getElementById("skilldescriptionF").value;
-  
+
 
   // Create new internship object and add to array
   skills.push({
-    type : type,
+    type: type,
     description: description
   });
 
@@ -194,7 +194,7 @@ function addNewSkill() {
   // Clear form fields
   document.getElementById("skilltypeF").value = "";
   document.getElementById("skilldescriptionF").value = "";
-  
+
 }
 
 // Function to update the skill list on the webpage
@@ -226,7 +226,7 @@ function updateSkillList() {
     skillList.appendChild(newListItem);
 
     // Append additional content to the "interns" span
-    skillsSpan.innerHTML += "\\item \\textbf{"+skill.type+":} "+skill.description+"\n";
+    skillsSpan.innerHTML += "\\item \\textbf{" + skill.type + ":} " + skill.description + "\n";
   }
 }
 
@@ -298,72 +298,72 @@ function updatePORList() {
     // Append the new list item to the existing list
     PORList.appendChild(newListItem);
 
-    PORSpan.innerHTML += "\\item \\textbf{"+porr.name+"}\n"+
-    "\\hfill ["+porr.duration+"] \\\\[-0.7cm]\n"+
-    "   \\begin{itemize} \\itemsep \\isep\n"+
-    "      \\item "+porr.description+"\n"+
-    "      \\item "+porr.description2+"\n"+
-    "        \\end{itemize}\n";
+    PORSpan.innerHTML += "\\item \\textbf{" + porr.name + "}\n" +
+      "\\hfill [" + porr.duration + "] \\\\[-0.7cm]\n" +
+      "   \\begin{itemize} \\itemsep \\isep\n" +
+      "      \\item " + porr.description + "\n" +
+      "      \\item " + porr.description2 + "\n" +
+      "        \\end{itemize}\n";
   }
 }
 
 
 function generateCV() {
-    // console.log("generating cv");
-    //personal details
-    let nameField = document.getElementById("nameF").value;
-    document.getElementById("nameT").innerHTML = nameField;
-    let GradField = document.getElementById("CGradF").value;
-    document.getElementById("CGradT").innerHTML = GradField;
-    document.getElementById("BranchT").innerHTML = document.getElementById("BranchF").value;
-    document.getElementById("emailT").innerHTML = document.getElementById("emailF").value;
-    document.getElementById("contactT").innerHTML = document.getElementById("contactF").value;
-    // document.getElementById("emailT").innerHTML = document.getElementById("gitF").value;
+  // console.log("generating cv");
+  //personal details
+  let nameField = document.getElementById("nameF").value;
+  document.getElementById("nameT").innerHTML = nameField;
+  let GradField = document.getElementById("CGradF").value;
+  document.getElementById("CGradT").innerHTML = GradField;
+  document.getElementById("BranchT").innerHTML = document.getElementById("BranchF").value;
+  document.getElementById("emailT").innerHTML = document.getElementById("emailF").value;
+  document.getElementById("contactT").innerHTML = document.getElementById("contactF").value;
+  // document.getElementById("emailT").innerHTML = document.getElementById("gitF").value;
 
 
-    // linking for the git and linkedin accounts remaining here
-    // document.getElementById("gitT").innerHTML = document.getElementById("gitF").value;
-    
-    //academic details
-    //B.Tech
-    document.getElementById("CPIT").innerHTML = document.getElementById("CPIF").value;
-    document.getElementById("YOJT").innerHTML = document.getElementById("YOJF").value;
-    //12th
-    document.getElementById("institutetwelveT").innerHTML = document.getElementById("institutetwelveF").value;
-    document.getElementById("markstwelveT").innerHTML = document.getElementById("markstwelveF").value;
-    document.getElementById("yeartwelveT").innerHTML = document.getElementById("yeartwelveF").value;
+  // linking for the git and linkedin accounts remaining here
+  // document.getElementById("gitT").innerHTML = document.getElementById("gitF").value;
 
-    //10th
-    document.getElementById("institutetenT").innerHTML = document.getElementById("institutetenF").value;
-    document.getElementById("markstenT").innerHTML = document.getElementById("markstenF").value;
-    document.getElementById("yeartenT").innerHTML = document.getElementById("yeartenF").value;
+  //academic details
+  //B.Tech
+  document.getElementById("CPIT").innerHTML = document.getElementById("CPIF").value;
+  document.getElementById("YOJT").innerHTML = document.getElementById("YOJF").value;
+  //12th
+  document.getElementById("institutetwelveT").innerHTML = document.getElementById("institutetwelveF").value;
+  document.getElementById("markstwelveT").innerHTML = document.getElementById("markstwelveF").value;
+  document.getElementById("yeartwelveT").innerHTML = document.getElementById("yeartwelveF").value;
 
-    //Internships
-    document.getElementById("internTitleT").innerHTML=document.getElementById("internTitleF").value;
-    document.getElementById("interndescriptionT").innerHTML=document.getElementById("interndescriptionF").value;
-    document.getElementById("interndescription2T").innerHTML=document.getElementById("interndescription2F").value;
-    document.getElementById("yearinternT").innerHTML=document.getElementById("yearinternF").value;
+  //10th
+  document.getElementById("institutetenT").innerHTML = document.getElementById("institutetenF").value;
+  document.getElementById("markstenT").innerHTML = document.getElementById("markstenF").value;
+  document.getElementById("yeartenT").innerHTML = document.getElementById("yeartenF").value;
 
-    //projects
-    document.getElementById("projectTitleT").innerHTML=document.getElementById("projectTitleF").value;
-    document.getElementById("projectDescriptionT").innerHTML=document.getElementById("projectdescriptionF").value;
-    document.getElementById("projectDescription2T").innerHTML=document.getElementById("projectdescription2F").value;   
-    document.getElementById("yearprojectT").innerHTML=document.getElementById("yearprojectF").value;
+  //Internships
+  document.getElementById("internTitleT").innerHTML = document.getElementById("internTitleF").value;
+  document.getElementById("interndescriptionT").innerHTML = document.getElementById("interndescriptionF").value;
+  document.getElementById("interndescription2T").innerHTML = document.getElementById("interndescription2F").value;
+  document.getElementById("yearinternT").innerHTML = document.getElementById("yearinternF").value;
 
-    //skills
-    document.getElementById("skilltypeT").innerHTML=document.getElementById("skilltypeF").value;
-    document.getElementById("skilldescriptionT").innerHTML=document.getElementById("skilldescriptionF").value;
+  //projects
+  document.getElementById("projectTitleT").innerHTML = document.getElementById("projectTitleF").value;
+  document.getElementById("projectDescriptionT").innerHTML = document.getElementById("projectdescriptionF").value;
+  document.getElementById("projectDescription2T").innerHTML = document.getElementById("projectdescription2F").value;
+  document.getElementById("yearprojectT").innerHTML = document.getElementById("yearprojectF").value;
 
-    //PORs
-    document.getElementById("PORNameT").innerHTML=document.getElementById("PORNameF").value;
-    document.getElementById("PORdurationT").innerHTML=document.getElementById("PORdurationF").value;
-    document.getElementById("PORdescriptionT").innerHTML=document.getElementById("PORdescriptionF").value;
-    document.getElementById("PORdescription2T").innerHTML=document.getElementById("PORdescription2F").value;
+  //skills
+  document.getElementById("skilltypeT").innerHTML = document.getElementById("skilltypeF").value;
+  document.getElementById("skilldescriptionT").innerHTML = document.getElementById("skilldescriptionF").value;
 
-    document.getElementById("cv-form").style.display="none";
-    document.getElementById("CVtemplate").style.display="block";
-    
-    
+  //PORs
+  document.getElementById("PORNameT").innerHTML = document.getElementById("PORNameF").value;
+  document.getElementById("PORdurationT").innerHTML = document.getElementById("PORdurationF").value;
+  document.getElementById("PORdescriptionT").innerHTML = document.getElementById("PORdescriptionF").value;
+  document.getElementById("PORdescription2T").innerHTML = document.getElementById("PORdescription2F").value;
+
+  document.getElementById("cv-form").style.display = "none";
+  document.getElementById("CVtemplate").style.display = "block";
+
+
 }
 
 
@@ -373,7 +373,7 @@ function generateCV() {
 
 //     downloadButton.addEventListener("click", () => {
 //         const cv = document.getElementById("Cvtemplate");
-        
+
 //         // Set A4 size (210mm x 297mm) for the HTML element
 //         cv.style.width = "210mm";
 //         cv.style.height = "297mm";
