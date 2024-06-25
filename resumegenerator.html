@@ -87,9 +87,34 @@
 
 
                                 <h3>Academic Details</h3>
+                                <label for="name" class="fw-bold my-2">PhD</label><br>
+                                (If you don't want to add this, leave the institute field blank. It won't be included in
+                                the LaTeX code, though it is seen as blank in the preview.)
+                                <input type="text" placeholder="Enter Institute name" class="form-control my-2"
+                                    id="institutephdF">
+                                <input type="text" placeholder="Enter Specialization" class="form-control my-2"
+                                    id="specializationphdF">
+                                <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="marksphdF">
+                                <input type="text" placeholder="Year of completion. Ex: 2018-2019"
+                                    class="form-control my-2" id="yearphdF">
+
+                                <label for="name" class="fw-bold my-2">M.Tech</label><br>
+                                (If you don't want to add this, leave the institute field blank. It won't be included in
+                                the LaTeX code, though it is seen as blank in the preview.)
+                                <input type="text" placeholder="Enter Institute name" class="form-control my-2"
+                                    id="institutemtechF">
+                                <input type="text" placeholder="Enter Specialization" class="form-control my-2"
+                                    id="specializationmtechF">
+                                <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="marksmtechF">
+                                <input type="text" placeholder="Year of completion. Ex: 2018-2019"
+                                    class="form-control my-2" id="yearmtechF">
+
                                 <label for="name" class="fw-bold my-2">B.Tech</label>
-                                <input type="text" placeholder="Enter your Current CPI" class="form-control my-2"
-                                    id="CPIF">
+                                <input type="text" placeholder="Enter Institute Name" class="form-control my-2"
+                                    id="InsF">
+                                <input type="text" placeholder="Enter Specialization" class="form-control my-2"
+                                    id="SpecF">
+                                <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="CPIF">
                                 <input type="text" placeholder="Years of Degree, Eg: 2022-26" class="form-control my-2"
                                     id="YOJF">
                                 <label for="name" class="fw-bold my-2">Class 12th</label>
@@ -280,10 +305,40 @@
                             </div>
                             <div class="row">
                                 <div class="col-2 p-0">
+                                    <p class="text-sm lh-sm my-0">Ph.D</p>
+                                </div>
+                                <div class="col-6 p-0">
+                                    <p class="text-sm lh-sm my-0" id="PINST"></p>
+                                </div>
+                                <div class="col-2" style="padding-left:3px ;">
+                                    <p class="text-sm lh-sm my-0" id="PCPIT">CPI/%</p>
+                                </div>
+                                <div class="col-2 p-0">
+                                    <p class="text-sm lh-sm  my-0" id="PYOJT">Year</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2 p-0">
+                                    <p class="text-sm lh-sm my-0">M.Tech</p>
+                                </div>
+                                <div class="col-6 p-0">
+                                    <p class="text-sm lh-sm my-0" id="MINST"></p>
+                                </div>
+                                <div class="col-2" style="padding-left:3px ;">
+                                    <p class="text-sm lh-sm my-0" id="MCPIT">CPI/%</p>
+                                </div>
+                                <div class="col-2 p-0">
+                                    <p class="text-sm lh-sm  my-0" id="MYOJT">Year</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2 p-0">
                                     <p class="text-sm lh-sm my-0">B.Tech</p>
                                 </div>
                                 <div class="col-6 p-0">
-                                    <p class="text-sm lh-sm my-0">Indian Institute of Technology Gandhinagar</p>
+                                    <p class="text-sm lh-sm my-0" id="INST"></p>
                                 </div>
                                 <div class="col-2" style="padding-left:3px ;">
                                     <p class="text-sm lh-sm my-0" id="CPIT">CPI/%</p>
@@ -566,7 +621,9 @@
 \toprule
 \textbf{Degree} & \textbf{Specialization} & \textbf{Institute} & \textbf{Year} & \textbf{CPI/\%} \\
 \midrule
-B.Tech. & \textit{<span id="userEnteredBranch2">Branch</span>} & Indian Institute of Technology, Gandhinagar & <span id="userEnteredYOJ">YOJ</span>-Present & <span id="userEnteredCPI">CPI</span>(/10) \\
+<span id="userphd"></span>
+<span id="usermtech"></span>
+B.Tech. & \textit{<span id="userEnteredBranch2">Branch</span>} & <span id="userEnteredIns">Branch</span> & <span id="userEnteredYOJ">YOJ</span> & <span id="userEnteredCPI">CPI</span> \\
 Class XII  & \textit{Physics, Chemistry, Maths} & <span id="userEnteredInstituteTwelve">Branch</span> & <span id="userEnteredYearTwelve">Branch</span> & <span id="userEnteredMarksTwelve">Branch</span>\\
 Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userEnteredYearTen">Branch</span> & <span id="userEnteredMarksTen">Branch</span>\\
 \bottomrule

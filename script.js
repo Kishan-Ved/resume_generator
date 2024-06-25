@@ -325,9 +325,21 @@ function generateCV() {
   // document.getElementById("gitT").innerHTML = document.getElementById("gitF").value;
 
   //academic details
+  //M.Tech
+  document.getElementById("PCPIT").innerHTML = document.getElementById("marksphdF").value;
+  document.getElementById("PYOJT").innerHTML = document.getElementById("yearphdF").value;
+  document.getElementById("PINST").innerHTML = document.getElementById("institutephdF").value;
+
+  //M.Tech
+  document.getElementById("MCPIT").innerHTML = document.getElementById("marksmtechF").value;
+  document.getElementById("MYOJT").innerHTML = document.getElementById("yearmtechF").value;
+  document.getElementById("MINST").innerHTML = document.getElementById("institutemtechF").value;
+
   //B.Tech
   document.getElementById("CPIT").innerHTML = document.getElementById("CPIF").value;
   document.getElementById("YOJT").innerHTML = document.getElementById("YOJF").value;
+  document.getElementById("INST").innerHTML = document.getElementById("InsF").value;
+
   //12th
   document.getElementById("institutetwelveT").innerHTML = document.getElementById("institutetwelveF").value;
   document.getElementById("markstwelveT").innerHTML = document.getElementById("markstwelveF").value;
@@ -362,8 +374,6 @@ function generateCV() {
 
   document.getElementById("cv-form").style.display = "none";
   document.getElementById("CVtemplate").style.display = "block";
-
-
 }
 
 
@@ -405,15 +415,42 @@ function copyToClipboard() {
   document.getElementById("userEnteredWebsite").innerText = userWebsite;
   document.getElementById("userEnteredName").innerText = userName;
   document.getElementById("userEnteredBranch").innerText = userBranch;
-  document.getElementById("userEnteredBranch2").innerText = userBranch;
 
+  let userInstitutephd = document.getElementById("institutephdF").value;
+  let userSpecializationphd = document.getElementById("specializationphdF").value;
+  let userCPIphd = document.getElementById("marksphdF").value;
+  let userYOJphd = document.getElementById("yearphdF").value;
+
+  if (userInstitutephd === "") {
+    document.getElementById("userphd").innerText = "";
+  }
+  else {
+    document.getElementById("userphd").innerText = "PhD & \\textit{" + userSpecializationphd + "} & " + userInstitutephd + " & " + userYOJphd + " & " + userCPIphd + " \\\\";
+  }
+
+  let userInstituteMtech = document.getElementById("institutemtechF").value;
+  let userSpecializationMtech = document.getElementById("specializationmtechF").value;
+  let userCPIMtech = document.getElementById("marksmtechF").value;
+  let userYOJMtech = document.getElementById("yearmtechF").value;
+
+  if (userInstituteMtech === "") {
+    document.getElementById("usermtech").innerText = "";
+  }
+  else {
+    document.getElementById("usermtech").innerText = "M.Tech. & \\textit{" + userSpecializationMtech + "} & " + userInstituteMtech + " & " + userYOJMtech + " & " + userCPIMtech + " \\\\";
+  }
   // Get the user-entered values for B.Tech details
   let userCPI = document.getElementById("CPIF").value;
+  let userIns = document.getElementById("InsF").value;
   let userYOJ = document.getElementById("YOJF").value;
+  let userSpec = document.getElementById("SpecF").value;
+
 
   // Update the values for B.Tech details in the LaTeX code
   document.getElementById("userEnteredCPI").innerText = userCPI;
+  document.getElementById("userEnteredIns").innerText = userIns;
   document.getElementById("userEnteredYOJ").innerText = userYOJ;
+  document.getElementById("userEnteredBranch2").innerText = userSpec;
 
   // Get the user-entered values for Class 12th details
   let userInstituteTwelve = document.getElementById("institutetwelveF").value;
