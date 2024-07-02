@@ -1,4 +1,4 @@
-# Professional resumes, in minutes!
+# Professional LaTeX resumes, in minutes!
 
 Site is live: [Resume Generator](https://kishan-ved.github.io/resume_generator/resumegenerator.html)
 
