@@ -49,7 +49,7 @@ Steps for contribution:
 9. Execute, `git push origin_user <your-current-branch>`.
 10. Make a PR.
 
-For future contributions just follow steps 4 to 9. Make sure that before starting work, always checkout to main and pull the recent changes using the remote `origin_user` and then start following steps 4 to 9.
+For future contributions just follow steps 5 to 10. Make sure that before starting work, always checkout to main and pull the recent changes using the remote `origin_user` and then start following steps 5 to 10.
 
 Happy Contributing!
 
