@@ -10,6 +10,8 @@
 
 .cv-template {
     font-family: 'Times New Roman', 'Times', 'serif';
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 body {
