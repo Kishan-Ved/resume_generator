@@ -21,6 +21,8 @@ body {
 
 .cv-form {
     background-color: gray;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 /* .colorbtn{
