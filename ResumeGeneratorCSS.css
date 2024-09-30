@@ -1,0 +1,240 @@
+/* Global Styles */
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.75;
+    color: #2c2c2c;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* Form Styles */
+.cv-form {
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #d1d1d1;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.form-control {
+    border: 1px solid #b5b5b5;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.form-control:focus {
+    border-color: #4c91c6; /* Muted blue */
+    background-color: #e6f0fa; /* Light blue background */
+    outline: none;
+}
+
+.btn-dark {
+    background-color: #5a4d8f; /* Muted purple */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #4a3c75;
+    cursor: pointer;
+}
+
+.btn-dark:hover {
+    background-color: #4a3c75; /* Darker muted purple */
+}
+
+.btn-dark:active {
+    background-color: #372b5b;
+}
+
+/* CV Template Styles */
+.cv-template {
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #d1d1d1;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.cv-template h1, .cv-template h5 {
+    color: #4c91c6; /* Muted blue for headings */
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.cv-template h1 {
+    font-size: 1.75rem;
+}
+
+.cv-template h5 {
+    font-size: 1.25rem;
+}
+
+.cv-template .row {
+    margin-bottom: 20px;
+}
+
+.cv-template p {
+    margin-bottom: 10px;
+    color: #565656;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Academic Details Table */
+.cv-template table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+.cv-template th, .cv-template td {
+    border: 1px solid #cccccc;
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+.cv-template th {
+    background-color: #e0e6eb; /* Light gray-blue */
+    color: #2c3e50;
+    font-weight: normal;
+}
+
+.cv-template td {
+    background-color: #ffffff;
+}
+
+/* Section Headers */
+.cv-template .row[style="background-color: lightgray;"] {
+    background-color: #2c3e50 !important; /* Dark muted blue */
+    color: #ffffff;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* Lists */
+.cv-template ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.cv-template li {
+    margin-bottom: 8px;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #2c3e50; /* Dark muted blue */
+    color: #fff;
+    padding: 25px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #f7f7f7;
+}
+
+.footer-links ul, .footer-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li, .footer-social li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-links a, .footer-social a {
+    color: #d1d1d1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+    color: #4c91c6; /* Muted blue */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+    font-size: 0.9rem;
+    color: #b5b5b5;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .cv-form, .cv-template {
+        padding: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo, .footer-links, .footer-social {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .container-fluid {
+        padding: 15px;
+    }
+
+    .footer-logo {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-dark {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .footer-links li, .footer-social li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .footer-links a, .footer-social a {
+        font-size: 0.9rem;
+    }
+}
