@@ -311,18 +311,15 @@ function updatePORList() {
 // function to add a new achievement
 function addNewAchievement() {
   let achievementName = document.getElementById("achievementNameF").value;
-  let achievementDescription = document.getElementById("achievementDescriptionF").value;
 
-  if (achievementName && achievementDescription) {
+  if (achievementName) {
     // pushing the new achievement into the array
     achievements.push({
       name: achievementName,
-      description: achievementDescription
     });
 
     // clear the form fields
     document.getElementById("achievementNameF").value = "";
-    document.getElementById("achievementDescriptionF").value = "";
 
     // update the achievements list
     updateAchievementsList();
@@ -347,18 +344,11 @@ function updateAchievementsList() {
     achievementNameElement.textContent = achievement.name;
     newListItem.appendChild(achievementNameElement);
 
-    let achievementDescriptionElement = document.createElement("p");
-    achievementDescriptionElement.classList.add("text-sm", "p-0", "my-0", "justify-content");
-    achievementDescriptionElement.textContent = achievement.description;
-    newListItem.appendChild(achievementDescriptionElement);
-
     // append the new list item to the existing list
     achievementsList.appendChild(newListItem);
 
     // add LaTeX code to the achievementsSpan element
-    achievementsSpan.innerHTML += "\\item \\textbf{" + escapeLaTeX(achievement.name) + "}\n" +
-    "\\\\ " + escapeLaTeX(achievement.description) + "\n" + 
-    "\\vspace{0.2cm}\n";  // adjust the spacing as needed
+    achievementsSpan.innerHTML += "\\item {" + escapeLaTeX(achievement.name) + "}\\vspace{0.1cm}\n";  // adjust the spacing as needed
   }
 }
 
@@ -429,7 +419,6 @@ function generateCV() {
 
   // Achievements
   document.getElementById("achievementNameT").innerHTML = document.getElementById("achievementNameF").value;
-  document.getElementById("achievementDescriptionT").innerHTML = document.getElementById("achievementDescriptionF").value;
 
   document.getElementById("cv-form").style.display = "none";
   document.getElementById("CVtemplate").style.display = "block";
