@@ -10,7 +10,6 @@ body {
 
 .container-fluid {
     padding: 30px;
-    margin: 0; /* Center alignment removed */
     width: 100%; /* Ensure it takes the full width */
     box-sizing: border-box;
 }
@@ -68,8 +67,9 @@ body {
     margin-bottom: 30px;
 }
 
+/* Set the heading background to lightgray and text to black */
 .cv-template h1, .cv-template h5 {
-    background-color: #e0e6eb; /* Light gray-blue background */
+    background-color: lightgray; /* Background set to lightgray */
     color: #000; /* Black text for headings */
     margin-bottom: 20px;
     font-weight: normal;
@@ -122,8 +122,8 @@ body {
 
 /* Section Headers */
 .cv-template .row[style="background-color: lightgray;"] {
-    background-color: #becddd !important; /* Dark muted blue */
-    color: #ffffff;
+    background-color: lightgray !important; /* Use lightgray for section headers */
+    color: #000; /* Keep text black */
     padding: 8px;
     margin-bottom: 15px;
     border-radius: 4px;
