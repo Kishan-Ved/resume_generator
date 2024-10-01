@@ -2,6 +2,7 @@ let internships = [];
 let projects = [];
 let skills = [];
 let PORs = [];
+let achievements = [];
 
 function addNewIntern() {
   // Get values from the form
@@ -307,6 +308,60 @@ function updatePORList() {
   }
 }
 
+// function to add a new achievement
+function addNewAchievement() {
+  let achievementName = document.getElementById("achievementNameF").value;
+  let achievementDescription = document.getElementById("achievementDescriptionF").value;
+
+  if (achievementName && achievementDescription) {
+    // pushing the new achievement into the array
+    achievements.push({
+      name: achievementName,
+      description: achievementDescription
+    });
+
+    // clear the form fields
+    document.getElementById("achievementNameF").value = "";
+    document.getElementById("achievementDescriptionF").value = "";
+
+    // update the achievements list
+    updateAchievementsList();
+  }
+}
+
+// function to update the achievements list on the webpage
+function updateAchievementsList() {
+  let achievementsList = document.getElementById("achievementList");
+  let achievementsSpan = document.getElementById("userEnteredAchievements");
+
+  // clear existing list and LaTeX code
+  achievementsList.innerHTML = "";
+  achievementsSpan.innerHTML = "";
+
+  for (let achievement of achievements) {
+    let newListItem = document.createElement("li");
+
+    // create elements for achievement name and description with appropriate content
+    let achievementNameElement = document.createElement("p");
+    achievementNameElement.classList.add("fw-bold", "my-0", "p-0");
+    achievementNameElement.textContent = achievement.name;
+    newListItem.appendChild(achievementNameElement);
+
+    let achievementDescriptionElement = document.createElement("p");
+    achievementDescriptionElement.classList.add("text-sm", "p-0", "my-0", "justify-content");
+    achievementDescriptionElement.textContent = achievement.description;
+    newListItem.appendChild(achievementDescriptionElement);
+
+    // append the new list item to the existing list
+    achievementsList.appendChild(newListItem);
+
+    // add LaTeX code to the achievementsSpan element
+    achievementsSpan.innerHTML += "\\item \\textbf{" + escapeLaTeX(achievement.name) + "}\n" +
+    "\\\\ " + escapeLaTeX(achievement.description) + "\n" + 
+    "\\vspace{0.2cm}\n";  // adjust the spacing as needed
+  }
+}
+
 
 function generateCV() {
   // console.log("generating cv");
@@ -371,6 +426,10 @@ function generateCV() {
   document.getElementById("PORdurationT").innerHTML = document.getElementById("PORdurationF").value;
   document.getElementById("PORdescriptionT").innerHTML = document.getElementById("PORdescriptionF").value;
   document.getElementById("PORdescription2T").innerHTML = document.getElementById("PORdescription2F").value;
+
+  // Achievements
+  document.getElementById("achievementNameT").innerHTML = document.getElementById("achievementNameF").value;
+  document.getElementById("achievementDescriptionT").innerHTML = document.getElementById("achievementDescriptionF").value;
 
   document.getElementById("cv-form").style.display = "none";
   document.getElementById("CVtemplate").style.display = "block";

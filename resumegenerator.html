@@ -217,6 +217,14 @@
                                 <button onclick="addNewPOR()" class="btn btn-dark btn-lg">Add This</button>
                                 <div>You must click the button to add this to LaTeX code.</div><br>
 
+                                <h3>Achievements</h3>
+                                <div>(If you don't want to include this, leave it blank and delete this section from the LaTeX code generated.)</div>
+                                <div class="form-group" id="achievements">
+                                <input type="text" placeholder="Name your achievement" class="form-control my-2" id="achievementNameF">
+                                <textarea type="text" placeholder="Enter a brief description of your achievement" class="form-control my-2" rows="1" id="achievementDescriptionF"></textarea>
+                                </div>
+                                <button onclick="addNewAchievement()" class="btn btn-dark btn-lg">Add This</button>
+                                <div>You must click the button to add this to LaTeX code.</div><br>
 
                                 <!-- <div class="form-group">
                                     <div class="d-grid gap-2 col-6 mx-auto my-4">
@@ -554,6 +562,16 @@
                                 </li>
                             </ul>
 
+                            <!--Achievements section-->
+                            <div class="row my-0" style="background-color: lightgray;">
+                            <p class="fw-bold my-0 p-0">ACHIEVEMENTS</p>
+                            </div>
+                            <ul style="list-style-type:none;" class="my-0 p-0" id="achievementList">
+                                <div class="row">
+                                    <p class="fw-bold my-0" id="achievementNameT">Achievement Name</p>
+                                    <p class="text-sm my-0" id="achievementDescriptionT">Achievement Description</p>
+                                </div>
+                            </ul>
 
                         </div>
 
@@ -662,6 +680,10 @@ Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userE
 <span id="userEnteredPORs">DELETE THIS</span>
 \end{itemize}
 
+\resheading{\textbf{ACHIEVEMENTS} }
+\begin{itemize}\itemsep\isep
+<span id="userEnteredAchievements">DELETE THIS</span>
+\end{itemize}
 \end{document}
     </pre>
 
