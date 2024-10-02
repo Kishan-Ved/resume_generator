@@ -10,8 +10,8 @@ body {
 
 .container-fluid {
     padding: 30px;
-    margin: 0; /* Center alignment removed */
-    width: 100%; /* Ensure it takes the full width */
+    max-width: 1200px;
+    margin: auto;
     box-sizing: border-box;
 }
 
@@ -69,11 +69,9 @@ body {
 }
 
 .cv-template h1, .cv-template h5 {
-    background-color: #e0e6eb; /* Light gray-blue background */
-    color: #000; /* Black text for headings */
+    color: #4c91c6; /* Muted blue for headings */
     margin-bottom: 20px;
     font-weight: normal;
-    padding: 10px; /* Add padding for better appearance */
 }
 
 .cv-template h1 {
@@ -122,7 +120,7 @@ body {
 
 /* Section Headers */
 .cv-template .row[style="background-color: lightgray;"] {
-    background-color: #becddd !important; /* Dark muted blue */
+    background-color: #2c3e50 !important; /* Dark muted blue */
     color: #ffffff;
     padding: 8px;
     margin-bottom: 15px;
