@@ -75,8 +75,10 @@
                                     $(document).ready(function () {
                                         const gitInput = $("#gitF");
                                         const linkedinInput = $("#linkedinF");
+                                        const websiteInput = $("#websiteF")
                                         const githubLink = $("#githubLink");
                                         const linkedinLink = $("#linkedinLink");
+                                        const websiteLink = $('#websiteLink')                                        
 
                                         gitInput.on("input", function () {
                                             const githubUrl = gitInput.val();
@@ -86,6 +88,11 @@
                                         linkedinInput.on("input", function () {
                                             const linkedinUrl = linkedinInput.val();
                                             linkedinLink.attr("href", linkedinUrl);
+                                        });
+
+                                        websiteInput.on("input", function () {
+                                            const websiteURL = websiteInput.val();
+                                            websiteLink.attr("href", websiteURL);
                                         });
                                     });
                                 </script>
@@ -283,17 +290,21 @@
                                     <!-- <div class="linkedin p-0">
                                         <img src="images/linkedin.png" class="rounded mx-0.5 d-block p-0" style="width: 20px;" id="gitT">
                                     </div> -->
-                                    <div class="git p-0">
-                                        <a id="githubLink" href="#">
-                                            <img src="images/git.png" class="rounded mx-0.5 d-block p-0"
-                                                style="width: 20px; margin-right: 2px;">
+                                    <div class="git p-0 px-1">
+                                        <a id="githubLink" class="link" href="#">
+                                           Github 
                                         </a>
                                     </div>
-
-                                    <div class="linkedin p-0">
-                                        <a id="linkedinLink" href="#">
-                                            <img src="images/linkedin.png" class="rounded mx-0.5 d-block p-0"
-                                                style="width: 20px;">
+                                    |
+                                    <div class="linkedin p-0 px-1">
+                                        <a id="linkedinLink"  class="link" href="#">
+                                            LinkedIn 
+                                        </a>
+                                    </div>
+                                    |
+                                    <div class="website p-0 px-1">
+                                        <a id="websiteLink"   class="link"href="#">
+                                            Website
                                         </a>
                                     </div>
 
