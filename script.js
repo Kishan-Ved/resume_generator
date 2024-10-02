@@ -2,11 +2,13 @@ let internships = [];
 let projects = [];
 let skills = [];
 let PORs = [];
+let achievements = [];
 
 function addNewIntern() {
   // Get values from the form
   let title = document.getElementById("internTitleF").value;
   let info = document.getElementById("internInfoF").value;
+ 
   let link = document.getElementById("internLinkF").value;
   let description = document.getElementById("interndescriptionF").value;
   let description2 = document.getElementById("interndescription2F").value;
@@ -48,18 +50,38 @@ function updateInternshipList() {
   // Loop through each internship in the array
   for (let internship of internships) {
     // Create new list item element
-    let newListItem = document.createElement("li");
+    let newListItem = document.createElement("div");
+    let firstnewListItem = document.createElement("div");
+    firstnewListItem.classList.add("d-flex", "justify-content-between",  "align-items-center");
+    let secondnewListItem = document.createElement("div");
+    secondnewListItem.classList.add("d-flex", "justify-content-between",  "align-items-center");
 
     // Create elements for title, description, and year with appropriate content
     let titleElement = document.createElement("p");
-    titleElement.classList.add("fw-bold", "my-0");
+    titleElement.classList.add("fw-bold", "my-0", "w-75");
     titleElement.textContent = internship.title;
-    newListItem.appendChild(titleElement);
+    firstnewListItem.appendChild(titleElement);
 
     let yearElement = document.createElement("p");
-    yearElement.classList.add("text-sm-end", "fw-bold", "my-0");
+    yearElement.classList.add("text-sm-end", "fw-bold", "my-0", "w-25", "me-2");
     yearElement.textContent = internship.year;
-    newListItem.appendChild(yearElement);
+    firstnewListItem.appendChild(yearElement);
+
+    newListItem.appendChild(firstnewListItem);
+
+    let infoElement = document.createElement("p");
+    infoElement.classList.add("text-sm", "fst-italic", "my-0", "w-75");
+    infoElement.textContent = internship.info;
+    secondnewListItem.appendChild(infoElement);
+
+    let linkElement = document.createElement("a");
+    linkElement.classList.add("text-sm-end", "text-decoration-none", "fst-italic", "my-0", "w-25", "me-2");
+    linkElement.textContent = "Project Link";
+    linkElement.href = internship.link; 
+    linkElement.target = "_blank";
+    secondnewListItem.appendChild(linkElement);
+
+    newListItem.appendChild(secondnewListItem);
 
     let descriptionElement = document.createElement("p");
     descriptionElement.classList.add("text-sm", "p-0", "my-0", "justify-content");
@@ -137,18 +159,38 @@ function updateProjectList() {
   // Loop through each internship in the array
   for (let project of projects) {
     // Create new list item element
-    let newListItem = document.createElement("li");
+    let newListItem = document.createElement("div");
+    let firstnewListItem = document.createElement("div");
+    firstnewListItem.classList.add("d-flex", "justify-content-between",  "align-items-center");
+    let secondnewListItem = document.createElement("div");
+    secondnewListItem.classList.add("d-flex", "justify-content-between",  "align-items-center");
 
     // Create elements for title, description, and year with appropriate content
     let titleElement = document.createElement("p");
-    titleElement.classList.add("fw-bold", "my-0");
+    titleElement.classList.add("fw-bold", "my-0", "w-75");
     titleElement.textContent = project.title;
-    newListItem.appendChild(titleElement);
+    firstnewListItem.appendChild(titleElement);
 
     let yearElement = document.createElement("p");
-    yearElement.classList.add("text-sm-end", "fw-bold", "my-0");
+    yearElement.classList.add("text-sm-end", "fw-bold", "my-0", "w-25", "me-2");
     yearElement.textContent = project.year;
-    newListItem.appendChild(yearElement);
+    firstnewListItem.appendChild(yearElement);
+
+    newListItem.appendChild(firstnewListItem);
+
+    let infoElement = document.createElement("p");
+    infoElement.classList.add("text-sm", "fst-italic", "my-0", "w-75");
+    infoElement.textContent = project.info;
+    secondnewListItem.appendChild(infoElement);
+
+    let linkElement = document.createElement("a");
+    linkElement.classList.add("text-sm-end", "text-decoration-none", "fst-italic", "my-0", "w-25", "me-2");
+    linkElement.textContent = "Project Link";
+    linkElement.href = project.link; 
+    linkElement.target = "_blank";
+    secondnewListItem.appendChild(linkElement);
+
+    newListItem.appendChild(secondnewListItem);
 
     let descriptionElement = document.createElement("p");
     descriptionElement.classList.add("text-sm", "p-0", "my-0", "justify-content");
@@ -307,6 +349,50 @@ function updatePORList() {
   }
 }
 
+// function to add a new achievement
+function addNewAchievement() {
+  let achievementName = document.getElementById("achievementNameF").value;
+
+  if (achievementName) {
+    // pushing the new achievement into the array
+    achievements.push({
+      name: achievementName,
+    });
+
+    // clear the form fields
+    document.getElementById("achievementNameF").value = "";
+
+    // update the achievements list
+    updateAchievementsList();
+  }
+}
+
+// function to update the achievements list on the webpage
+function updateAchievementsList() {
+  let achievementsList = document.getElementById("achievementList");
+  let achievementsSpan = document.getElementById("userEnteredAchievements");
+
+  // clear existing list and LaTeX code
+  achievementsList.innerHTML = "";
+  achievementsSpan.innerHTML = "";
+
+  for (let achievement of achievements) {
+    let newListItem = document.createElement("li");
+
+    // create elements for achievement name and description with appropriate content
+    let achievementNameElement = document.createElement("p");
+    achievementNameElement.classList.add("my-0", "p-0");
+    achievementNameElement.textContent = achievement.name;
+    newListItem.appendChild(achievementNameElement);
+
+    // append the new list item to the existing list
+    achievementsList.appendChild(newListItem);
+
+    // add LaTeX code to the achievementsSpan element
+    achievementsSpan.innerHTML += "\\item {" + escapeLaTeX(achievement.name) + "}\\vspace{0.1cm}\n";  // adjust the spacing as needed
+  }
+}
+
 
 function generateCV() {
   // console.log("generating cv");
@@ -352,12 +438,15 @@ function generateCV() {
 
   //Internships
   document.getElementById("internTitleT").innerHTML = document.getElementById("internTitleF").value;
+  document.getElementById("internInfoT").innerHTML = document.getElementById("internInfoF").value;
   document.getElementById("interndescriptionT").innerHTML = document.getElementById("interndescriptionF").value;
   document.getElementById("interndescription2T").innerHTML = document.getElementById("interndescription2F").value;
   document.getElementById("yearinternT").innerHTML = document.getElementById("yearinternF").value;
 
   //projects
   document.getElementById("projectTitleT").innerHTML = document.getElementById("projectTitleF").value;
+  document.getElementById("projectInfoT").innerHTML = document.getElementById("projectInfoF").value;
+  document.getElementById("projectLinkT").innerHTML = document.getElementById("projectLinkF").value;
   document.getElementById("projectDescriptionT").innerHTML = document.getElementById("projectdescriptionF").value;
   document.getElementById("projectDescription2T").innerHTML = document.getElementById("projectdescription2F").value;
   document.getElementById("yearprojectT").innerHTML = document.getElementById("yearprojectF").value;
@@ -371,6 +460,9 @@ function generateCV() {
   document.getElementById("PORdurationT").innerHTML = document.getElementById("PORdurationF").value;
   document.getElementById("PORdescriptionT").innerHTML = document.getElementById("PORdescriptionF").value;
   document.getElementById("PORdescription2T").innerHTML = document.getElementById("PORdescription2F").value;
+
+  // Achievements
+  document.getElementById("achievementNameT").innerHTML = document.getElementById("achievementNameF").value;
 
   document.getElementById("cv-form").style.display = "none";
   document.getElementById("CVtemplate").style.display = "block";
