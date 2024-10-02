@@ -32,109 +32,107 @@ body {
 } */
 
 /* Footer styling */
-
 .footer {
-    background-color: #282c34; /* Dark background */
-    color: white; /* White text */
-    padding: 10px 0; /* Reduced padding for height */
-    font-family: Arial, sans-serif; /* Modern font */
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
 }
 
-.container {
-    max-width: 1200px; /* Max width for content */
-    margin: 0 auto; /* Centering */
-    padding: 0 20px; /* Side padding */
+.footer h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
 }
 
 .footer-content {
-    display: flex; /* Flexbox for layout */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center vertically */
-    flex-wrap: wrap; /* Wrap items on small screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.footer-logo {
-    font-size: 1.2em; /* Slightly smaller logo font */
-    font-weight: bold; /* Bold logo */
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-.footer-links {
-    margin: 0 10px; /* Margin for spacing */
-}
-
-.footer-menu {
-    list-style-type: none; /* Remove list bullets */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-}
-
-.footer-menu li {
-    display: inline; /* Inline list items */
-    margin: 0 10px; /* Spacing between links */
-}
-
-.footer-menu a {
-    color: #61dafb; /* Light blue color for links */
-    text-decoration: none; /* Remove underline */
-}
-
-.footer-menu a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-.footer-social {
-    display: flex; /* Flexbox for icons */
-    align-items: center; /* Center vertically */
-}
-
-.social-icons {
-    list-style-type: none; /* Remove bullets */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-}
-
-.social-icons li {
-    margin-left: 10px; /* Space between icons */
-    display: flex; /* Flexbox for alignment */
-    align-items: center; /* Center vertically */
+.footer-social i {
+    margin-right: 5px;
 }
 
 .footer-follow {
-    margin-top: 10px; /* Reduced space above follow section */
-    text-align: center; /* Center text */
-}
-
-.follow-icons {
-    list-style-type: none; /* Remove bullets */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-}
-
-.follow-icons li {
-    display: inline; /* Inline icons */
-    margin: 0 10px; /* Space between icons */
-}
-
-.follow-icons a {
-    color: #61dafb; /* Light blue for icons */
-    font-size: 1.5em; /* Size for icons */
+    margin-bottom: 20px;
 }
 
 .footer-follow p {
-    margin: 0; /* Remove margin */
-    font-weight: bold; /* Bold text */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.follow-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.follow-icons li a {
+    font-size: 1.5rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.follow-icons li a:hover {
+    color: #00bfff;
 }
 
 .footer-bottom {
-    text-align: center; /* Center text */
-    margin-top: 5px; /* Reduced spacing above bottom text */
-    font-size: 0.8em; /* Smaller text size */
+    font-size: 14px;
+    margin-top: 20px;
 }
 
-.footer-bottom a {
-    color: #61dafb; /* Light blue color for links */
+.footer-bottom p {
+    margin: 5px 0;
 }
 
-.footer-bottom a:hover {
-    text-decoration: underline; /* Underline on hover */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-logo {
+        text-align: left;
+    }
+
+    .footer-social {
+        text-align: right;
+    }
+
+    .footer-follow {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-logo,
+    .footer-social {
+        margin-bottom: 10px;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
 }
