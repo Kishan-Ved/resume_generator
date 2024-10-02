@@ -381,7 +381,7 @@ function updateAchievementsList() {
 
     // create elements for achievement name and description with appropriate content
     let achievementNameElement = document.createElement("p");
-    achievementNameElement.classList.add("fw-bold", "my-0", "p-0");
+    achievementNameElement.classList.add("my-0", "p-0");
     achievementNameElement.textContent = achievement.name;
     newListItem.appendChild(achievementNameElement);
 
