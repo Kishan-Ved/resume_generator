@@ -69,14 +69,19 @@
                                 <label for="" class="fw-bold my-2">LinkedIn</label>
                                 <input type="text" placeholder="Paste your LinkedIn account link"
                                     class="form-control my-2" id="linkedinF">
-
+                                    
+                                    <label for="" class="fw-bold my-2">Website</label>
+                                    <input type="text" placeholder="Paste your website link" class="form-control my-2"
+                                        id="websiteF">
                                 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
                                 <script>
                                     $(document).ready(function () {
                                         const gitInput = $("#gitF");
                                         const linkedinInput = $("#linkedinF");
+                                        const websiteInput = $("#websiteF"); 
                                         const githubLink = $("#githubLink");
                                         const linkedinLink = $("#linkedinLink");
+                                        const websiteLink = $("#websiteLink");
 
                                         gitInput.on("input", function () {
                                             const githubUrl = gitInput.val();
@@ -87,12 +92,14 @@
                                             const linkedinUrl = linkedinInput.val();
                                             linkedinLink.attr("href", linkedinUrl);
                                         });
+
+                                        websiteInput.on("input", function () {
+                                            const websiteUrl = websiteInput.val();
+                                            websiteLink.attr("href", websiteUrl);
+                                        });
                                     });
                                 </script>
 
-                                <label for="" class="fw-bold my-2">Website</label>
-                                <input type="text" placeholder="Paste your website link" class="form-control my-2"
-                                    id="websiteF">
 
 
                                 <h3>Academic Details</h3>
@@ -294,7 +301,7 @@
                                     </div>
                                     <span class="mx-2">|</span>
                                     <div class="website p-0">  
-                                        <a id="websiteLink" href="#" class="text-black no-underline hover:text-gray-500">Linkedin</a>
+                                        <a id="websiteLink" href="#" class="text-black no-underline hover:text-gray-500">website</a>
                                     </div>  
                                 
                                 </div>
