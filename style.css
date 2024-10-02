@@ -12,6 +12,7 @@
     font-family: 'Times New Roman', 'Times', 'serif';
     height: 100vh;
     overflow-y: scroll;
+    display: block;
 }
 
 body {
@@ -117,6 +118,12 @@ body {
     .footer-menu li {
         display: block;
         margin-bottom: 10px;
+    }
+}
+
+@media print {
+    #cv-template{
+        page-break-inside: avoid;
     }
 }
 

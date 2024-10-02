@@ -589,5 +589,29 @@ function copyToClipboard() {
   alert("Copied LaTeX code to clipboard. Paste in any LaTeX editor. Eg: Overleaf.");
 }
 
+function covertToPDF(){
+  /*
+  var resume = document.getElementById('cv-template');
+  var opt = {
+    margin:       [0.5, 0.5, 0.5, 0.5],  // Add margins to control text layout
+    filename:     'dynamic_content.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 1, logging: true, useCORS: true },  // Increase canvas scale for better quality
+    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+    html2pdf().set(opt).from(resume).save();  */
+
+    var element = document.getElementById('skillmerge');  // Get the updated HTML content
+            var opt = {
+                margin:       [0.5, 0.5, 0.5, 0.5],  // Add margins to control text layout
+                filename:     'dynamic_content.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 1, logging: true, useCORS: true },  // Increase canvas scale for better quality
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();  // Generate and download the PDF
+        }
+
+
 
 setInterval(generateCV, 100);

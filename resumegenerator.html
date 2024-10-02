@@ -246,7 +246,7 @@
 
             <!-- cv template -->
 
-
+            
             <div class="col-md-6">
                 <div class="cv-template" id="cv-template">
                     <!-- Your CV Template content -->
@@ -517,6 +517,7 @@
                             </div> -->
 
                             <!--Skill set listed here-->
+                            
                             <div class="row my-0" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">SKILLS</p>
                             </div>
@@ -536,7 +537,7 @@
                                             elit. Explicabo quia et excepturi beatae rerum deserunt quia</p>
                                     </div>
                                 </li>
-                            </ul>
+                            </ul> 
                             <!-- <div class="row">
                                 <div class="col-8 p-0">
                                     <p class="fw-bold my-0">Type of Skill</p>
@@ -591,18 +592,19 @@
                             <div class="d-grid gap-2 col-6 mx-auto my-4">
                                 <!-- <button type="button" class="btn btn-dark btn-lg" id="download">Download
                                     Resume</button> -->
-
+                                    
                                 <button class="btn btn-dark btn-lg" onclick="copyToClipboard()">Copy LaTeX Code to
                                     Clipboard</button>
+                                    <button class="btn btn-dark btn-lg" onclick="covertToPDF()">conver to PDF</button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
-
+    
     <!-- Latex code begins -->
     <pre id="latexCode" style="display:none;">
 \documentclass[a4paper,10pt]{article}
@@ -742,7 +744,16 @@ Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userE
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+
 </body>
 
 </html>
