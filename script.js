@@ -7,7 +7,7 @@ function addNewIntern() {
   // Get values from the form
   let title = document.getElementById("internTitleF").value;
   let info = document.getElementById("internInfoF").value;
-  console.log("intern info:" , info);
+ 
   let link = document.getElementById("internLinkF").value;
   let description = document.getElementById("interndescriptionF").value;
   let description2 = document.getElementById("interndescription2F").value;
