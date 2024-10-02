@@ -6,8 +6,8 @@ body {
     background-color: #f7f7f7;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Disable body scrolling */
+    height: 100%; /* Full height of the body */
+    overflow: auto; /* Allow scrolling on the body */
 }
 
 .container-fluid {
@@ -16,8 +16,8 @@ body {
     box-sizing: border-box;
     display: flex; /* Flexbox for side-by-side layout */
     gap: 20px; /* Space between form and template */
-    height: 100vh; /* Full height of viewport */
-    overflow: hidden; /* Prevent container scrolling */
+    height: calc(100vh - 60px); /* Adjust height based on padding and avoid exceeding viewport */
+    overflow: hidden; /* Prevent scrolling for the container */
 }
 
 /* Form Styles */
@@ -30,7 +30,6 @@ body {
     overflow-y: auto; /* Vertical scroll */
     overflow-x: hidden; /* Prevent horizontal scroll */
     flex: 1; /* Allow the form to grow */
-    height: 100%; /* Full height to trigger scroll */
     max-height: 100%; /* Constrain height to container */
 }
 
@@ -76,11 +75,9 @@ body {
     border: 1px solid #d1d1d1;
     padding: 30px;
     margin-bottom: 30px;
-    overflow-y: auto; /* Vertical scroll */
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    flex: 1; /* Allow the template to grow */
-    height: 100%; /* Full height */
-    max-height: 100%; /* Constrain height */
+    overflow-y: auto; /* Habilitar el scroll vertical */
+    flex: 1; /* Hacer que el cv-template crezca con el espacio disponible */
+    max-height: 100vh; /* Limitar la altura para asegurarse de que el scroll funcione */
 }
 
 /* Set the heading background to lightgray and text to black */
