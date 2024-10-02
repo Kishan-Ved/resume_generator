@@ -111,6 +111,8 @@ function escapeLaTeX(text) {
   return text.replace(/([&%$#{}_])/g, "\\$1");
 }
 
+// to show add this for project
+document.getElementById("projectaddbutton").classList.toggle("hidden");
 
 // Function to add a new project
 function addNewProject() {
@@ -142,6 +144,48 @@ function addNewProject() {
   document.getElementById("projectdescriptionF").value = "";
   document.getElementById("projectdescription2F").value = "";
   document.getElementById("yearprojectF").value = "";
+
+  // add title in edit div
+
+  const projectsEdit = document.getElementById("projectsEdit");
+  
+  projectsEdit.innerHTML += `
+            <div class="border bg-white p-2 rounded" style="height: auto;">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+                  <h5 class="mb-0">Project Title: <strong>${title}${year}</strong></h5>
+                </div>
+                <div class="col-md-4 text-right">
+                    <button class="btn btn-primary btn-sm" id="${title}" onclick="editProjectsList('${title}')">Edit</button>
+                </div>
+            </div>
+        </div>
+                      `;
+
+}
+// function to edit project data
+function editProjectsList(projectTitle){
+  const foundProject = projects.find(project => project.title === projectTitle);
+  document.getElementById("projectaddbutton").classList.add("hidden");
+  if (foundProject) {
+    // Set the values of the input fields
+    document.getElementById("projectTitleF").value = foundProject.title || "";
+    document.getElementById("projectInfoF").value = foundProject.info || "";
+    document.getElementById("projectLinkF").value = foundProject.link || "";
+    document.getElementById("projectdescriptionF").value = foundProject.description || "";
+    document.getElementById("projectdescription2F").value = foundProject.description2 || "";
+    document.getElementById("yearprojectF").value = foundProject.year || "";
+} else {
+    console.error("Project not found with the title:", projectTitle);
+    // Optionally, reset the input fields or notify the user
+    document.getElementById("projectTitleF").value = "";
+    document.getElementById("projectInfoF").value = "";
+    document.getElementById("projectLinkF").value = "";
+    document.getElementById("projectdescriptionF").value = "";
+    document.getElementById("projectdescription2F").value = "";
+    document.getElementById("yearprojectF").value = "";
+}
+  
 }
 
 // Function to update the project list on the webpage
@@ -588,30 +632,4 @@ function copyToClipboard() {
   // Optionally, provide feedback to the user
   alert("Copied LaTeX code to clipboard. Paste in any LaTeX editor. Eg: Overleaf.");
 }
-
-function covertToPDF(){
-  /*
-  var resume = document.getElementById('cv-template');
-  var opt = {
-    margin:       [0.5, 0.5, 0.5, 0.5],  // Add margins to control text layout
-    filename:     'dynamic_content.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 1, logging: true, useCORS: true },  // Increase canvas scale for better quality
-    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-};
-    html2pdf().set(opt).from(resume).save();  */
-
-    var element = document.getElementById('skillmerge');  // Get the updated HTML content
-            var opt = {
-                margin:       [0.5, 0.5, 0.5, 0.5],  // Add margins to control text layout
-                filename:     'dynamic_content.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 1, logging: true, useCORS: true },  // Increase canvas scale for better quality
-                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();  // Generate and download the PDF
-        }
-
-
-
 setInterval(generateCV, 100);

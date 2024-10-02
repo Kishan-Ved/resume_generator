@@ -48,6 +48,10 @@ body {
     padding: 0 50px;
 }
 
+.hidden {
+    display: none;
+}
+
 .footer-content {
     display: grid;
     grid-template-columns: 25% 50% 25%;

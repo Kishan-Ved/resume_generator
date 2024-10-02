@@ -184,9 +184,16 @@
                                             class="form-control my-2" id="yearprojectF">
                                     </div>
                                 </div>
-                                <button onclick="addNewProject()" class="btn btn-dark btn-lg" id="internaddbutton">Add
+                                <button onclick="addNewProject()" class="btn btn-dark btn-lg hidden" id="projectaddbutton">Add
                                     This</button>
                                 <div>You must click the button to add this to LaTeX code.</div><br>
+
+                                <!-- edit icons for project start-->
+                                <div class="form-group" id="projectsEdit">
+
+
+                                </div>
+                                <!-- edit icon fo project end-->
 
                                 <h3>Skills</h3>
                                 <div>(If you dont want to include this, leave it blank and delete this section from the
@@ -301,7 +308,7 @@
                             </div>
 
                             <!--Academic details start here-->
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" style="background-color: rgb(13, 143, 205);">
                                 <p class="fw-bold my-0 p-0">ACADEMIC DETAILS</p>
                             </div>
                             <div class="row lh-sm">
@@ -395,7 +402,7 @@
                             </div>
 
                             <!--Internship details start here-->
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" style="background-color: rgb(13, 143, 205);">
                                 <p class="fw-bold my-0 p-0">INTERNSHIPS</p>
                             </div>
                             <ul style="list-style-type:none;" class="my-0 p-0" id="internlistT">
@@ -456,7 +463,7 @@
                             </div> -->
 
                             <!--Info of Projects-->
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" style="background-color: rgb(13, 143, 205);">
                                 <p class="fw-bold my-0 p-0">PROJECTS</p>
                             </div>
                             <ul style="list-style-type:none;" class="my-0 p-0" id="projectlist">
@@ -518,7 +525,7 @@
 
                             <!--Skill set listed here-->
                             
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" style="background-color: rgb(13, 143, 205);">
                                 <p class="fw-bold my-0 p-0">SKILLS</p>
                             </div>
                             <ul style="list-style-type:none;" class="my-0 p-0" id="skillList">
@@ -549,7 +556,7 @@
                             </div> -->
 
                             <!--POR and descripts-->
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" style="background-color: rgb(13, 143, 205);">
                                 <p class="fw-bold my-0 p-0">POSITIONS OF RESPONSIBILITY</p>
                             </div>
 
@@ -577,7 +584,7 @@
                             </ul>
 
                             <!--Achievements section-->
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" style="background-color: rgb(13, 143, 205);">
                             <p class="fw-bold my-0 p-0">ACHIEVEMENTS</p>
                             </div>
                             <ul style="list-style-type:none;" class="my-0 p-0" id="achievementList">
@@ -595,7 +602,7 @@
                                     
                                 <button class="btn btn-dark btn-lg" onclick="copyToClipboard()">Copy LaTeX Code to
                                     Clipboard</button>
-                                    <button class="btn btn-dark btn-lg" onclick="covertToPDF()">conver to PDF</button>
+                                    
                             </div>
                         </div>
                     </div>
@@ -622,7 +629,7 @@
 \usepackage[utf8]{inputenc}
         
 \usepackage{color}
-\definecolor{mygrey}{gray}{0.75}
+\definecolor{myblue}{RGB}{13, 143, 205}
 \textheight = 29.1 cm
 \raggedbottom
         
@@ -636,7 +643,7 @@
 %-----------------------------------------------------------
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{{\small \colorbox{mygrey}{\begin{minipage}{0.965\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+\newcommand{\resheading}[1]{{\small \colorbox{myblue}{\begin{minipage}{0.965\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 \newcommand{\ressubheading}[3]{
 \begin{tabular*}{6.62in}{l @{\extracolsep{\fill}} r}
     \textsc{{\textbf{#1}}} & \textsc{\textit{[#2]}} \\
