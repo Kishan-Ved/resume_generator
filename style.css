@@ -125,6 +125,6 @@ body {
     bottom: 10px;
 }
 
-.link{
+.link, #linkedinLink{
     color: black !important;
 }
