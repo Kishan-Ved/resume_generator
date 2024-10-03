@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+    <!-- added link for the icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKEW6GTMGN"></script>
     <script>
@@ -69,14 +74,19 @@
                                 <label for="" class="fw-bold my-2">LinkedIn</label>
                                 <input type="text" placeholder="Paste your LinkedIn account link"
                                     class="form-control my-2" id="linkedinF">
-
+                                    
+                                    <label for="" class="fw-bold my-2">Website</label>
+                                    <input type="text" placeholder="Paste your website link" class="form-control my-2"
+                                        id="websiteF">
                                 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
                                 <script>
                                     $(document).ready(function () {
                                         const gitInput = $("#gitF");
                                         const linkedinInput = $("#linkedinF");
+                                        const websiteInput = $("#websiteF"); 
                                         const githubLink = $("#githubLink");
                                         const linkedinLink = $("#linkedinLink");
+                                        const websiteLink = $("#websiteLink");
 
                                         gitInput.on("input", function () {
                                             const githubUrl = gitInput.val();
@@ -87,12 +97,14 @@
                                             const linkedinUrl = linkedinInput.val();
                                             linkedinLink.attr("href", linkedinUrl);
                                         });
+
+                                        websiteInput.on("input", function () {
+                                            const websiteUrl = websiteInput.val();
+                                            websiteLink.attr("href", websiteUrl);
+                                        });
                                     });
                                 </script>
 
-                                <label for="" class="fw-bold my-2">Website</label>
-                                <input type="text" placeholder="Paste your website link" class="form-control my-2"
-                                    id="websiteF">
 
 
                                 <h3>Academic Details</h3>
@@ -151,7 +163,7 @@
                                         <input type="text"
                                             placeholder="Company/Role information. Appears in italics under the title."
                                             class="form-control my-2" id="internInfoF">
-                                        <input type="text" placeholder="Project Link" class="form-control my-2"
+                                        <input type="text" placeholder="Project link " class="form-control my-2"
                                             id="internLinkF">
                                         <textarea type="text" placeholder="Enter the description line 1"
                                             class="form-control my-2" rows="3" id="interndescriptionF"></textarea>
@@ -283,20 +295,20 @@
                                     <!-- <div class="linkedin p-0">
                                         <img src="images/linkedin.png" class="rounded mx-0.5 d-block p-0" style="width: 20px;" id="gitT">
                                     </div> -->
+
+                                    <!-- changed icons to text  -->
+                                    <div class="linkedin p-0">  
+                                        <a id="linkedinLink" href="#" class="text-black no-underline hover:text-gray-500">Linkedin</a>
+                                    </div> 
+                                    <span class="mx-2">|</span>
                                     <div class="git p-0">
-                                        <a id="githubLink" href="#">
-                                            <img src="images/git.png" class="rounded mx-0.5 d-block p-0"
-                                                style="width: 20px; margin-right: 2px;">
-                                        </a>
+                                        <a id="githubLink" href="#" class="text-black no-underline hover:text-gray-500">Github</a>
                                     </div>
-
-                                    <div class="linkedin p-0">
-                                        <a id="linkedinLink" href="#">
-                                            <img src="images/linkedin.png" class="rounded mx-0.5 d-block p-0"
-                                                style="width: 20px;">
-                                        </a>
-                                    </div>
-
+                                    <span class="mx-2">|</span>
+                                    <div class="website p-0">  
+                                        <a id="websiteLink" href="#" class="text-black no-underline hover:text-gray-500">Website</a>
+                                    </div>  
+                                
                                 </div>
                             </div>
 
@@ -411,6 +423,11 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-12">
+                                            <span class="text-sm fst-italic" id="internInfoT">[Company/Role information. Appears in italics under the title.]</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <p class="text-sm p-0 my-0 justify-content" id="interndescriptionT">Lorem ipsum
                                             dolor sit amet
                                             consectetur, adipisicing
@@ -465,6 +482,15 @@
                                             <p class="text-sm-end fw-bold my-0" id="yearprojectT">[Duration of project]
                                             </p>
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8" id="projectInfoT" >
+                                            <p class="text-sm fst-italic" >[Used Technologies Eg:- HTML, js, CSS ...]</p>
+                                        </div>
+                                        <div class="col-4" id="projectLinkT">
+                                            <p class="text-sm fst-italic">[Project link]</p>
+                                        </div>
+                                        
                                     </div>
                                     <div class="row">
                                         <p class="text-sm p-0 my-0 justify-content" id="projectDescriptionT">Lorem ipsum
@@ -686,34 +712,44 @@ Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userE
     </pre>
 
     <!-- Latex code ends-->
+  <!-- updating footer -->
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    IIT Gandhinagar
-                </div>
-                <div class="footer-links">
-                    <ul class="footer-menu">
-                        <li><u><a href="https://github.com/Kishan-Ved/resume_generator" target="_blank">Github</a></u>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <ul class="social-icons">
-                        <li>kishan.ved@iitgn.ac.in</li><br>
-                    </ul>
-                </div>
+  <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>IIT Gandhinagar</h2>
             </div>
-            <div class="footer-bottom">
-                <p>To report a bug or add a new feature, use the GitHub link above and make a PR. <br> Made with
-                    &hearts; by <u><a href="https://github.com/Kishan-Ved" style="color: white;" target="_blank">Kishan
-                            Ved</a></u>.</p>
+            <div class="footer-social">
+                <ul class="social-icons">
+                    <li>
+                        <i class="fas fa-envelope"></i> kishan.ved@iitgn.ac.in
+                    </li>
+                </ul>
             </div>
         </div>
-    </footer>
 
+        <!-- Centered Follow Us section with GitHub icon -->
+        <div class="footer-follow">
+            <p>GitHub</p>
+            <ul class="follow-icons">
+                <li>
+                    <a href="https://github.com/Kishan-Ved/resume_generator" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
+        <div class="footer-bottom">
+            <p>© 2024 Kishan-Ved. All Rights Reserved.</p>
+            <p>
+                To report a bug or add a new feature, use the GitHub link above and make a PR.
+                <br> Made with &hearts; by <u><a href="https://github.com/Kishan-Ved" style="color: white;" target="_blank">Kishan Ved</a></u>.
+            </p>
+        </div>
+    </div>
+</footer>
 
 
 
