@@ -161,9 +161,16 @@
                                             class="form-control my-2" id="yearinternF">
                                     </div>
                                 </div>
-                                <button onclick="addNewIntern()" class="btn btn-dark btn-lg" id="internaddbutton">Add
+                                <button onclick="addNewIntern()" class="btn btn-dark btn-lg hidden" id="internaddbutton">Add
                                     This</button>
+                                <button class="btn btn-dark btn-lg hidden" id="interneditbutton">Change
+                                    </button>
                                 <div>You must click the button to add this to LaTeX code.</div><br>
+                                <div class="form-group" id="internsEdit">
+
+
+                                </div>
+
 
                                 <div id="projects-container">
                                     <h3>Projects</h3>
@@ -186,6 +193,8 @@
                                 </div>
                                 <button onclick="addNewProject()" class="btn btn-dark btn-lg hidden" id="projectaddbutton">Add
                                     This</button>
+                                    <button class="btn btn-dark btn-lg hidden" id="projecteditbutton">Change
+                                        </button>
                                 <div>You must click the button to add this to LaTeX code.</div><br>
 
                                 <!-- edit icons for project start-->
