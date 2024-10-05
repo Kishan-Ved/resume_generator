@@ -164,9 +164,24 @@ function addNewProject() {
         </div>
         
                       `;
+  document.getElementById("projectEditComment").classList.remove("hidden");
 
 }
+function deleteProjectsList(buttonElP){
+  const projectDeleteId = projects.find(project => project.id == buttonElP.parentElement.id);
+  if(confirm(`Are you sure, you want to delete ${projectDeleteId.title} project`)){
+    projects.splice(projectDeleteId, 1);
+    buttonElP.parentElement.parentElement.parentElement.remove();
+    if (projects.length === 0){
+      document.getElementById("projectEditComment").classList.add("hidden");
+    }
 
+    updateProjectList();
+  }
+}
+
+
+// function to edit project
 function editProjectsList(buttonElP){
   document.getElementById("projectupdatebutton").classList.remove("hidden");
   document.getElementById("projectaddbutton").classList.add("hidden");
@@ -185,6 +200,7 @@ function editProjectsList(buttonElP){
   
 }
 
+// function to change edits in right side
 function confirmEditProjectList(project){
   
 
