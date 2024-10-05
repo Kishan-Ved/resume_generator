@@ -124,6 +124,7 @@ function addNewProject() {
 
   // Create new internship object and add to array
   projects.push({
+    id: `${title}-${Date.now()}`,
     title: title,
     info: info,
     link: link,
