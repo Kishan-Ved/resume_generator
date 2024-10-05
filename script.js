@@ -176,19 +176,36 @@ function editProjectsList(buttonElP){
   document.getElementById("projectInfoF").value = projectEditId.info;
   document.getElementById("projectLinkF").value = projectEditId.link;
   document.getElementById("projectdescriptionF").value = projectEditId.description;
-  ocument.getElementById("projectdescription2F").value = projectEditId.description2;
+  document.getElementById("projectdescription2F").value = projectEditId.description2;
   document.getElementById("yearprojectF").value = projectEditId.year;
 
+  document.getElementById("projectupdatebutton").onclick = function(){
+    confirmEditProjectList(projectEditId);
+  }
+}
+
+function confirmEditProjectList(project){
   
 
-  projectEditId.title = document.getElementById("projectTitleF").value;
-  projectEditId.info = document.getElementById("projectInfoF").value;
-  projectEditId.link = document.getElementById("projectLinkF").value;
-  projectEditId.description = document.getElementById("projectdescriptionF").value;
-  projectEditId.description2 = document.getElementById("projectdescription2F").value;
-  projectEditId.year = document.getElementById("yearprojectF").value;
+  project.title = document.getElementById("projectTitleF").value;
+  project.info = document.getElementById("projectInfoF").value;
+  project.link = document.getElementById("projectLinkF").value;
+  project.description = document.getElementById("projectdescriptionF").value;
+  project.description2 = document.getElementById("projectdescription2F").value;
+  project.year = document.getElementById("yearprojectF").value;
 
   updateProjectList();
+
+  document.getElementById("projectTitleF").value = "";
+  document.getElementById("projectInfoF").value = "";
+  document.getElementById("projectLinkF").value = "";
+  document.getElementById("projectdescriptionF").value = "";
+  document.getElementById("projectdescription2F").value = "";
+  document.getElementById("yearprojectF").value = "";
+
+
+  document.getElementById("projectupdatebutton").classList.add("hidden");
+  document.getElementById("projectaddbutton").classList.remove("hidden");
 
 }
 
