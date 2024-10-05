@@ -121,6 +121,7 @@ function addNewProject() {
   let description = document.getElementById("projectdescriptionF").value;
   let description2 = document.getElementById("projectdescription2F").value;
   let year = document.getElementById("yearprojectF").value;
+  let id = `${title}-${Date.now()}`
 
   // Create new internship object and add to array
   projects.push({
@@ -143,7 +144,54 @@ function addNewProject() {
   document.getElementById("projectdescriptionF").value = "";
   document.getElementById("projectdescription2F").value = "";
   document.getElementById("yearprojectF").value = "";
+
+
+
+
+  const projectsEdit = document.getElementById("projectsEdit");
+  
+  projectsEdit.innerHTML += `
+            <div class="border bg-white p-2 rounded" style="height: auto;">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+                  <h5 class="mb-0">Project Title: <strong id="${id}">${title} ${year}</strong></h5>
+                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-primary btn-sm"  onclick="editProjectsList(this)">Edit</button>
+                    <button class="btn btn-primary btn-sm"  onclick="deleteProjectsList(this)">Delete</button>
+                    </div>
+            </div>
+        </div>
+        
+                      `;
+
 }
+
+function editProjectsList(buttonElP){
+  document.getElementById("projectupdatebutton").classList.remove("hidden");
+  document.getElementById("projectaddbutton").classList.add("hidden");
+  const projectEditId = projects.find(project => project.id == buttonElP.parentElement.id);
+
+  document.getElementById("projectTitleF").value = projectEditId.title;
+  document.getElementById("projectInfoF").value = projectEditId.info;
+  document.getElementById("projectLinkF").value = projectEditId.link;
+  document.getElementById("projectdescriptionF").value = projectEditId.description;
+  ocument.getElementById("projectdescription2F").value = projectEditId.description2;
+  document.getElementById("yearprojectF").value = projectEditId.year;
+
+  
+
+  projectEditId.title = document.getElementById("projectTitleF").value;
+  projectEditId.info = document.getElementById("projectInfoF").value;
+  projectEditId.link = document.getElementById("projectLinkF").value;
+  projectEditId.description = document.getElementById("projectdescriptionF").value;
+  projectEditId.description2 = document.getElementById("projectdescription2F").value;
+  projectEditId.year = document.getElementById("yearprojectF").value;
+
+  updateProjectList();
+
+}
+
 
 // Function to update the project list on the webpage
 function updateProjectList() {

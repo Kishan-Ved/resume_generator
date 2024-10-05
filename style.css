@@ -104,6 +104,10 @@ body {
     margin: 0;
 }
 
+.hidden{
+    display: none;
+}
+
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: repeat(1, 1fr);
