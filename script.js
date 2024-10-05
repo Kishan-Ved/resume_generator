@@ -60,8 +60,11 @@ function addNewIntern() {
 
 function deleteInternsList(buttonElI){
   const internDeleteId = internships.find(intern => intern.id == buttonElI.parentElement.id);
+  const internDeleteIndex = internships.findIndex(intern => intern.id == buttonElI.parentElement.id);
+
+
   if(confirm(`Are you sure, you want to delete ${internDeleteId.title} internship`)){
-    internships.splice(internDeleteId, 1);
+    internships.splice(internDeleteIndex, 1);
     buttonElI.parentElement.parentElement.parentElement.remove();
     if (internships.length === 0){
       document.getElementById("internEditComment").classList.add("hidden");
@@ -253,8 +256,11 @@ function addNewProject() {
 }
 function deleteProjectsList(buttonElP){
   const projectDeleteId = projects.find(project => project.id == buttonElP.parentElement.id);
+  const projectDeleteIndex = projects.findIndex(project => project.id == buttonElP.parentElement.id);
+
+
   if(confirm(`Are you sure, you want to delete ${projectDeleteId.title} project`)){
-    projects.splice(projectDeleteId, 1);
+    projects.splice(projectDeleteIndex, 1);
     buttonElP.parentElement.parentElement.parentElement.remove();
     if (projects.length === 0){
       document.getElementById("projectEditComment").classList.add("hidden");
