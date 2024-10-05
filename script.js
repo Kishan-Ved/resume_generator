@@ -154,7 +154,7 @@ function addNewProject() {
             <div class="border bg-white p-2 rounded" style="height: auto;">
               <div class="row align-items-center">
                 <div class="col-md-8">
-                  <h5 class="mb-0">Project Title: <strong id="${id}">${title} ${year}</strong></h5>
+                  <h5 class="mb-0">Project Title: <strong id="${id}name">${title} ${year}</strong></h5>
                 </div>
                 <div class="col-md-4 text-right" id="${id}">
                     <button class="btn btn-primary btn-sm"  onclick="editProjectsList(this)">Edit</button>
@@ -182,6 +182,7 @@ function editProjectsList(buttonElP){
   document.getElementById("projectupdatebutton").onclick = function(){
     confirmEditProjectList(projectEditId);
   }
+  
 }
 
 function confirmEditProjectList(project){
@@ -195,6 +196,9 @@ function confirmEditProjectList(project){
   project.year = document.getElementById("yearprojectF").value;
 
   updateProjectList();
+
+  document.getElementById(`${project.id}name`).innerText = `${document.getElementById("projectTitleF").value} ${document.getElementById("projectInfoF").value}`;
+
 
   document.getElementById("projectTitleF").value = "";
   document.getElementById("projectInfoF").value = "";
