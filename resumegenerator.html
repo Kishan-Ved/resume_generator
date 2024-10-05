@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+    <!-- added link for the icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKEW6GTMGN"></script>
     <script>
@@ -69,14 +74,19 @@
                                 <label for="" class="fw-bold my-2">LinkedIn</label>
                                 <input type="text" placeholder="Paste your LinkedIn account link"
                                     class="form-control my-2" id="linkedinF">
-
+                                    
+                                    <label for="" class="fw-bold my-2">Website</label>
+                                    <input type="text" placeholder="Paste your website link" class="form-control my-2"
+                                        id="websiteF">
                                 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
                                 <script>
                                     $(document).ready(function () {
                                         const gitInput = $("#gitF");
                                         const linkedinInput = $("#linkedinF");
+                                        const websiteInput = $("#websiteF"); 
                                         const githubLink = $("#githubLink");
                                         const linkedinLink = $("#linkedinLink");
+                                        const websiteLink = $("#websiteLink");
 
                                         gitInput.on("input", function () {
                                             const githubUrl = gitInput.val();
@@ -87,12 +97,14 @@
                                             const linkedinUrl = linkedinInput.val();
                                             linkedinLink.attr("href", linkedinUrl);
                                         });
+
+                                        websiteInput.on("input", function () {
+                                            const websiteUrl = websiteInput.val();
+                                            websiteLink.attr("href", websiteUrl);
+                                        });
                                     });
                                 </script>
 
-                                <label for="" class="fw-bold my-2">Website</label>
-                                <input type="text" placeholder="Paste your website link" class="form-control my-2"
-                                    id="websiteF">
 
 
                                 <h3>Academic Details</h3>
@@ -161,8 +173,9 @@
                                             class="form-control my-2" id="yearinternF">
                                     </div>
                                 </div>
-                                <button onclick="addNewIntern()" class="btn btn-dark btn-lg" id="internaddbutton">Add
+                                <button onclick="addNewIntern()" class="btn btn-dark btn-lg hidden" id="internaddbutton">Add
                                     This</button>
+
                                     <button class="btn btn-dark btn-lg hidden" id="internupdatebutton">Update</button>
                                   
                                 <div>You must click the button to add this to LaTeX code.</div><br>
@@ -171,6 +184,7 @@
 
                                     
                                 </div>
+
 
                                 <div id="projects-container">
                                     <h3>Projects</h3>
@@ -191,15 +205,25 @@
                                             class="form-control my-2" id="yearprojectF">
                                     </div>
                                 </div>
+
                                 <button onclick="addNewProject()" class="btn btn-dark btn-lg" id="projectaddbutton">Add
                                     This</button>
-                                <button class="btn btn-dark btn-lg hidden" id="projectupdatebutton">Update</button>
+                                <button class="btn btn-dark btn-lg hidden" id="projectupdatebutton">Update</button>                                
+
                                 <div>You must click the button to add this to LaTeX code.</div><br>
                                 <div class="form-group hidden" id="projectEditComment">If you want to edit project, click on edit <br> if you want to delete project, click on delete</div>
                                 <div class="form-group" id="projectsEdit">
 
                                     
                                 </div>
+
+                                <!-- edit icons for project start-->
+                                 <div class="form-group hidden" id="projecteditbuttonComment">If you want to edit a project, then click on edit.</div>
+                                <div class="form-group" id="projectsEdit">
+
+
+                                </div>
+                                <!-- edit icon fo project end-->
 
                                 <h3>Skills</h3>
                                 <div>(If you dont want to include this, leave it blank and delete this section from the
@@ -259,7 +283,7 @@
 
             <!-- cv template -->
 
-
+            
             <div class="col-md-6">
                 <div class="cv-template" id="cv-template">
                     <!-- Your CV Template content -->
@@ -296,20 +320,20 @@
                                     <!-- <div class="linkedin p-0">
                                         <img src="images/linkedin.png" class="rounded mx-0.5 d-block p-0" style="width: 20px;" id="gitT">
                                     </div> -->
+
+                                    <!-- changed icons to text  -->
+                                    <div class="linkedin p-0">  
+                                        <a id="linkedinLink" href="#" class="text-black no-underline hover:text-gray-500">Linkedin</a>
+                                    </div> 
+                                    <span class="mx-2">|</span>
                                     <div class="git p-0">
-                                        <a id="githubLink" href="#">
-                                            <img src="images/git.png" class="rounded mx-0.5 d-block p-0"
-                                                style="width: 20px; margin-right: 2px;">
-                                        </a>
+                                        <a id="githubLink" href="#" class="text-black no-underline hover:text-gray-500">Github</a>
                                     </div>
-
-                                    <div class="linkedin p-0">
-                                        <a id="linkedinLink" href="#">
-                                            <img src="images/linkedin.png" class="rounded mx-0.5 d-block p-0"
-                                                style="width: 20px;">
-                                        </a>
-                                    </div>
-
+                                    <span class="mx-2">|</span>
+                                    <div class="website p-0">  
+                                        <a id="websiteLink" href="#" class="text-black no-underline hover:text-gray-500">Website</a>
+                                    </div>  
+                                
                                 </div>
                             </div>
 
@@ -530,6 +554,7 @@
                             </div> -->
 
                             <!--Skill set listed here-->
+                            
                             <div class="row my-0" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">SKILLS</p>
                             </div>
@@ -549,7 +574,7 @@
                                             elit. Explicabo quia et excepturi beatae rerum deserunt quia</p>
                                     </div>
                                 </li>
-                            </ul>
+                            </ul> 
                             <!-- <div class="row">
                                 <div class="col-8 p-0">
                                     <p class="fw-bold my-0">Type of Skill</p>
@@ -604,18 +629,19 @@
                             <div class="d-grid gap-2 col-6 mx-auto my-4">
                                 <!-- <button type="button" class="btn btn-dark btn-lg" id="download">Download
                                     Resume</button> -->
-
+                                    
                                 <button class="btn btn-dark btn-lg" onclick="copyToClipboard()">Copy LaTeX Code to
                                     Clipboard</button>
+                                    
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
-
+    
     <!-- Latex code begins -->
     <pre id="latexCode" style="display:none;">
 \documentclass[a4paper,10pt]{article}
@@ -713,34 +739,44 @@ Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userE
     </pre>
 
     <!-- Latex code ends-->
+  <!-- updating footer -->
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    IIT Gandhinagar
-                </div>
-                <div class="footer-links">
-                    <ul class="footer-menu">
-                        <li><u><a href="https://github.com/Kishan-Ved/resume_generator" target="_blank">Github</a></u>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <ul class="social-icons">
-                        <li>kishan.ved@iitgn.ac.in</li><br>
-                    </ul>
-                </div>
+  <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>IIT Gandhinagar</h2>
             </div>
-            <div class="footer-bottom">
-                <p>To report a bug or add a new feature, use the GitHub link above and make a PR. <br> Made with
-                    &hearts; by <u><a href="https://github.com/Kishan-Ved" style="color: white;" target="_blank">Kishan
-                            Ved</a></u>.</p>
+            <div class="footer-social">
+                <ul class="social-icons">
+                    <li>
+                        <i class="fas fa-envelope"></i> kishan.ved@iitgn.ac.in
+                    </li>
+                </ul>
             </div>
         </div>
-    </footer>
 
+        <!-- Centered Follow Us section with GitHub icon -->
+        <div class="footer-follow">
+            <p>GitHub</p>
+            <ul class="follow-icons">
+                <li>
+                    <a href="https://github.com/Kishan-Ved/resume_generator" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
+        <div class="footer-bottom">
+            <p>© 2024 Kishan-Ved. All Rights Reserved.</p>
+            <p>
+                To report a bug or add a new feature, use the GitHub link above and make a PR.
+                <br> Made with &hearts; by <u><a href="https://github.com/Kishan-Ved" style="color: white;" target="_blank">Kishan Ved</a></u>.
+            </p>
+        </div>
+    </div>
+</footer>
 
 
 
@@ -755,7 +791,16 @@ Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userE
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+
 </body>
 
 </html>

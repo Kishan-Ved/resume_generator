@@ -1,8 +1,15 @@
 let internships = [];
 let projects = [];
+let projectsHtml = [];
 let skills = [];
 let PORs = [];
 let achievements = [];
+
+
+
+
+// to show add this for project
+document.getElementById("internaddbutton").classList.remove("hidden");
 
 function addNewIntern() {
   // Get values from the form
@@ -107,6 +114,10 @@ function confirmEditinternList(intern){
   document.getElementById(`${intern.id}name`).innerText = `${document.getElementById("internTitleF").value}-${document.getElementById("internInfoF").value}`;
 
 
+
+                
+  // Optionally, reset the input fields or notify the user
+
   document.getElementById("internTitleF").value = "";
   document.getElementById("internInfoF").value = "";
   document.getElementById("internLinkF").value = "";
@@ -115,10 +126,13 @@ function confirmEditinternList(intern){
   document.getElementById("yearinternF").value = "";
 
 
+
   document.getElementById("internupdatebutton").classList.add("hidden");
   document.getElementById("internaddbutton").classList.remove("hidden");
 
 }
+
+
 
 
 
@@ -199,6 +213,15 @@ function escapeLaTeX(text) {
 }
 
 
+
+
+
+
+
+
+// to show add this for project
+document.getElementById("projectaddbutton").classList.remove("hidden");
+
 // Function to add a new project
 function addNewProject() {
   // Get values from the form
@@ -235,12 +258,16 @@ function addNewProject() {
 
 
 
+
+
+
   const projectsEdit = document.getElementById("projectsEdit");
   
   projectsEdit.innerHTML += `
             <div class="border bg-white p-2 rounded" style="height: auto;">
               <div class="row align-items-center">
                 <div class="col-md-8">
+
                   <h5 class="mb-0">Project Title-Year: <strong id="${id}name">${title}-${year}</strong></h5>
                 </div>
                 <div class="col-md-4 text-right" id="${id}">
@@ -306,12 +333,15 @@ function confirmEditProjectList(project){
   document.getElementById(`${project.id}name`).innerText = `${document.getElementById("projectTitleF").value}-${document.getElementById("projectInfoF").value}`;
 
 
+
+
   document.getElementById("projectTitleF").value = "";
   document.getElementById("projectInfoF").value = "";
   document.getElementById("projectLinkF").value = "";
   document.getElementById("projectdescriptionF").value = "";
   document.getElementById("projectdescription2F").value = "";
   document.getElementById("yearprojectF").value = "";
+
 
 
   document.getElementById("projectupdatebutton").classList.add("hidden");
@@ -764,6 +794,4 @@ function copyToClipboard() {
   // Optionally, provide feedback to the user
   alert("Copied LaTeX code to clipboard. Paste in any LaTeX editor. Eg: Overleaf.");
 }
-
-
 setInterval(generateCV, 100);
