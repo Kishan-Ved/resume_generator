@@ -8,14 +8,15 @@ function addNewIntern() {
   // Get values from the form
   let title = document.getElementById("internTitleF").value;
   let info = document.getElementById("internInfoF").value;
- 
   let link = document.getElementById("internLinkF").value;
   let description = document.getElementById("interndescriptionF").value;
   let description2 = document.getElementById("interndescription2F").value;
   let year = document.getElementById("yearinternF").value;
+  let id = `${title}-${Date.now()}`;
 
   // Create new internship object and add to array
   internships.push({
+    id: `${title}-${Date.now()}`,
     title: title,
     info: info,
     link: link,
@@ -34,7 +35,90 @@ function addNewIntern() {
   document.getElementById("interndescriptionF").value = "";
   document.getElementById("interndescription2F").value = "";
   document.getElementById("yearinternF").value = "";
+
+
+  const internsEdit = document.getElementById("internsEdit");
+  
+  internsEdit.innerHTML += `
+            <div class="border bg-white p-2 rounded" style="height: auto;">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+                  <h5 class="mb-0">Internship Title-Year: <strong id="${id}name">${title} ${year}</strong></h5>
+                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-primary btn-sm"  onclick="editInternsList(this)">Edit</button>
+                    <button class="btn btn-primary btn-sm"  onclick="deleteInternsList(this)">Delete</button>
+                    </div>
+            </div>
+        </div>
+        
+                      `;
+  document.getElementById("internEditComment").classList.remove("hidden");
+
 }
+
+
+function deleteInternsList(buttonElI){
+  const internDeleteId = internships.find(intern => intern.id == buttonElI.parentElement.id);
+  if(confirm(`Are you sure, you want to delete ${internDeleteId.title} internship`)){
+    internships.splice(internDeleteId, 1);
+    buttonElI.parentElement.parentElement.parentElement.remove();
+    if (internships.length === 0){
+      document.getElementById("internEditComment").classList.add("hidden");
+    }
+
+    updateInternshipList();
+  }
+}
+
+function editInternsList(buttonElI){
+  document.getElementById("internupdatebutton").classList.remove("hidden");
+  document.getElementById("internaddbutton").classList.add("hidden");
+  const internEditId = internships.find(intern => intern.id == buttonElI.parentElement.id);
+
+  document.getElementById("internTitleF").value = internEditId.title;
+  document.getElementById("internInfoF").value = internEditId.info;
+  document.getElementById("internLinkF").value = internEditId.link;
+  document.getElementById("interndescriptionF").value = internEditId.description;
+  document.getElementById("interndescription2F").value = internEditId.description2;
+  document.getElementById("yearinternF").value = internEditId.year;
+
+  document.getElementById("internupdatebutton").onclick = function(){
+    confirmEditinternList(internEditId);
+  }
+  
+}
+
+function confirmEditinternList(intern){
+  
+
+  intern.title = document.getElementById("internTitleF").value;
+  intern.info = document.getElementById("internInfoF").value;
+  intern.link = document.getElementById("internLinkF").value;
+  intern.description = document.getElementById("interndescriptionF").value;
+  intern.description2 = document.getElementById("interndescription2F").value;
+  intern.year = document.getElementById("yearinternF").value;
+
+  updateInternshipList();
+
+  document.getElementById(`${intern.id}name`).innerText = `${document.getElementById("internTitleF").value}-${document.getElementById("internInfoF").value}`;
+
+
+  document.getElementById("internTitleF").value = "";
+  document.getElementById("internInfoF").value = "";
+  document.getElementById("internLinkF").value = "";
+  document.getElementById("interndescriptionF").value = "";
+  document.getElementById("interndescription2F").value = "";
+  document.getElementById("yearinternF").value = "";
+
+
+  document.getElementById("internupdatebutton").classList.add("hidden");
+  document.getElementById("internaddbutton").classList.remove("hidden");
+
+}
+
+
+
 
 function updateInternshipList() {
   // Get the list element
@@ -154,7 +238,7 @@ function addNewProject() {
             <div class="border bg-white p-2 rounded" style="height: auto;">
               <div class="row align-items-center">
                 <div class="col-md-8">
-                  <h5 class="mb-0">Project Title: <strong id="${id}name">${title} ${year}</strong></h5>
+                  <h5 class="mb-0">Project Title-Year: <strong id="${id}name">${title}-${year}</strong></h5>
                 </div>
                 <div class="col-md-4 text-right" id="${id}">
                     <button class="btn btn-primary btn-sm"  onclick="editProjectsList(this)">Edit</button>
@@ -213,7 +297,7 @@ function confirmEditProjectList(project){
 
   updateProjectList();
 
-  document.getElementById(`${project.id}name`).innerText = `${document.getElementById("projectTitleF").value} ${document.getElementById("projectInfoF").value}`;
+  document.getElementById(`${project.id}name`).innerText = `${document.getElementById("projectTitleF").value}-${document.getElementById("projectInfoF").value}`;
 
 
   document.getElementById("projectTitleF").value = "";
