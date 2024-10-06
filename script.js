@@ -613,7 +613,7 @@ function deletePORsList(buttonElPOR){
     PORs.splice(PORDeleteIndex, 1);
     buttonElPOR.parentElement.parentElement.parentElement.remove();
     if (PORs.length === 0){
-      document.getElementById("PROEditComment").classList.add("hidden");
+      document.getElementById("POREditComment").classList.add("hidden");
     }
 
   updatePORList();
@@ -645,7 +645,7 @@ function confirmEditPORList(POR){
 
   updatePORList();
 
-  document.getElementById(`${POR.id}name`).innerText = `${document.getElementById("PORNameF").value} ${document.getElementById("PORduration").value}`;
+  document.getElementById(`${POR.id}name`).innerText = `${document.getElementById("PORNameF").value} ${document.getElementById("PORdurationF").value}`;
 
   document.getElementById("PORNameF").value = "";
   document.getElementById("PORdescriptionF").value = "";
