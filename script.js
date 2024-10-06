@@ -710,10 +710,12 @@ function updatePORList() {
 // function to add a new achievement
 function addNewAchievement() {
   let achievementName = document.getElementById("achievementNameF").value;
+  let id = `${achievementName}-${Date.now()}`;
 
   if (achievementName) {
     // pushing the new achievement into the array
     achievements.push({
+      id: id,
       name: achievementName,
     });
 
@@ -722,8 +724,80 @@ function addNewAchievement() {
 
     // update the achievements list
     updateAchievementsList();
+  
+
+
+  const achievementsEdit = document.getElementById("achievementsEdit");
+  
+  achievementsEdit.innerHTML += `
+            <div class="border bg-white p-2 rounded" style="height: auto;">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+
+                  <h5 class="mb-0">achievement name: <strong id="${id}name">${achievementName}</strong></h5>
+                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-dark btn-sm"  onclick="editachievementsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deleteachievementsList(this)">Delete</button>
+                    </div>
+            </div>
+        </div>
+        
+                      `;
+  document.getElementById("achievementEditComment").classList.remove("hidden");
   }
 }
+
+
+function deleteachievementsList(buttonElA){
+  
+  const achievementDeleteId = achievements.find(achievement => achievement.id == buttonElA.parentElement.id);
+  const achievementDeleteIndex = achievements.findIndex(achievement => achievement.id == buttonElA.parentElement.id);
+
+
+  if(confirm(`Are you sure, you want to delete ${achievementDeleteId.name} achievement`)){
+    achievements.splice(achievementDeleteIndex, 1);
+    buttonElA.parentElement.parentElement.parentElement.remove();
+    if (achievements.length === 0){
+      document.getElementById("achievementEditComment").classList.add("hidden");
+    }
+
+
+    updateAchievementsList();
+  }
+
+}
+
+
+function editachievementsList(buttonElA){
+  document.getElementById("achievementUpdateButton").classList.remove("hidden");
+  document.getElementById("achievementAddButton").classList.add("hidden");
+  const achievementEditId = achievements.find(achievement => achievement.id === buttonElA.parentElement.id);
+
+  document.getElementById("achievementNameF").value = achievementEditId.name;
+  
+  document.getElementById("achievementUpdateButton").onclick = function(){
+    confirmEditachievementList(achievementEditId)
+  }
+}
+
+function confirmEditachievementList(achievement){
+  achievement.name = document.getElementById("achievementNameF").value;
+  
+  updateAchievementsList();
+
+  document.getElementById(`${achievement.id}name`).innerText = document.getElementById("achievementNameF").value;
+
+  document.getElementById("achievementNameF").value = "";
+  
+
+  document.getElementById("achievementUpdateButton").classList.add("hidden");
+  document.getElementById("achievementAddButton").classList.remove("hidden");
+
+}
+
+
+
 
 // function to update the achievements list on the webpage
 function updateAchievementsList() {
