@@ -15,14 +15,15 @@ function addNewIntern() {
   // Get values from the form
   let title = document.getElementById("internTitleF").value;
   let info = document.getElementById("internInfoF").value;
- 
   let link = document.getElementById("internLinkF").value;
   let description = document.getElementById("interndescriptionF").value;
   let description2 = document.getElementById("interndescription2F").value;
   let year = document.getElementById("yearinternF").value;
+  let id = `${title}-${Date.now()}`;
 
   // Create new internship object and add to array
   internships.push({
+    id: `${title}-${Date.now()}`,
     title: title,
     info: info,
     link: link,
@@ -49,77 +50,74 @@ function addNewIntern() {
             <div class="border bg-white p-2 rounded" style="height: auto;">
               <div class="row align-items-center">
                 <div class="col-md-8">
-                  <h5 class="mb-0">Intership Title: <strong id="${title}${year}">${title} ${year}</strong></h5>
+                  <h5 class="mb-0">Internship Title-Year: <strong id="${id}name">${title} ${year}</strong></h5>
                 </div>
-                <div class="col-md-4 text-right">
-                    <button class="btn btn-primary btn-sm" id="${title}" onclick="editinternsList('${title}')">Edit</button>
-                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-primary btn-sm"  onclick="editInternsList(this)">Edit</button>
+                    <button class="btn btn-primary btn-sm"  onclick="deleteInternsList(this)">Delete</button>
+                    </div>
             </div>
         </div>
-        <br>
+        
                       `;
-      document.getElementById("interneditbuttonComment").classList.remove('hidden');
-}
-
-
-// function to edit internship data
-function editinternsList(internTitle){
-  const foundintern = internships.find(internship => internship.title === internTitle);
-  document.getElementById("internaddbutton").classList.add("hidden");
-  if (foundintern) {
-    // Set the values of the input fields
-    document.getElementById("internTitleF").value = foundintern.title || "";
-    document.getElementById("internInfoF").value = foundintern.info || "";
-    document.getElementById("internLinkF").value = foundintern.link || "";
-    document.getElementById("interndescriptionF").value = foundintern.description || "";
-    document.getElementById("interndescription2F").value = foundintern.description2 || "";
-    document.getElementById("yearinternF").value = foundintern.year || "";
-} else {
-    console.error("intership not found with the title:", internTitle);
-    // Optionally, reset the input fields or notify the user
-    document.getElementById("internTitleF").value = "";
-    document.getElementById("internInfoF").value = "";
-    document.getElementById("internLinkF").value = "";
-    document.getElementById("interndescriptionF").value = "";
-    document.getElementById("interndescription2F").value = "";
-    document.getElementById("yearinternF").value = "";
-}
-
-
-document.getElementById("internaddbutton").classList.add("hidden");
-document.getElementById("interneditbutton").classList.remove("hidden");
-document.getElementById("interneditbutton").onclick = function() {
-  addEditedintern(foundintern);
-};
-
+  document.getElementById("internEditComment").classList.remove("hidden");
 
 }
 
-// function to add edited project
-function addEditedintern(internId){
-  // edit project data in projects array
-  const editedProjectId = document.getElementById(`${internId.title}${internId.year}`);
-  const editInternButtonId = document.getElementById(`${internId.title}`);
-  internId.title = document.getElementById("internTitleF").value;
-  internId.info = document.getElementById("internInfoF").value;
-  internId.link = document.getElementById("internLinkF").value;
-  internId.description = document.getElementById("interndescriptionF").value;
-  internId.description2 = document.getElementById("interndescription2F").value;
-  internId.year = document.getElementById("yearinternF").value;
 
-  // update edited project title in edit box
-  editedProjectId.innerText = `${internId.title} ${internId.year}`;
-  editedProjectId.id = `${internId.title}${internId.year}`;
-  editInternButtonId.id = `${internId.title}`;
-  editInternButtonId.onclick = function(){
-    editinternsList(internId.title)
+function deleteInternsList(buttonElI){
+  const internDeleteId = internships.find(intern => intern.id == buttonElI.parentElement.id);
+  const internDeleteIndex = internships.findIndex(intern => intern.id == buttonElI.parentElement.id);
+
+
+  if(confirm(`Are you sure, you want to delete ${internDeleteId.title} internship`)){
+    internships.splice(internDeleteIndex, 1);
+    buttonElI.parentElement.parentElement.parentElement.remove();
+    if (internships.length === 0){
+      document.getElementById("internEditComment").classList.add("hidden");
+    }
+
+    updateInternshipList();
   }
+}
 
-  // update project list
+function editInternsList(buttonElI){
+  document.getElementById("internupdatebutton").classList.remove("hidden");
+  document.getElementById("internaddbutton").classList.add("hidden");
+  const internEditId = internships.find(intern => intern.id == buttonElI.parentElement.id);
+
+  document.getElementById("internTitleF").value = internEditId.title;
+  document.getElementById("internInfoF").value = internEditId.info;
+  document.getElementById("internLinkF").value = internEditId.link;
+  document.getElementById("interndescriptionF").value = internEditId.description;
+  document.getElementById("interndescription2F").value = internEditId.description2;
+  document.getElementById("yearinternF").value = internEditId.year;
+
+  document.getElementById("internupdatebutton").onclick = function(){
+    confirmEditinternList(internEditId);
+  }
+  
+}
+
+function confirmEditinternList(intern){
+  
+
+  intern.title = document.getElementById("internTitleF").value;
+  intern.info = document.getElementById("internInfoF").value;
+  intern.link = document.getElementById("internLinkF").value;
+  intern.description = document.getElementById("interndescriptionF").value;
+  intern.description2 = document.getElementById("interndescription2F").value;
+  intern.year = document.getElementById("yearinternF").value;
+
   updateInternshipList();
 
+  document.getElementById(`${intern.id}name`).innerText = `${document.getElementById("internTitleF").value}-${document.getElementById("internInfoF").value}`;
 
+
+
+                
   // Optionally, reset the input fields or notify the user
+
   document.getElementById("internTitleF").value = "";
   document.getElementById("internInfoF").value = "";
   document.getElementById("internLinkF").value = "";
@@ -127,13 +125,12 @@ function addEditedintern(internId){
   document.getElementById("interndescription2F").value = "";
   document.getElementById("yearinternF").value = "";
 
-  // remove "change" button and add "Add this" button
-  document.getElementById("iternaddbutton").classList.remove("hidden");
-  document.getElementById("interneditbutton").classList.add("hidden");
+
+
+  document.getElementById("internupdatebutton").classList.add("hidden");
+  document.getElementById("internaddbutton").classList.remove("hidden");
+
 }
-
-
-
 
 
 
@@ -234,9 +231,11 @@ function addNewProject() {
   let description = document.getElementById("projectdescriptionF").value;
   let description2 = document.getElementById("projectdescription2F").value;
   let year = document.getElementById("yearprojectF").value;
+  let id = `${title}-${Date.now()}`
 
   // Create new internship object and add to array
   projects.push({
+    id: `${title}-${Date.now()}`,
     title: title,
     info: info,
     link: link,
@@ -256,85 +255,86 @@ function addNewProject() {
   document.getElementById("projectdescription2F").value = "";
   document.getElementById("yearprojectF").value = "";
 
-  // add title in edit div
+
+
+
+
+
+
   const projectsEdit = document.getElementById("projectsEdit");
   
   projectsEdit.innerHTML += `
             <div class="border bg-white p-2 rounded" style="height: auto;">
               <div class="row align-items-center">
                 <div class="col-md-8">
-                  <h5 class="mb-0">Project Title: <strong id="${title}${year}">${title} ${year}</strong></h5>
+
+                  <h5 class="mb-0">Project Title-Year: <strong id="${id}name">${title}-${year}</strong></h5>
                 </div>
-                <div class="col-md-4 text-right">
-                    <button class="btn btn-primary btn-sm" id="${title}" onclick="editProjectsList('${title}')">Edit</button>
-                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-primary btn-sm"  onclick="editProjectsList(this)">Edit</button>
+                    <button class="btn btn-primary btn-sm"  onclick="deleteProjectsList(this)">Delete</button>
+                    </div>
             </div>
         </div>
-        <br>
+        
                       `;
-
-                      document.getElementById("projecteditbuttonComment").classList.remove('hidden');
-}
-
-
-// function to edit project data
-function editProjectsList(projectTitle){
-  const foundProject = projects.find(project => project.title === projectTitle);
-  document.getElementById("projectaddbutton").classList.add("hidden");
-  if (foundProject) {
-    // Set the values of the input fields
-    document.getElementById("projectTitleF").value = foundProject.title || "";
-    document.getElementById("projectInfoF").value = foundProject.info || "";
-    document.getElementById("projectLinkF").value = foundProject.link || "";
-    document.getElementById("projectdescriptionF").value = foundProject.description || "";
-    document.getElementById("projectdescription2F").value = foundProject.description2 || "";
-    document.getElementById("yearprojectF").value = foundProject.year || "";
-} else {
-    console.error("Project not found with the title:", projectTitle);
-    // Optionally, reset the input fields or notify the user
-    document.getElementById("projectTitleF").value = "";
-    document.getElementById("projectInfoF").value = "";
-    document.getElementById("projectLinkF").value = "";
-    document.getElementById("projectdescriptionF").value = "";
-    document.getElementById("projectdescription2F").value = "";
-    document.getElementById("yearprojectF").value = "";
-}
-
-
-document.getElementById("projectaddbutton").classList.add("hidden");
-document.getElementById("projecteditbutton").classList.remove("hidden");
-document.getElementById("projecteditbutton").onclick = function() {
-  addEditedProject(foundProject);
-};
-
+  document.getElementById("projectEditComment").classList.remove("hidden");
 
 }
+function deleteProjectsList(buttonElP){
+  const projectDeleteId = projects.find(project => project.id == buttonElP.parentElement.id);
+  const projectDeleteIndex = projects.findIndex(project => project.id == buttonElP.parentElement.id);
 
-// function to add edited project
-function addEditedProject(projectId){
-  // edit project data in projects array
-  const editedProjectId = document.getElementById(`${projectId.title}${projectId.year}`);
-  const editProjectButtonId = document.getElementById(`${projectId.title}`);
-  projectId.title = document.getElementById("projectTitleF").value;
-  projectId.info = document.getElementById("projectInfoF").value;
-  projectId.link = document.getElementById("projectLinkF").value;
-  projectId.description = document.getElementById("projectdescriptionF").value;
-  projectId.description2 = document.getElementById("projectdescription2F").value;
-  projectId.year = document.getElementById("yearprojectF").value;
 
-  // update edited project title in edit box
-  editedProjectId.innerText = `${projectId.title} ${projectId.year}`;
-  editedProjectId.id = `${projectId.title}${projectId.year}`;
-  editProjectButtonId.id = `${projectId.title}`;
-  editProjectButtonId.onclick = function(){
-    editProjectsList(projectId.title)
+  if(confirm(`Are you sure, you want to delete ${projectDeleteId.title} project`)){
+    projects.splice(projectDeleteIndex, 1);
+    buttonElP.parentElement.parentElement.parentElement.remove();
+    if (projects.length === 0){
+      document.getElementById("projectEditComment").classList.add("hidden");
+    }
+
+    updateProjectList();
   }
+}
 
-  // update project list
+
+// function to edit project
+function editProjectsList(buttonElP){
+  document.getElementById("projectupdatebutton").classList.remove("hidden");
+  document.getElementById("projectaddbutton").classList.add("hidden");
+  const projectEditId = projects.find(project => project.id == buttonElP.parentElement.id);
+
+  document.getElementById("projectTitleF").value = projectEditId.title;
+  document.getElementById("projectInfoF").value = projectEditId.info;
+  document.getElementById("projectLinkF").value = projectEditId.link;
+  document.getElementById("projectdescriptionF").value = projectEditId.description;
+  document.getElementById("projectdescription2F").value = projectEditId.description2;
+  document.getElementById("yearprojectF").value = projectEditId.year;
+
+  document.getElementById("projectupdatebutton").onclick = function(){
+    confirmEditProjectList(projectEditId);
+  }
+  
+}
+
+// function to change edits in right side
+function confirmEditProjectList(project){
+  
+
+  project.title = document.getElementById("projectTitleF").value;
+  project.info = document.getElementById("projectInfoF").value;
+  project.link = document.getElementById("projectLinkF").value;
+  project.description = document.getElementById("projectdescriptionF").value;
+  project.description2 = document.getElementById("projectdescription2F").value;
+  project.year = document.getElementById("yearprojectF").value;
+
   updateProjectList();
 
+  document.getElementById(`${project.id}name`).innerText = `${document.getElementById("projectTitleF").value}-${document.getElementById("projectInfoF").value}`;
 
-  // Optionally, reset the input fields or notify the user
+
+
+
   document.getElementById("projectTitleF").value = "";
   document.getElementById("projectInfoF").value = "";
   document.getElementById("projectLinkF").value = "";
@@ -342,9 +342,11 @@ function addEditedProject(projectId){
   document.getElementById("projectdescription2F").value = "";
   document.getElementById("yearprojectF").value = "";
 
-  // remove "change" button and add "Add this" button
+
+
+  document.getElementById("projectupdatebutton").classList.add("hidden");
   document.getElementById("projectaddbutton").classList.remove("hidden");
-  document.getElementById("projecteditbutton").classList.add("hidden");
+
 }
 
 

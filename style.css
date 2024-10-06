@@ -107,7 +107,12 @@ body {
     margin: 5px 0;
 }
 
-@media (min-width: 768px) {
+
+.hidden{
+    display: none;
+}
+
+@media (max-width: 768px) {
     .footer-content {
         flex-direction: row;
         justify-content: space-between;
