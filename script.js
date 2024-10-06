@@ -453,7 +453,7 @@ function addNewSkill() {
               <div class="row align-items-center">
                 <div class="col-md-8">
 
-                  <h5 class="mb-0">Project Title-Year: <strong id="${id}name">${type}</strong></h5>
+                  <h5 class="mb-0">Skill type: <strong id="${id}name">${type}</strong></h5>
                 </div>
                 <div class="col-md-4 text-right" id="${id}">
                     <button class="btn btn-dark btn-sm"  onclick="editskillsList(this)">Edit</button>
@@ -560,9 +560,11 @@ function addNewPOR() {
   let PORDescription = document.getElementById("PORdescriptionF").value;
   let PORDescription2 = document.getElementById("PORdescription2F").value;
   let PORDuration = document.getElementById("PORdurationF").value;
+  let id = `${PORName}-${Date.now()}`
 
   // Create a new POR object and add it to the array
   PORs.push({
+    id: id,
     name: PORName,
     description: PORDescription,
     description2: PORDescription2,
@@ -577,7 +579,86 @@ function addNewPOR() {
   document.getElementById("PORdescriptionF").value = "";
   document.getElementById("PORdescription2F").value = "";
   document.getElementById("PORdurationF").value = "";
+
+
+  const PORsEdit = document.getElementById("PORsEdit");
+  
+  PORsEdit.innerHTML += `
+            <div class="border bg-white p-2 rounded" style="height: auto;">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+
+                  <h5 class="mb-0">POR name-duration: <strong id="${id}name">${PORName}-${PORDuration}</strong></h5>
+                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-dark btn-sm"  onclick="editPORsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deletePORsList(this)">Delete</button>
+                    </div>
+            </div>
+        </div>
+        
+                      `;
+  document.getElementById("POREditComment").classList.remove("hidden");
+
 }
+
+
+function deletePORsList(buttonElPOR){
+  
+  const PORDeleteId = PORs.find(por => por.id == buttonElPOR.parentElement.id);
+  const PORDeleteIndex = PORs.findIndex(por => por.id == buttonElPOR.parentElement.id);
+
+
+  if(confirm(`Are you sure, you want to delete ${PORDeleteId.type} POR`)){
+    PORs.splice(PORDeleteIndex, 1);
+    buttonElPOR.parentElement.parentElement.parentElement.remove();
+    if (PORs.length === 0){
+      document.getElementById("PROEditComment").classList.add("hidden");
+    }
+
+  updatePORList();
+  }
+
+}
+
+
+function editPORsList(buttonElPOR){
+  document.getElementById("PORUpdateButton").classList.remove("hidden");
+  document.getElementById("PORAddButton").classList.add("hidden");
+  const POREditId = PORs.find(POR => POR.id === buttonElPOR.parentElement.id);
+
+  document.getElementById("PORNameF").value = POREditId.name;
+  document.getElementById("PORdescriptionF").value = POREditId.description;
+  document.getElementById("PORdescription2F").value = POREditId.description2;
+  document.getElementById("PORdurationF").value = POREditId.duration;
+
+  document.getElementById("PORUpdateButton").onclick = function(){
+    confirmEditPORList(POREditId)
+  }
+}
+
+function confirmEditPORList(POR){
+  POR.name = document.getElementById("PORNameF").value;
+  POR.description = document.getElementById("PORdescriptionF").value;
+  POR.description2 = document.getElementById("PORdescription2F").value;
+  POR.duration = document.getElementById("PORdurationF").value;
+
+  updatePORList();
+
+  document.getElementById(`${POR.id}name`).innerText = `${document.getElementById("PORNameF").value} ${document.getElementById("PORduration").value}`;
+
+  document.getElementById("PORNameF").value = "";
+  document.getElementById("PORdescriptionF").value = "";
+  document.getElementById("PORdescription2F").value = "";
+  document.getElementById("PORdurationF").value = "";
+
+  document.getElementById("PORUpdateButton").classList.add("hidden");
+  document.getElementById("PORAddButton").classList.remove("hidden");
+
+}
+
+
+
 
 // Function to update the POR list on the webpage
 function updatePORList() {

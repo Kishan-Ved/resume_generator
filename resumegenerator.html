@@ -256,9 +256,14 @@
                                     <input type="text" placeholder="Duration of POR Ex: May’22-Dec’22"
                                         class="form-control my-2" id="PORdurationF">
                                 </div>
-                                <button onclick="addNewPOR()" class="btn btn-dark btn-lg" id="proAddButton">Add This</button>
-                                <button class="btn btn-dark btn-lg" id="proUpdateButton">Update</button>
+                                <button onclick="addNewPOR()" class="btn btn-dark btn-lg" id="PORAddButton">Add This</button>
+                                <button class="btn btn-dark btn-lg hidden" id="PORUpdateButton">Update</button>
                                 <div>You must click the button to add this to LaTeX code.</div><br>
+                                <div class="form-group hidden" id="POREditComment">If you want to edit a por, click on edit.<br> If you want to delete a por, click on delete.</div>
+                                <div id="PORsEdit">
+
+                                </div>
+
 
                                 <h3>Achievements</h3>
                                 <div>(If you don't want to include this, leave it blank and delete this section from the LaTeX code generated.)</div>
