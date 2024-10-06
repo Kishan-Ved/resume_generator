@@ -53,8 +53,8 @@ function addNewIntern() {
                   <h5 class="mb-0">Internship Title-Year: <strong id="${id}name">${title} ${year}</strong></h5>
                 </div>
                 <div class="col-md-4 text-right" id="${id}">
-                    <button class="btn btn-primary btn-sm"  onclick="editInternsList(this)">Edit</button>
-                    <button class="btn btn-primary btn-sm"  onclick="deleteInternsList(this)">Delete</button>
+                    <button class="btn btn-dark btn-sm"  onclick="editInternsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deleteInternsList(this)">Delete</button>
                     </div>
             </div>
         </div>
@@ -271,8 +271,8 @@ function addNewProject() {
                   <h5 class="mb-0">Project Title-Year: <strong id="${id}name">${title}-${year}</strong></h5>
                 </div>
                 <div class="col-md-4 text-right" id="${id}">
-                    <button class="btn btn-primary btn-sm"  onclick="editProjectsList(this)">Edit</button>
-                    <button class="btn btn-primary btn-sm"  onclick="deleteProjectsList(this)">Delete</button>
+                    <button class="btn btn-dark btn-sm"  onclick="editProjectsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deleteProjectsList(this)">Delete</button>
                     </div>
             </div>
         </div>
@@ -428,10 +428,12 @@ function addNewSkill() {
   // Get values from the form
   let type = document.getElementById("skilltypeF").value;
   let description = document.getElementById("skilldescriptionF").value;
+  let id = `${type}-${Date.now()}`;
 
 
   // Create new internship object and add to array
   skills.push({
+    id: id,
     type: type,
     description: description
   });
@@ -442,6 +444,75 @@ function addNewSkill() {
   // Clear form fields
   document.getElementById("skilltypeF").value = "";
   document.getElementById("skilldescriptionF").value = "";
+
+
+  const skillsEdit = document.getElementById("skillsEdit");
+  
+  skillsEdit.innerHTML += `
+            <div class="border bg-white p-2 rounded" style="height: auto;">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+
+                  <h5 class="mb-0">Project Title-Year: <strong id="${id}name">${type}</strong></h5>
+                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-dark btn-sm"  onclick="editskillsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deleteskillsList(this)">Delete</button>
+                    </div>
+            </div>
+        </div>
+        
+                      `;
+  document.getElementById("skillEditComment").classList.remove("hidden");
+
+
+}
+
+function deleteskillsList(buttonElS){
+  
+  const skillDeleteId = skills.find(skill => skill.id == buttonElS.parentElement.id);
+  const skillDeleteIndex = skills.findIndex(skill => skill.id == buttonElS.parentElement.id);
+
+
+  if(confirm(`Are you sure, you want to delete ${skillDeleteId.type} skill`)){
+    skills.splice(skillDeleteIndex, 1);
+    buttonElS.parentElement.parentElement.parentElement.remove();
+    if (skills.length === 0){
+      document.getElementById("skillEditComment").classList.add("hidden");
+    }
+
+    updateSkillList();
+  }
+
+}
+
+
+function editskillsList(buttonElS){
+  document.getElementById("skillUpdateButton").classList.remove("hidden");
+  document.getElementById("skillAddButton").classList.add("hidden");
+  const skillEditId = skills.find(skill => skill.id === buttonElS.parentElement.id);
+
+  document.getElementById("skilltypeF").value = skillEditId.type;
+  document.getElementById("skilldescriptionF").value = skillEditId.description;
+
+  document.getElementById("skillUpdateButton").onclick = function(){
+    confirmEditSkillList(skillEditId)
+  }
+}
+
+function confirmEditSkillList(skill){
+  skill.type = document.getElementById("skilltypeF").value;
+  skill.description = document.getElementById("skilldescriptionF").value;
+
+  updateSkillList();
+
+  document.getElementById(`${skill.id}name`).innerText = document.getElementById("skilltypeF").value;
+
+  document.getElementById("skilltypeF").value = "";
+  document.getElementById("skilldescriptionF").value = "";
+
+  document.getElementById("skillUpdateButton").classList.add("hidden");
+  document.getElementById("skillAddButton").classList.remove("hidden");
 
 }
 

@@ -179,7 +179,7 @@
                                     <button class="btn btn-dark btn-lg hidden" id="internupdatebutton">Update</button>
                                   
                                 <div>You must click the button to add this to LaTeX code.</div><br>
-                                <div class="form-group hidden" id="internEditComment">If you want to edit internship, click on edit <br> if you want to delete intrnship, click on delete</div>
+                                <div class="form-group hidden" id="internEditComment">If you want to edit an internship, click on edit. <br> If you want to delete an intrnship, click on delete.</div>
                                 <div class="form-group" id="internsEdit">
 
                                     
@@ -211,7 +211,7 @@
                                 <button class="btn btn-dark btn-lg hidden" id="projectupdatebutton">Update</button>                                
 
                                 <div>You must click the button to add this to LaTeX code.</div><br>
-                                <div class="form-group hidden" id="projectEditComment">If you want to edit project, click on edit <br> if you want to delete project, click on delete</div>
+                                <div class="form-group hidden" id="projectEditComment">If you want to edit a project, click on edit.<br> If you want to delete a project, click on delete.</div>
                                 <div class="form-group" id="projectsEdit">
 
                                     
@@ -235,8 +235,13 @@
                                     <textarea type="text" placeholder="Enter a breif description of your skill"
                                         class="form-control my-2" rows="1" id="skilldescriptionF"></textarea>
                                 </div>
-                                <button onclick="addNewSkill()" class="btn btn-dark btn-lg">Add This</button>
+                                <button onclick="addNewSkill()" class="btn btn-dark btn-lg" id="skillAddButton">Add This</button>
+                                <button class="btn btn-dark btn-lg hidden" id="skillUpdateButton">Update</button>
                                 <div>You must click the button to add this to LaTeX code.</div><br>
+                                <div class="form-group hidden" id="skillEditComment">If you want to edit a skill, click on edit.<br> If you want to delete a skill, click on delete.</div>
+                                <div id="skillsEdit">
+
+                                </div>
 
                                 <h3>Position of Responsibility</h3>
                                 <div>(If you dont want to include this, leave it blank and delete this section from the
@@ -251,7 +256,8 @@
                                     <input type="text" placeholder="Duration of POR Ex: May’22-Dec’22"
                                         class="form-control my-2" id="PORdurationF">
                                 </div>
-                                <button onclick="addNewPOR()" class="btn btn-dark btn-lg">Add This</button>
+                                <button onclick="addNewPOR()" class="btn btn-dark btn-lg" id="proAddButton">Add This</button>
+                                <button class="btn btn-dark btn-lg" id="proUpdateButton">Update</button>
                                 <div>You must click the button to add this to LaTeX code.</div><br>
 
                                 <h3>Achievements</h3>
