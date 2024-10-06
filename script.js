@@ -53,8 +53,8 @@ function addNewIntern() {
                   <h5 class="mb-0">Internship Title-Year: <strong id="${id}name">${title} ${year}</strong></h5>
                 </div>
                 <div class="col-md-4 text-right" id="${id}">
-                    <button class="btn btn-primary btn-sm"  onclick="editInternsList(this)">Edit</button>
-                    <button class="btn btn-primary btn-sm"  onclick="deleteInternsList(this)">Delete</button>
+                    <button class="btn btn-dark btn-sm"  onclick="editInternsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deleteInternsList(this)">Delete</button>
                     </div>
             </div>
         </div>
@@ -271,8 +271,8 @@ function addNewProject() {
                   <h5 class="mb-0">Project Title-Year: <strong id="${id}name">${title}-${year}</strong></h5>
                 </div>
                 <div class="col-md-4 text-right" id="${id}">
-                    <button class="btn btn-primary btn-sm"  onclick="editProjectsList(this)">Edit</button>
-                    <button class="btn btn-primary btn-sm"  onclick="deleteProjectsList(this)">Delete</button>
+                    <button class="btn btn-dark btn-sm"  onclick="editProjectsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deleteProjectsList(this)">Delete</button>
                     </div>
             </div>
         </div>
