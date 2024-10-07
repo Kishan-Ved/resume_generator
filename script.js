@@ -12,12 +12,14 @@ let achievements = [];
 const internCheckBox = document.getElementById("internshipCheckBox");
 internCheckBox.addEventListener("change", function(){
 if(internCheckBox.checked){
-document.getElementById("internshipDetailL").classList.remove("hidden");
+document.getElementById("internshipDetailL1").classList.remove("hidden");
+document.getElementById("internshipDetailL2").classList.remove("hidden");
 document.getElementById("internaddbutton").classList.remove("hidden");
 document.getElementById("internshipDetailR").classList.remove("hidden");
 
 }else{
-  document.getElementById("internshipDetailL").classList.add("hidden");
+  document.getElementById("internshipDetailL1").classList.add("hidden");
+  document.getElementById("internshipDetailL2").classList.add("hidden");
   document.getElementById("internaddbutton").classList.add("hidden");
   document.getElementById("internshipDetailR").classList.add("hidden");
   document.getElementById("userEnteredInternshipsLatex").innerText = "";
