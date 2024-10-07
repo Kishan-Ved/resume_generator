@@ -154,7 +154,9 @@
                                     class="form-control my-2" id="yeartenF">
 
                                 <div id="interns-container">
-                                    <h3>Internships</h3>
+
+                                    <h3>Internships <input type="checkbox" id="internshipCheckBox"> </h3>
+                                    <div id="internshipDetailL1" class="hidden">
                                     <div>(If you dont want to include this, leave it blank and delete this section from
                                         the LaTeX code generated.)</div>
                                     <div class="form-group" id="interns">
@@ -172,7 +174,11 @@
                                         <input type="text" placeholder="Duration of project Ex: May’22-Dec’22"
                                             class="form-control my-2" id="yearinternF">
                                     </div>
+                                    </div>
+
                                 </div>
+                                <div id="internshipDetailL2">
+
                                 <button onclick="addNewIntern()" class="btn btn-dark btn-lg hidden" id="internaddbutton">Add
                                     This</button>
 
@@ -186,6 +192,7 @@
                                 <div class="form-group" id="internsEdit">
 
                                     
+                                </div>
                                 </div>
 
 
@@ -453,6 +460,7 @@
                             </div>
 
                             <!--Internship details start here-->
+                            <div id="internshipDetailR">
                             <div class="row my-0" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">INTERNSHIPS</p>
                             </div>
@@ -497,6 +505,7 @@
                                     </div>
                                 </li>
                             </ul>
+                            </div>
 
                             <!-- <div class="row">
                                 <div class="col-8 p-0">
@@ -728,11 +737,13 @@ Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userE
 \bottomrule
 \end{tabular}
 
+<span id="userEnteredInternshipsLatex">
 \resheading{\textbf{ INTERNSHIPS} }
 \vspace{-0.4cm}
 \begin{itemize}\itemsep\isep
 <span id="userEnteredInternships">DELETE THIS</span>
 \end{itemize}
+</span>
 
 \resheading{\textbf{ PROJECTS} }
 \vspace{-0.4cm}
