@@ -1,6 +1,8 @@
 import secrets from "./secrets.json" with {type: 'json'}
 // console.log('loaded module')
 
+const MODEL = 'llama-3.1-8b-instant'
+
 // function using groq api for enhancing description text for internships and projects
 async function enhanceDescription(section) {
 	let element1
@@ -39,7 +41,7 @@ async function enhanceDescription(section) {
                         content: `Line 1: ${description}\n\nLine 2: ${description2}`
                     }
                 ],
-                model: 'llama-3.1-8b-instant',
+                model: MODEL,
                 temperature: 1,
                 // max_tokens: 1024,
                 top_p: 1,
