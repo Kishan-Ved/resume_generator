@@ -428,10 +428,12 @@ function addNewSkill() {
   // Get values from the form
   let type = document.getElementById("skilltypeF").value;
   let description = document.getElementById("skilldescriptionF").value;
+  let id = `${type}-${Date.now()}`;
 
 
   // Create new internship object and add to array
   skills.push({
+    id: id,
     type: type,
     description: description
   });
@@ -442,6 +444,75 @@ function addNewSkill() {
   // Clear form fields
   document.getElementById("skilltypeF").value = "";
   document.getElementById("skilldescriptionF").value = "";
+
+
+  const skillsEdit = document.getElementById("skillsEdit");
+  
+  skillsEdit.innerHTML += `
+            <div class="border bg-white p-2 rounded" style="height: auto;">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+
+                  <h5 class="mb-0">Skill type: <strong id="${id}name">${type}</strong></h5>
+                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-dark btn-sm"  onclick="editskillsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deleteskillsList(this)">Delete</button>
+                    </div>
+            </div>
+        </div>
+        
+                      `;
+  document.getElementById("skillEditComment").classList.remove("hidden");
+
+
+}
+
+function deleteskillsList(buttonElS){
+  
+  const skillDeleteId = skills.find(skill => skill.id == buttonElS.parentElement.id);
+  const skillDeleteIndex = skills.findIndex(skill => skill.id == buttonElS.parentElement.id);
+
+
+  if(confirm(`Are you sure, you want to delete ${skillDeleteId.type} skill`)){
+    skills.splice(skillDeleteIndex, 1);
+    buttonElS.parentElement.parentElement.parentElement.remove();
+    if (skills.length === 0){
+      document.getElementById("skillEditComment").classList.add("hidden");
+    }
+
+    updateSkillList();
+  }
+
+}
+
+
+function editskillsList(buttonElS){
+  document.getElementById("skillUpdateButton").classList.remove("hidden");
+  document.getElementById("skillAddButton").classList.add("hidden");
+  const skillEditId = skills.find(skill => skill.id === buttonElS.parentElement.id);
+
+  document.getElementById("skilltypeF").value = skillEditId.type;
+  document.getElementById("skilldescriptionF").value = skillEditId.description;
+
+  document.getElementById("skillUpdateButton").onclick = function(){
+    confirmEditSkillList(skillEditId)
+  }
+}
+
+function confirmEditSkillList(skill){
+  skill.type = document.getElementById("skilltypeF").value;
+  skill.description = document.getElementById("skilldescriptionF").value;
+
+  updateSkillList();
+
+  document.getElementById(`${skill.id}name`).innerText = document.getElementById("skilltypeF").value;
+
+  document.getElementById("skilltypeF").value = "";
+  document.getElementById("skilldescriptionF").value = "";
+
+  document.getElementById("skillUpdateButton").classList.add("hidden");
+  document.getElementById("skillAddButton").classList.remove("hidden");
 
 }
 
@@ -489,9 +560,11 @@ function addNewPOR() {
   let PORDescription = document.getElementById("PORdescriptionF").value;
   let PORDescription2 = document.getElementById("PORdescription2F").value;
   let PORDuration = document.getElementById("PORdurationF").value;
+  let id = `${PORName}-${Date.now()}`
 
   // Create a new POR object and add it to the array
   PORs.push({
+    id: id,
     name: PORName,
     description: PORDescription,
     description2: PORDescription2,
@@ -506,7 +579,86 @@ function addNewPOR() {
   document.getElementById("PORdescriptionF").value = "";
   document.getElementById("PORdescription2F").value = "";
   document.getElementById("PORdurationF").value = "";
+
+
+  const PORsEdit = document.getElementById("PORsEdit");
+  
+  PORsEdit.innerHTML += `
+            <div class="border bg-white p-2 rounded" style="height: auto;">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+
+                  <h5 class="mb-0">POR name-duration: <strong id="${id}name">${PORName}-${PORDuration}</strong></h5>
+                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-dark btn-sm"  onclick="editPORsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deletePORsList(this)">Delete</button>
+                    </div>
+            </div>
+        </div>
+        
+                      `;
+  document.getElementById("POREditComment").classList.remove("hidden");
+
 }
+
+
+function deletePORsList(buttonElPOR){
+  
+  const PORDeleteId = PORs.find(por => por.id == buttonElPOR.parentElement.id);
+  const PORDeleteIndex = PORs.findIndex(por => por.id == buttonElPOR.parentElement.id);
+
+
+  if(confirm(`Are you sure, you want to delete ${PORDeleteId.type} POR`)){
+    PORs.splice(PORDeleteIndex, 1);
+    buttonElPOR.parentElement.parentElement.parentElement.remove();
+    if (PORs.length === 0){
+      document.getElementById("POREditComment").classList.add("hidden");
+    }
+
+  updatePORList();
+  }
+
+}
+
+
+function editPORsList(buttonElPOR){
+  document.getElementById("PORUpdateButton").classList.remove("hidden");
+  document.getElementById("PORAddButton").classList.add("hidden");
+  const POREditId = PORs.find(POR => POR.id === buttonElPOR.parentElement.id);
+
+  document.getElementById("PORNameF").value = POREditId.name;
+  document.getElementById("PORdescriptionF").value = POREditId.description;
+  document.getElementById("PORdescription2F").value = POREditId.description2;
+  document.getElementById("PORdurationF").value = POREditId.duration;
+
+  document.getElementById("PORUpdateButton").onclick = function(){
+    confirmEditPORList(POREditId)
+  }
+}
+
+function confirmEditPORList(POR){
+  POR.name = document.getElementById("PORNameF").value;
+  POR.description = document.getElementById("PORdescriptionF").value;
+  POR.description2 = document.getElementById("PORdescription2F").value;
+  POR.duration = document.getElementById("PORdurationF").value;
+
+  updatePORList();
+
+  document.getElementById(`${POR.id}name`).innerText = `${document.getElementById("PORNameF").value} ${document.getElementById("PORdurationF").value}`;
+
+  document.getElementById("PORNameF").value = "";
+  document.getElementById("PORdescriptionF").value = "";
+  document.getElementById("PORdescription2F").value = "";
+  document.getElementById("PORdurationF").value = "";
+
+  document.getElementById("PORUpdateButton").classList.add("hidden");
+  document.getElementById("PORAddButton").classList.remove("hidden");
+
+}
+
+
+
 
 // Function to update the POR list on the webpage
 function updatePORList() {
@@ -558,10 +710,12 @@ function updatePORList() {
 // function to add a new achievement
 function addNewAchievement() {
   let achievementName = document.getElementById("achievementNameF").value;
+  let id = `${achievementName}-${Date.now()}`;
 
   if (achievementName) {
     // pushing the new achievement into the array
     achievements.push({
+      id: id,
       name: achievementName,
     });
 
@@ -570,8 +724,80 @@ function addNewAchievement() {
 
     // update the achievements list
     updateAchievementsList();
+  
+
+
+  const achievementsEdit = document.getElementById("achievementsEdit");
+  
+  achievementsEdit.innerHTML += `
+            <div class="border bg-white p-2 rounded" style="height: auto;">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+
+                  <h5 class="mb-0">achievement name: <strong id="${id}name">${achievementName}</strong></h5>
+                </div>
+                <div class="col-md-4 text-right" id="${id}">
+                    <button class="btn btn-dark btn-sm"  onclick="editachievementsList(this)">Edit</button>
+                    <button class="btn btn-dark btn-sm"  onclick="deleteachievementsList(this)">Delete</button>
+                    </div>
+            </div>
+        </div>
+        
+                      `;
+  document.getElementById("achievementEditComment").classList.remove("hidden");
   }
 }
+
+
+function deleteachievementsList(buttonElA){
+  
+  const achievementDeleteId = achievements.find(achievement => achievement.id == buttonElA.parentElement.id);
+  const achievementDeleteIndex = achievements.findIndex(achievement => achievement.id == buttonElA.parentElement.id);
+
+
+  if(confirm(`Are you sure, you want to delete ${achievementDeleteId.name} achievement`)){
+    achievements.splice(achievementDeleteIndex, 1);
+    buttonElA.parentElement.parentElement.parentElement.remove();
+    if (achievements.length === 0){
+      document.getElementById("achievementEditComment").classList.add("hidden");
+    }
+
+
+    updateAchievementsList();
+  }
+
+}
+
+
+function editachievementsList(buttonElA){
+  document.getElementById("achievementUpdateButton").classList.remove("hidden");
+  document.getElementById("achievementAddButton").classList.add("hidden");
+  const achievementEditId = achievements.find(achievement => achievement.id === buttonElA.parentElement.id);
+
+  document.getElementById("achievementNameF").value = achievementEditId.name;
+  
+  document.getElementById("achievementUpdateButton").onclick = function(){
+    confirmEditachievementList(achievementEditId)
+  }
+}
+
+function confirmEditachievementList(achievement){
+  achievement.name = document.getElementById("achievementNameF").value;
+  
+  updateAchievementsList();
+
+  document.getElementById(`${achievement.id}name`).innerText = document.getElementById("achievementNameF").value;
+
+  document.getElementById("achievementNameF").value = "";
+  
+
+  document.getElementById("achievementUpdateButton").classList.add("hidden");
+  document.getElementById("achievementAddButton").classList.remove("hidden");
+
+}
+
+
+
 
 // function to update the achievements list on the webpage
 function updateAchievementsList() {
