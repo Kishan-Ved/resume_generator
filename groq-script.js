@@ -21,6 +21,18 @@ async function enhanceDescription(section) {
 	const description = element1.value;
 	const description2 = element2.value;
 
+	// handle empty fields
+	if(description === '' || description2 === '') {
+		window.alert('Please fill in both fields')
+		return
+	}
+
+	// set placeholder as 'enhancing'
+	element1.value = ""
+	element2.value = ""
+	element1.placeholder = "Enhancing Text..."
+	element2.placeholder = "Enhancing Text..."
+
 	// console.log(description, description2)
 	const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
@@ -61,6 +73,8 @@ async function enhanceDescription(section) {
 		// return JSON.parse(data.choices[0].message?.content);
 	} else {
 		console.error(await response.json());
+		element1.value = ""
+		element2.value = ""
 	}
 }
 
