@@ -66,7 +66,7 @@ async function enhanceDescription(section) {
 		const data = await response.json();
 		const answer = data.choices[0].message?.content
 		const enhancedLines = answer.split('\n').filter(e=> e != "")
-		console.log(enhancedLines)
+		// console.log(enhancedLines)
 		element1.value = enhancedLines[0]
 		element2.value = enhancedLines[1]
 
