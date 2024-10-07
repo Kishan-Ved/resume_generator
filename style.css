@@ -1,3 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1em;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1rem;
+    color: var(--second-bg-color);
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.5s ease;
+    margin: 5px;
+}
+
+.btn:hover {
+    box-shadow: none;
+    background: var(--main-color);
+    color: var(--bg-color);
+}
+
+#name {
+    color: var(--main-color);
+}
+
 #Cvtemplate {
     padding: 2px;
 }
@@ -23,7 +64,8 @@ body {
 }
 
 .cv-form {
-    background-color: gray;
+    background: var(--bg-color);
+    color: var(--text-color);
     height: 100vh;
     overflow-y: scroll;
 }
@@ -34,7 +76,7 @@ body {
 
 /* Footer styling */
 .footer {
-    background-color: #333;
+    background-color: var(--second-bg-color);
     color: white;
     padding: 40px 20px;
     text-align: center;
