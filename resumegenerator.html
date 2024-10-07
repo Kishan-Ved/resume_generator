@@ -154,7 +154,8 @@
                                     class="form-control my-2" id="yeartenF">
 
                                 <div id="interns-container">
-                                    <h3>Internships</h3>
+                                    <h3>Internships <input type="checkbox" id="internshipCheckBox"> </h3>
+                                    <div id="internshipDetailL" class="hidden">
                                     <div>(If you dont want to include this, leave it blank and delete this section from
                                         the LaTeX code generated.)</div>
                                     <div class="form-group" id="interns">
@@ -184,7 +185,7 @@
 
                                     
                                 </div>
-
+                                </div>
 
                                 <div id="projects-container">
                                     <h3>Projects</h3>
@@ -448,6 +449,7 @@
                             </div>
 
                             <!--Internship details start here-->
+                            <div id="internshipDetailR">
                             <div class="row my-0" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">INTERNSHIPS</p>
                             </div>
@@ -492,6 +494,7 @@
                                     </div>
                                 </li>
                             </ul>
+                            </div>
 
                             <!-- <div class="row">
                                 <div class="col-8 p-0">
@@ -722,12 +725,13 @@ Class XII  & \textit{Physics, Chemistry, Maths} & <span id="userEnteredInstitute
 Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userEnteredYearTen">Branch</span> & <span id="userEnteredMarksTen">Branch</span>\\
 \bottomrule
 \end{tabular}
-
+<span id="userEnteredInternshipsLatex">
 \resheading{\textbf{ INTERNSHIPS} }
 \vspace{-0.4cm}
 \begin{itemize}\itemsep\isep
 <span id="userEnteredInternships">DELETE THIS</span>
 \end{itemize}
+</span>
 
 \resheading{\textbf{ PROJECTS} }
 \vspace{-0.4cm}

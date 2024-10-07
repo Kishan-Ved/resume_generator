@@ -9,7 +9,20 @@ let achievements = [];
 
 
 // to show add this for project
+const internCheckBox = document.getElementById("internshipCheckBox");
+internCheckBox.addEventListener("change", function(){
+if(internCheckBox.checked){
+document.getElementById("internshipDetailL").classList.remove("hidden");
 document.getElementById("internaddbutton").classList.remove("hidden");
+document.getElementById("internshipDetailR").classList.remove("hidden");
+
+}else{
+  document.getElementById("internshipDetailL").classList.add("hidden");
+  document.getElementById("internaddbutton").classList.add("hidden");
+  document.getElementById("internshipDetailR").classList.add("hidden");
+  document.getElementById("userEnteredInternshipsLatex").innerText = "";
+}
+});
 
 function addNewIntern() {
   // Get values from the form
