@@ -7,7 +7,7 @@ let achievements = [];
 
 
 
-
+document.getElementById("userEnteredInternshipsLatex").innerHTML = "";
 // to show add this for project
 const internCheckBox = document.getElementById("internshipCheckBox");
 document.getElementById("internshipDetailR").classList.add("hidden");
@@ -32,7 +32,7 @@ document.getElementById("internEditComment").classList.add("hidden");
   document.getElementById("internshipDetailL1").classList.add("hidden");
   document.getElementById("internshipDetailL2").classList.add("hidden");
   document.getElementById("internshipDetailR").classList.add("hidden");
-  document.getElementById("userEnteredInternshipsLatex").innerText = "";
+  document.getElementById("userEnteredInternshipsLatex").innerHTML = "";
 }
 });
 
