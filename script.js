@@ -7,9 +7,34 @@ let achievements = [];
 
 
 
-
+document.getElementById("userEnteredInternshipsLatex").innerHTML = "";
 // to show add this for project
+const internCheckBox = document.getElementById("internshipCheckBox");
+document.getElementById("internshipDetailR").classList.add("hidden");
+internCheckBox.addEventListener("change", function(){
+if(internCheckBox.checked){
+document.getElementById("internshipDetailL1").classList.remove("hidden");
+document.getElementById("internshipDetailL2").classList.remove("hidden");
 document.getElementById("internaddbutton").classList.remove("hidden");
+document.getElementById("internshipDetailR").classList.remove("hidden");
+document.getElementById("userEnteredInternshipsLatex").innerHTML = `
+  \\resheading{\\textbf{ INTERNSHIPS} }
+  \\vspace{-0.4cm}
+  \\begin{itemize}\\itemsep\\isep
+  <span id="userEnteredInternships">DELETE THIS</span>
+  \\end{itemize}
+  `;
+
+document.getElementById("internsEdit").innerHTML = "";
+document.getElementById("internEditComment").classList.add("hidden");
+
+}else{
+  document.getElementById("internshipDetailL1").classList.add("hidden");
+  document.getElementById("internshipDetailL2").classList.add("hidden");
+  document.getElementById("internshipDetailR").classList.add("hidden");
+  document.getElementById("userEnteredInternshipsLatex").innerHTML = "";
+}
+});
 
 function addNewIntern() {
   // Get values from the form
