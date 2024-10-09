@@ -1,3 +1,7 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #Cvtemplate {
     padding: 2px;
 }
@@ -9,7 +13,6 @@
 }
 
 .cv-template {
-    font-family: 'Times New Roman', 'Times', 'serif';
     height: 100vh;
     overflow-y: scroll;
     display: block;
@@ -18,12 +21,10 @@
 body {
     padding: 2px;
     color: black;
-    font-family: 'Times New Roman', Times, serif;
-
 }
 
 .cv-form {
-    background-color: gray;
+    background-color: rgb(217, 217, 217);
     height: 100vh;
     overflow-y: scroll;
 }
@@ -33,12 +34,18 @@ body {
 } */
 
 /* Footer styling */
+
+.header-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .footer {
     background-color: #333;
     color: white;
     padding: 40px 20px;
     text-align: center;
-    font-family: Arial, sans-serif;
 }
 
 .footer h2 {
