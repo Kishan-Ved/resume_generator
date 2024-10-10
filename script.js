@@ -16,6 +16,7 @@ if(internCheckBox.checked){
 document.getElementById("internshipDetailL1").classList.remove("hidden");
 document.getElementById("internshipDetailL2").classList.remove("hidden");
 document.getElementById("internaddbutton").classList.remove("hidden");
+document.getElementById("internenhancebutton").classList.remove("hidden");
 document.getElementById("internshipDetailR").classList.remove("hidden");
 document.getElementById("userEnteredInternshipsLatex").innerHTML = `
   \\resheading{\\textbf{ INTERNSHIPS} }

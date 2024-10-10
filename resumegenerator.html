@@ -183,6 +183,10 @@
                                 <button onclick="addNewIntern()" class="btn btn-dark btn-lg hidden" id="internaddbutton">Add
                                     This</button>
 
+                                <button onclick="enhanceDescription('internship')" class="btn btn-dark btn-lg hidden" id="internenhancebutton">Enhance using AI</button>
+                                <div>You must click the button to add this to LaTeX code.</div><br>
+
+
                                     <button class="btn btn-dark btn-lg hidden" id="internupdatebutton">Update</button>
                                   
                                 <div id="internshipDetailR">You must click the button to add this to LaTeX code.</div><br>
@@ -195,6 +199,7 @@
                                     
                                 </div>
                                 </div>
+
 
 
                                 <div id="projects-container">
@@ -219,6 +224,9 @@
 
                                 <button onclick="addNewProject()" class="btn btn-dark btn-lg" id="projectaddbutton">Add
                                     This</button>
+
+                                    <button onclick="enhanceDescription('project')" class="btn btn-dark btn-lg">Enhance using AI</button>
+
                                 <button class="btn btn-dark btn-lg hidden" id="projectupdatebutton">Update</button>                                
 
                                 <div>You must click the button to add this to LaTeX code.</div><br>
@@ -822,6 +830,7 @@ Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userE
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script type="module" src="groq-script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     
