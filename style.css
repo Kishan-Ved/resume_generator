@@ -12,6 +12,7 @@
     font-family: 'Times New Roman', 'Times', 'serif';
     height: 100vh;
     overflow-y: scroll;
+    display: block;
 }
 
 body {
@@ -43,6 +44,10 @@ body {
 .footer h2 {
     margin-bottom: 10px;
     font-size: 1.5rem;
+}
+
+.hidden {
+    display: none;
 }
 
 .footer-content {
@@ -102,7 +107,12 @@ body {
     margin: 5px 0;
 }
 
-@media (min-width: 768px) {
+
+.hidden{
+    display: none;
+}
+
+@media (max-width: 768px) {
     .footer-content {
         flex-direction: row;
         justify-content: space-between;
@@ -120,6 +130,17 @@ body {
     .footer-follow {
         margin-bottom: 40px;
     }
+}
+
+@media print {
+    #cv-template{
+        page-break-inside: avoid;
+    }
+}
+
+.attribute {
+    position: absolute;
+    bottom: 10px;
 }
 
 @media (max-width: 767px) {
