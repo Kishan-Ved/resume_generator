@@ -70,6 +70,9 @@ async function enhanceDescription(section) {
 		element1.value = enhancedLines[0]
 		element2.value = enhancedLines[1]
 
+		element1.placeholder = "Enter the description line 1"
+		element2.placeholder = "Enter the description line 2"
+
 		// return JSON.parse(data.choices[0].message?.content);
 	} else {
 		console.error(await response.json());
