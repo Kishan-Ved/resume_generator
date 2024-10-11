@@ -667,13 +667,6 @@ function addProjectSection() {
   document.getElementById("projectaddbutton").classList.remove("hidden");
 }
 
-function deletePhDSection(){
-  document.getElementById("PhDVisible").classList.add("hidden");
-  document.getElementById("institutephdF").classList.add("hidden");
-  document.getElementById("specializationphdF").classList.add("hidden");
-  document.getElementById("marksphdF").classList.add("hidden");
-  document.getElementById("yearphdF").classList.add("hidden");
-}
 
 // Initialize an empty array to store PORs
 
