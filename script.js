@@ -7,6 +7,50 @@ let achievements = [];
 
 
 
+
+
+document.getElementById("phdDiv").classList.add("hidden");
+document.getElementById("phdDivR").classList.add("hidden");
+const phdCheckbox = document.getElementById("phdCheckbox");
+phdCheckbox.addEventListener("change", () => {
+  if(phdCheckbox.checked){
+    document.getElementById("phdDiv").classList.remove("hidden");
+    document.getElementById("institutephdF").value = "";
+    document.getElementById("specializationphdF").value = "";
+    document.getElementById("marksphdF").value = "";
+    document.getElementById("yearphdF").value = "";
+    document.getElementById("phdDivR").classList.remove("hidden");
+  }else{
+    document.getElementById("phdDiv").classList.add("hidden");
+    document.getElementById("institutephdF").value = "";
+    document.getElementById("specializationphdF").value = "";
+    document.getElementById("marksphdF").value = "";
+    document.getElementById("yearphdF").value = "";
+    document.getElementById("phdDivR").classList.add("hidden");
+  }
+})
+
+document.getElementById("mtechDiv").classList.add("hidden");
+document.getElementById("mtechDivR").classList.add("hidden");
+const mtechCheckbox = document.getElementById("mtechCheckbox");
+mtechCheckbox.addEventListener("change", () => {
+  if(mtechCheckbox.checked){
+    document.getElementById("mtechDiv").classList.remove("hidden");
+    document.getElementById("institutemtechF").value = "";
+    document.getElementById("specializationmtechF").value = "";
+    document.getElementById("marksmtechF").value = "";
+    document.getElementById("yearmtechF").value = "";
+    document.getElementById("mtechDivR").classList.remove("hidden");
+  }else{
+    document.getElementById("mtechDiv").classList.add("hidden");
+    document.getElementById("institutemtechF").value = "";
+    document.getElementById("specializationmtechF").value = "";
+    document.getElementById("marksmtechF").value = "";
+    document.getElementById("yearmtechF").value = "";
+    document.getElementById("mtechDivR").classList.add("hidden");
+  }
+})
+
 document.getElementById("userEnteredInternshipsLatex").innerHTML = "";
 // to show add this for project
 const internCheckBox = document.getElementById("internshipCheckBox");
@@ -631,29 +675,6 @@ function deletePhDSection(){
   document.getElementById("yearphdF").classList.add("hidden");
 }
 
-function addPhDSection() {
-  document.getElementById("PhDVisible").classList.remove("hidden");
-  document.getElementById("institutephdF").classList.remove("hidden");
-  document.getElementById("specializationphdF").classList.remove("hidden");
-  document.getElementById("marksphdF").classList.remove("hidden");
-  document.getElementById("yearphdF").classList.remove("hidden");
-}
-
-function deleteMTechSection(){
-  document.getElementById("MTechVisible").classList.add("hidden");
-  document.getElementById("institutemtechF").classList.add("hidden");
-  document.getElementById("specializationmtechF").classList.add("hidden");
-  document.getElementById("marksmtechF").classList.add("hidden");
-  document.getElementById("yearmtechF").classList.add("hidden");
-}
-
-function addMTechSection() {
-  document.getElementById("MTechVisible").classList.remove("hidden");
-  document.getElementById("institutemtechF").classList.remove("hidden");
-  document.getElementById("specializationmtechF").classList.remove("hidden");
-  document.getElementById("marksmtechF").classList.remove("hidden");
-  document.getElementById("yearmtechF").classList.remove("hidden");
-}
 // Initialize an empty array to store PORs
 
 
