@@ -108,9 +108,9 @@
 
 
                                 <h3>Academic Details</h3>
-                                <label for="name" class="fw-bold my-2">PhD</label><br>
-                                (If you don't want to add this, leave the institute field blank. It won't be included in
-                                the LaTeX code, though it is seen as blank in the preview.)
+                                <label for="name" class="fw-bold my-2">PhD&nbsp;&nbsp;&nbsp;</label><input type="checkbox" id="phdCheckbox" style="accent-color: black;"></input><br>
+                                <div id="phdDiv">
+                                (If you don't want to add this, untick the checkbox above.)
                                 <input type="text" placeholder="Enter Institute name" class="form-control my-2"
                                     id="institutephdF">
                                 <input type="text" placeholder="Enter Specialization" class="form-control my-2"
@@ -118,10 +118,12 @@
                                 <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="marksphdF">
                                 <input type="text" placeholder="Year of completion. Ex: 2018-2019"
                                     class="form-control my-2" id="yearphdF">
+                                </div>
 
-                                <label for="name" class="fw-bold my-2">M.Tech</label><br>
-                                (If you don't want to add this, leave the institute field blank. It won't be included in
-                                the LaTeX code, though it is seen as blank in the preview.)
+                                
+                                <label for="name" class="fw-bold my-2">M.Tech&nbsp;&nbsp;&nbsp;</label><input type="checkbox" id="mtechCheckbox" style="accent-color: black;"></input><br>
+                                <div id="mtechDiv">
+                                    (If you don't want to add this, untick the checkbox above.)
                                 <input type="text" placeholder="Enter Institute name" class="form-control my-2"
                                     id="institutemtechF">
                                 <input type="text" placeholder="Enter Specialization" class="form-control my-2"
@@ -129,6 +131,7 @@
                                 <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="marksmtechF">
                                 <input type="text" placeholder="Year of completion. Ex: 2018-2019"
                                     class="form-control my-2" id="yearmtechF">
+                                </div>
 
                                 <label for="name" class="fw-bold my-2">B.Tech</label>
                                 <input type="text" placeholder="Enter Institute Name" class="form-control my-2"
@@ -393,7 +396,7 @@
                                 </div>
                                 <hr class="my-0">
                             </div>
-                            <div class="row">
+                            <div class="row" id="phdDivR">
                                 <div class="col-2 p-0">
                                     <p class="text-sm lh-sm my-0">Ph.D</p>
                                 </div>
@@ -408,7 +411,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row" id="mtechDivR">
                                 <div class="col-2 p-0">
                                     <p class="text-sm lh-sm my-0">M.Tech</p>
                                 </div>
