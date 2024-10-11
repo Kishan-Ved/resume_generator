@@ -575,7 +575,85 @@ function updateSkillList() {
   }
 }
 
+function deletePORSection() {
+  document.getElementById("PORvisible").classList.add("hidden");
+  document.getElementById("PORs").classList.add("hidden");
+  document.getElementById("PORAddButton").classList.add("hidden");
+}
 
+function addPORSection() {
+  document.getElementById("PORvisible").classList.remove("hidden");
+  document.getElementById("PORs").classList.remove("hidden");
+  document.getElementById("PORAddButton").classList.remove("hidden");
+}
+
+function deleteAchievementSection() {
+  document.getElementById("AchievementsVisible").classList.add("hidden");
+  document.getElementById("achievements").classList.add("hidden");
+  document.getElementById("achievementAddButton").classList.add("hidden");
+}
+
+function addAchievementSection() {
+  document.getElementById("AchievementsVisible").classList.remove("hidden");
+  document.getElementById("achievements").classList.remove("hidden");
+  document.getElementById("achievementAddButton").classList.remove("hidden");
+}
+
+function deleteSkillSection() {
+  document.getElementById("skillVisible").classList.add("hidden");
+  document.getElementById("skills").classList.add("hidden");
+  document.getElementById("skillAddButton").classList.add("hidden");
+}
+
+function addSkillSection() {
+  document.getElementById("skillVisible").classList.remove("hidden");
+  document.getElementById("skills").classList.remove("hidden");
+  document.getElementById("skillAddButton").classList.remove("hidden");
+}
+
+function deleteProjectSection() {
+  document.getElementById("projectVisible").classList.add("hidden");
+  document.getElementById("projects").classList.add("hidden");
+  document.getElementById("projectaddbutton").classList.add("hidden");
+}
+
+function addProjectSection() {
+  document.getElementById("projectVisible").classList.remove("hidden");
+  document.getElementById("projects").classList.remove("hidden");
+  document.getElementById("projectaddbutton").classList.remove("hidden");
+}
+
+function deletePhDSection(){
+  document.getElementById("PhDVisible").classList.add("hidden");
+  document.getElementById("institutephdF").classList.add("hidden");
+  document.getElementById("specializationphdF").classList.add("hidden");
+  document.getElementById("marksphdF").classList.add("hidden");
+  document.getElementById("yearphdF").classList.add("hidden");
+}
+
+function addPhDSection() {
+  document.getElementById("PhDVisible").classList.remove("hidden");
+  document.getElementById("institutephdF").classList.remove("hidden");
+  document.getElementById("specializationphdF").classList.remove("hidden");
+  document.getElementById("marksphdF").classList.remove("hidden");
+  document.getElementById("yearphdF").classList.remove("hidden");
+}
+
+function deleteMTechSection(){
+  document.getElementById("MTechVisible").classList.add("hidden");
+  document.getElementById("institutemtechF").classList.add("hidden");
+  document.getElementById("specializationmtechF").classList.add("hidden");
+  document.getElementById("marksmtechF").classList.add("hidden");
+  document.getElementById("yearmtechF").classList.add("hidden");
+}
+
+function addMTechSection() {
+  document.getElementById("MTechVisible").classList.remove("hidden");
+  document.getElementById("institutemtechF").classList.remove("hidden");
+  document.getElementById("specializationmtechF").classList.remove("hidden");
+  document.getElementById("marksmtechF").classList.remove("hidden");
+  document.getElementById("yearmtechF").classList.remove("hidden");
+}
 // Initialize an empty array to store PORs
 
 

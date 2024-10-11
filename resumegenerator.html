@@ -108,7 +108,10 @@
 
 
                                 <h3>Academic Details</h3>
-                                <label for="name" class="fw-bold my-2">PhD</label><br>
+                                <label for="name" class="fw-bold my-2">PhD</label>
+                                <button onclick="deletePhDSection()">Delete Section </button>
+                                <button onclick="addPhDSection()">Add Section </button>
+                                <br>
                                 (If you don't want to add this, leave the institute field blank. It won't be included in
                                 the LaTeX code, though it is seen as blank in the preview.)
                                 <input type="text" placeholder="Enter Institute name" class="form-control my-2"
@@ -118,8 +121,12 @@
                                 <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="marksphdF">
                                 <input type="text" placeholder="Year of completion. Ex: 2018-2019"
                                     class="form-control my-2" id="yearphdF">
+                                <br>
 
                                 <label for="name" class="fw-bold my-2">M.Tech</label><br>
+                                <button onclick="deleteMTechSection()">Delete Section </button>
+                                <button onclick="addMTechSection()">Add Section </button>
+                                <br>
                                 (If you don't want to add this, leave the institute field blank. It won't be included in
                                 the LaTeX code, though it is seen as blank in the preview.)
                                 <input type="text" placeholder="Enter Institute name" class="form-control my-2"
@@ -204,6 +211,8 @@
 
                                 <div id="projects-container">
                                     <h3>Projects</h3>
+                                    <button onclick="deleteProjectSection()">Delete Section </button>
+                                    <button onclick="addProjectSection()">Add Section </button>
                                     <div>(If you dont want to include this, leave it blank and delete this section from
                                         the LaTeX code generated.)</div>
                                     <div class="form-group" id="projects">
@@ -247,6 +256,8 @@
                                 <!-- edit icon fo project end-->
 
                                 <h3>Skills</h3>
+                                <button onclick="deleteSkillSection()">Delete Section </button>
+                                <button onclick="addSkillSection()">Add Section </button>
                                 <div>(If you dont want to include this, leave it blank and delete this section from the
                                     LaTeX code generated.)</div>
                                 <div class="form-group" id="skills">
@@ -265,6 +276,8 @@
                                 </div>
 
                                 <h3>Position of Responsibility</h3>
+                                <button  onclick="deletePORSection()">Delete Section </button>
+                                <button  onclick="addPORSection()">Add Section </button>
                                 <div>(If you don't want to include this, leave it blank and delete this section from the
                                     LaTeX code generated.)</div>
                                 <div class="form-group" id="PORs">
@@ -287,6 +300,8 @@
 
 
                                 <h3>Achievements</h3>
+                                <button  onclick="deleteAchievementSection()">Delete Section </button>
+                                <button  onclick="addAchievementSection()">Add Section </button>
                                 <div>(If you don't want to include this, leave it blank and delete this section from the LaTeX code generated.)</div>
                                 <div class="form-group" id="achievements">
                                 <input type="text" placeholder="Name your achievement" class="form-control my-2" id="achievementNameF">
@@ -394,7 +409,7 @@
                                 <hr class="my-0">
                             </div>
                             <div class="row">
-                                <div class="col-2 p-0">
+                                <div class="col-2 p-0" id="PhDVisible">
                                     <p class="text-sm lh-sm my-0">Ph.D</p>
                                 </div>
                                 <div class="col-6 p-0">
@@ -409,7 +424,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-2 p-0">
+                                <div class="col-2 p-0" id="MTechVisible">
                                     <p class="text-sm lh-sm my-0">M.Tech</p>
                                 </div>
                                 <div class="col-6 p-0">
@@ -532,7 +547,7 @@
                             </div> -->
 
                             <!--Info of Projects-->
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" id="projectVisible" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">PROJECTS</p>
                             </div>
                             <ul style="list-style-type:none;" class="my-0 p-0" id="projectlist">
@@ -594,7 +609,7 @@
 
                             <!--Skill set listed here-->
                             
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" id="skillVisible" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">SKILLS</p>
                             </div>
                             <ul style="list-style-type:none;" class="my-0 p-0" id="skillList">
@@ -625,7 +640,7 @@
                             </div> -->
 
                             <!--POR and descripts-->
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" id="PORvisible" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">POSITIONS OF RESPONSIBILITY</p>
                             </div>
 
@@ -653,7 +668,7 @@
                             </ul>
 
                             <!--Achievements section-->
-                            <div class="row my-0" style="background-color: lightgray;">
+                            <div class="row my-0" id="AchievementsVisible" style="background-color: lightgray;">
                             <p class="fw-bold my-0 p-0">ACHIEVEMENTS</p>
                             </div>
                             <ul style="list-style-type:none;" class="my-0 p-0" id="achievementList">
