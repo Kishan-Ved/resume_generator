@@ -1,3 +1,4 @@
+/* Added the Universal font family */
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -34,12 +35,6 @@ body {
 } */
 
 /* Footer styling */
-
-.header-head {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .footer {
     background-color: #333;
