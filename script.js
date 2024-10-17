@@ -283,8 +283,91 @@ function escapeLaTeX(text) {
 }
 
 
+const projectCheckBox = document.getElementById("projectCheckBox");
+projectCheckBox.addEventListener("change", function(){
+if(projectCheckBox.checked){
+document.getElementById("projects").classList.remove("hidden");
+document.getElementById("projectaddbutton").classList.remove("hidden");
+document.getElementById("enhanceUsingAIProject").classList.remove("hidden");
+document.getElementById("projectVisible").classList.remove("hidden");
+document.getElementById("userEnteredProjects").innerHTML = `
+  \\resheading{\\textbf{ PROJECTS} }
+  \\vspace{-0.4cm}
+  \\begin{itemize}\\itemsep\\isep
+  <span id="userEnteredProjects">DELETE THIS</span>
+  \\end{itemize}
+  `;
 
+}else{
+  document.getElementById("projects").classList.add("hidden");
+  document.getElementById("projectaddbutton").classList.add("hidden");
+  document.getElementById("enhanceUsingAIProject").classList.add("hidden");
+  document.getElementById("projectVisible").classList.add("hidden");
+}
+});
 
+const skillCheckBox = document.getElementById("skillCheckBox");
+skillCheckBox.addEventListener("change", function(){
+if(skillCheckBox.checked){
+document.getElementById("skills").classList.remove("hidden");
+document.getElementById("skillAddButton").classList.remove("hidden");
+document.getElementById("skillVisible").classList.remove("hidden");
+document.getElementById("userEnteredSkillsLatex").innerHTML = `
+  \\resheading{\\textbf{TECHNICAL SKILLS} }
+  \\vspace{-0.4cm}
+  \\begin{itemize}\\itemsep\\isep
+  <span id="userEnteredSkills">DELETE THIS</span>
+  \\end{itemize}
+  `;
+
+}else{
+  document.getElementById("skills").classList.add("hidden");
+  document.getElementById("skillAddButton").classList.add("hidden");
+  document.getElementById("skillVisible").classList.add("hidden");
+}
+});
+
+const porCheckBox = document.getElementById("porCheckBox");
+porCheckBox.addEventListener("change", function(){
+if(porCheckBox.checked){
+document.getElementById("PORs").classList.remove("hidden");
+document.getElementById("PORAddButton").classList.remove("hidden");
+document.getElementById("PORvisible").classList.remove("hidden");
+document.getElementById("userEnteredPORsLatex").innerHTML = `
+  \\resheading{\\textbf{POSITIONS OF RESPONSIBILITY} }
+  \\vspace{-0.4cm}
+  \\begin{itemize}\\itemsep\\isep
+  <span id="userEnteredPORs">DELETE THIS</span>
+  \\end{itemize}
+  `;
+
+}else{
+  document.getElementById("PORs").classList.add("hidden");
+  document.getElementById("PORAddButton").classList.add("hidden");
+  document.getElementById("PORvisible").classList.add("hidden");
+}
+});
+
+const achievementCheckBox = document.getElementById("achievementCheckBox");
+achievementCheckBox.addEventListener("change", function(){
+if(achievementCheckBox.checked){
+document.getElementById("achievements").classList.remove("hidden");
+document.getElementById("achievementAddButton").classList.remove("hidden");
+document.getElementById("AchievementsVisible").classList.remove("hidden");
+document.getElementById("userEnteredAchievementsLatex").innerHTML = `
+  \\resheading{\\textbf{ACHIEVEMENTS} }
+  \\vspace{-0.4cm}
+  \\begin{itemize}\\itemsep\\isep
+  <span id="userEnteredAchievements">DELETE THIS</span>
+  \\end{itemize}
+  `;
+
+}else{
+  document.getElementById("achievements").classList.add("hidden");
+  document.getElementById("achievementAddButton").classList.add("hidden");
+  document.getElementById("AchievementsVisible").classList.add("hidden");
+}
+});
 
 
 
@@ -617,54 +700,6 @@ function updateSkillList() {
     // Append additional content to the "interns" span
     skillsSpan.innerHTML += "\\item \\textbf{" + skill.type + ":} " + skill.description + "\n";
   }
-}
-
-function deletePORSection() {
-  document.getElementById("PORvisible").classList.add("hidden");
-  document.getElementById("PORs").classList.add("hidden");
-  document.getElementById("PORAddButton").classList.add("hidden");
-}
-
-function addPORSection() {
-  document.getElementById("PORvisible").classList.remove("hidden");
-  document.getElementById("PORs").classList.remove("hidden");
-  document.getElementById("PORAddButton").classList.remove("hidden");
-}
-
-function deleteAchievementSection() {
-  document.getElementById("AchievementsVisible").classList.add("hidden");
-  document.getElementById("achievements").classList.add("hidden");
-  document.getElementById("achievementAddButton").classList.add("hidden");
-}
-
-function addAchievementSection() {
-  document.getElementById("AchievementsVisible").classList.remove("hidden");
-  document.getElementById("achievements").classList.remove("hidden");
-  document.getElementById("achievementAddButton").classList.remove("hidden");
-}
-
-function deleteSkillSection() {
-  document.getElementById("skillVisible").classList.add("hidden");
-  document.getElementById("skills").classList.add("hidden");
-  document.getElementById("skillAddButton").classList.add("hidden");
-}
-
-function addSkillSection() {
-  document.getElementById("skillVisible").classList.remove("hidden");
-  document.getElementById("skills").classList.remove("hidden");
-  document.getElementById("skillAddButton").classList.remove("hidden");
-}
-
-function deleteProjectSection() {
-  document.getElementById("projectVisible").classList.add("hidden");
-  document.getElementById("projects").classList.add("hidden");
-  document.getElementById("projectaddbutton").classList.add("hidden");
-}
-
-function addProjectSection() {
-  document.getElementById("projectVisible").classList.remove("hidden");
-  document.getElementById("projects").classList.remove("hidden");
-  document.getElementById("projectaddbutton").classList.remove("hidden");
 }
 
 

@@ -207,9 +207,7 @@
 
 
                                 <div id="projects-container">
-                                    <h3>Projects</h3>
-                                    <button onclick="deleteProjectSection()">Delete Section </button>
-                                    <button onclick="addProjectSection()">Add Section </button>
+                                    <h3>Projects <input type="checkbox" checked id="projectCheckBox" style="accent-color: black;"></h3>
                                     <div>(If you dont want to include this, leave it blank and delete this section from
                                         the LaTeX code generated.)</div>
                                     <div class="form-group" id="projects">
@@ -231,7 +229,7 @@
                                 <button onclick="addNewProject()" class="btn btn-dark btn-lg" id="projectaddbutton">Add
                                     This</button>
 
-                                    <button onclick="enhanceDescription('project')" class="btn btn-dark btn-lg">Enhance using AI</button>
+                                    <button onclick="enhanceDescription('project')" id="enhanceUsingAIProject"class="btn btn-dark btn-lg">Enhance using AI</button>
 
                                 <button class="btn btn-dark btn-lg hidden" id="projectupdatebutton">Update</button>                                
 
@@ -252,9 +250,7 @@
                                 </div>
                                 <!-- edit icon fo project end-->
 
-                                <h3>Skills</h3>
-                                <button onclick="deleteSkillSection()">Delete Section </button>
-                                <button onclick="addSkillSection()">Add Section </button>
+                                <h3>Skills <input type="checkbox" checked id="skillCheckBox" style="accent-color: black;"></h3>
                                 <div>(If you dont want to include this, leave it blank and delete this section from the
                                     LaTeX code generated.)</div>
                                 <div class="form-group" id="skills">
@@ -272,9 +268,7 @@
 
                                 </div>
 
-                                <h3>Position of Responsibility</h3>
-                                <button  onclick="deletePORSection()">Delete Section </button>
-                                <button  onclick="addPORSection()">Add Section </button>
+                                <h3>Position of Responsibility <input type="checkbox" checked id="porCheckBox" style="accent-color: black;"></h3>
                                 <div>(If you don't want to include this, leave it blank and delete this section from the
                                     LaTeX code generated.)</div>
                                 <div class="form-group" id="PORs">
@@ -296,9 +290,7 @@
                                 </div>
 
 
-                                <h3>Achievements</h3>
-                                <button  onclick="deleteAchievementSection()">Delete Section </button>
-                                <button  onclick="addAchievementSection()">Add Section </button>
+                                <h3>Achievements <input type="checkbox" checked id="achievementCheckBox" style="accent-color: black;"></h3>
                                 <div>(If you don't want to include this, leave it blank and delete this section from the LaTeX code generated.)</div>
                                 <div class="form-group" id="achievements">
                                 <input type="text" placeholder="Name your achievement" class="form-control my-2" id="achievementNameF">
@@ -766,28 +758,37 @@ Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userE
 \end{itemize}
 </span>
 
+<span id="userEnteredProjectsLatex">
 \resheading{\textbf{ PROJECTS} }
 \vspace{-0.4cm}
 \begin{itemize}\itemsep\isep
 <span id="userEnteredProjects">DELETE THIS</span>
 \end{itemize}
-        
+</span>
+
+<span id="userEnteredSkillsLatex">
 \resheading{\textbf{TECHNICAL SKILLS} }
 \vspace{-0.4cm}
 \begin{itemize} \itemsep \isep
 <span id="userEnteredSkills">DELETE THIS</span>
 \end{itemize}
+</span>
 
+<span id="userEnteredPORsLatex">
 \resheading{\textbf{POSITIONS OF RESPONSIBILITY} }
 \vspace{-0.4cm}
 \begin{itemize} \itemsep \isep
 <span id="userEnteredPORs">DELETE THIS</span>
 \end{itemize}
+</span>
 
+<span id="userEnteredAchievementsLatex">
 \resheading{\textbf{ACHIEVEMENTS} }
 \begin{itemize}\itemsep\isep
 <span id="userEnteredAchievements">DELETE THIS</span>
 \end{itemize}
+</span>
+
 \end{document}
     </pre>
 
