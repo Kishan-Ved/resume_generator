@@ -290,7 +290,7 @@ document.getElementById("projects").classList.remove("hidden");
 document.getElementById("projectaddbutton").classList.remove("hidden");
 document.getElementById("enhanceUsingAIProject").classList.remove("hidden");
 document.getElementById("projectVisible").classList.remove("hidden");
-document.getElementById("userEnteredProjects").innerHTML = `
+document.getElementById("userEnteredProjectsLatex").innerHTML = `
   \\resheading{\\textbf{ PROJECTS} }
   \\vspace{-0.4cm}
   \\begin{itemize}\\itemsep\\isep
@@ -303,6 +303,7 @@ document.getElementById("userEnteredProjects").innerHTML = `
   document.getElementById("projectaddbutton").classList.add("hidden");
   document.getElementById("enhanceUsingAIProject").classList.add("hidden");
   document.getElementById("projectVisible").classList.add("hidden");
+  document.getElementById("userEnteredProjectsLatex").innerHTML = "";
 }
 });
 
@@ -324,6 +325,7 @@ document.getElementById("userEnteredSkillsLatex").innerHTML = `
   document.getElementById("skills").classList.add("hidden");
   document.getElementById("skillAddButton").classList.add("hidden");
   document.getElementById("skillVisible").classList.add("hidden");
+  document.getElementById("userEnteredSkillsLatex").innerHTML = "";
 }
 });
 
@@ -345,6 +347,7 @@ document.getElementById("userEnteredPORsLatex").innerHTML = `
   document.getElementById("PORs").classList.add("hidden");
   document.getElementById("PORAddButton").classList.add("hidden");
   document.getElementById("PORvisible").classList.add("hidden");
+  document.getElementById("userEnteredPORsLatex").innerHTML = "";
 }
 });
 
@@ -366,6 +369,7 @@ document.getElementById("userEnteredAchievementsLatex").innerHTML = `
   document.getElementById("achievements").classList.add("hidden");
   document.getElementById("achievementAddButton").classList.add("hidden");
   document.getElementById("AchievementsVisible").classList.add("hidden");
+  document.getElementById("userEnteredAchievementsLatex").innerHTML = "";
 }
 });
 
