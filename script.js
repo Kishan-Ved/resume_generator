@@ -70,7 +70,10 @@ document.getElementById("userEnteredInternshipsLatex").innerHTML = `
   \\end{itemize}
   `;
 
-document.getElementById("internsEdit").innerHTML = "";
+if(internships){
+  updateInternshipList();
+}
+
 document.getElementById("internEditComment").classList.add("hidden");
 
 }else{
