@@ -1,8 +1,15 @@
+<<<<<<< HEAD
+=======
+/* Added the Universal font family */
+>>>>>>> b07cbc0691c20c6d7e18451b606774b82b9228cb
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+<<<<<<< HEAD
 /* Styling for the CV template container */
+=======
+>>>>>>> b07cbc0691c20c6d7e18451b606774b82b9228cb
 #Cvtemplate {
     padding: 2px;
 }
@@ -28,18 +35,26 @@ body {
 
 /* Form section of the CV */
 .cv-form {
-    background-color: gray;
+    background-color: rgb(217, 217, 217);
     height: 100vh;
     overflow-y: scroll;
 }
 
+<<<<<<< HEAD
 /* Footer section styling */
+=======
+/* .colorbtn{
+    color:black;
+} */
+
+/* Footer styling */
+
+>>>>>>> b07cbc0691c20c6d7e18451b606774b82b9228cb
 .footer {
     background-color: #333;
     color: white;
     padding: 40px 20px;
     text-align: center;
-    font-family: Arial, sans-serif;
 }
 
 .footer h2 {
