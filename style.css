@@ -1,15 +1,21 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Styling for the CV template container */
 #Cvtemplate {
     padding: 2px;
 }
 
+/* Row inside the CV template */
 #Cvtemplate .row {
     padding: 5px;
     margin-right: 3px;
     margin-left: 0px;
 }
 
+/* CV template layout */
 .cv-template {
-    font-family: 'Times New Roman', 'Times', 'serif';
     height: 100vh;
     overflow-y: scroll;
     display: block;
@@ -18,21 +24,16 @@
 body {
     padding: 2px;
     color: black;
-    font-family: 'Times New Roman', Times, serif;
-
 }
 
+/* Form section of the CV */
 .cv-form {
     background-color: gray;
     height: 100vh;
     overflow-y: scroll;
 }
 
-/* .colorbtn{
-    color:black;
-} */
-
-/* Footer styling */
+/* Footer section styling */
 .footer {
     background-color: #333;
     color: white;
@@ -46,10 +47,12 @@ body {
     font-size: 1.5rem;
 }
 
+/* Hidden class to hide elements */
 .hidden {
     display: none;
 }
 
+/* Footer content styling */
 .footer-content {
     display: flex;
     flex-direction: column;
@@ -57,6 +60,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Footer social links list */
 .footer-social ul {
     list-style: none;
     padding: 0;
@@ -80,6 +84,7 @@ body {
     margin-bottom: 10px;
 }
 
+/* Follow icons list */
 .follow-icons {
     list-style: none;
     padding: 0;
@@ -88,12 +93,14 @@ body {
     gap: 15px;
 }
 
+/* Links for the follow icons */
 .follow-icons li a {
     font-size: 1.5rem;
     color: white;
     transition: color 0.3s ease;
 }
 
+/* Hover effect for follow icons */
 .follow-icons li a:hover {
     color: #00bfff;
 }
@@ -107,11 +114,12 @@ body {
     margin: 5px 0;
 }
 
-
-.hidden{
+/* Hidden class repetition (redundant) */
+.hidden {
     display: none;
 }
 
+/* Responsive design for screens smaller than 768px */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: row;
@@ -132,24 +140,26 @@ body {
     }
 }
 
+/* Print-specific styling */
 @media print {
-    #cv-template{
+    #cv-template {
         page-break-inside: avoid;
     }
 }
 
+/* Attribute positioning */
 .attribute {
     position: absolute;
     bottom: 10px;
 }
 
+/* Additional responsive design for screens smaller than 767px */
 @media (max-width: 767px) {
     .footer-content {
         flex-direction: column;
     }
 
-    .footer-logo,
-    .footer-social {
+    .footer-logo, .footer-social {
         margin-bottom: 10px;
     }
 
