@@ -1,191 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-MKEW6GTMGN"
-    ></script>
+
+<head>
+    <!-- Google Analytics Tag Integration -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKEW6GTMGN"></script>
+
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+        // Initialize the Google Analytics dataLayer.
+        window.dataLayer = window.dataLayer || [];
 
-      gtag("config", "G-MKEW6GTMGN");
+        // Function to push tracking events to dataLayer.
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        // Send a pageview event when the JavaScript loads.
+        gtag("js", new Date());
+
+        // Configure Google Analytics with the tracking ID.
+        gtag("config", "G-MKEW6GTMGN");
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="UTF-8" /> <!-- Character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsiveness -->
+
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      .img-5 {
-        width: 500px;
-        border-radius: 40px;
-        object-fit: contain;
-      }
-      .button {
-        display: flex;
-        background-color: black;
-        color: white;
-        padding: 10px;
-        margin: 20px;
-        border-radius: 10px;
-      }
-
-      .button:hover {
-        opacity: 0.7;
-        transition: all 0.6s ease;
-        cursor: pointer;
-      }
-      .container {
-        background-color: rgba(233, 230, 230, 1);
-        display: flex;
-        align-items: center;
-        gap: 40px 91px;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
-        font: 600 18px IBM Plex Sans Hebrew, -apple-system, Roboto, Helvetica,
-          sans-serif;
-      }
-      .div-2 {
-        display: flex;
-        min-width: 240px;
-        flex-direction: column;
-        align-items: start;
-        justify-content: start;
-        width: 592px;
-        margin: auto 0;
-      }
-      .div-3 {
-        display: flex;
-        width: 337px;
-        max-width: 100%;
-        gap: 9px;
-        font-size: 30px;
-        color: rgba(0, 0, 0, 1);
-        letter-spacing: -0.9px;
-        line-height: 64px;
-      }
-      .resume-generator {
-        flex-grow: 1;
-        width: 258px;
-        flex-basis: auto;
-        margin: auto 0;
-      }
-      .h-1 {
-        color: var(--primary, rgba(0, 0, 0, 0.85));
-        font-size: 56px;
-        line-height: 64px;
-        letter-spacing: -1.68px;
-        margin-top: 24px;
-      }
-      .div-4 {
-        display: flex;
-        margin-top: 24px;
-        flex-direction: column;
-        color: var(--secondary, rgba(0, 0, 0, 0.65));
-        font-weight: 400;
-        letter-spacing: -0.72px;
-        justify-content: start;
-      }
-      .div-5 {
-        align-self: start;
-        display: flex;
-        align-items: start;
-        gap: 8px;
-        line-height: 1;
-        justify-content: start;
-      }
-      .div-6 {
-        display: flex;
-        margin-top: 8px;
-        align-items: start;
-        gap: 8px;
-        line-height: 24px;
-        justify-content: start;
-        flex-wrap: wrap;
-      }
-      @media (max-width: 1200px) {
-        .container {
-          padding: 0;
-          margin: 0;
-          height: auto;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .div-2 {
-          scale: 0.9;
-          margin: 0;
-          padding: 0;
-          height: 70vh;
+        /* Styling the sample resume image */
+        .sample_resume {
+            width: 500px;
+            border-radius: 25px;
+            object-fit: contain;
         }
-        .img-5 {
-          width: 80vw;
+
+        /* Styling for the "Generate Resume" button */
+        .generate_resume_button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            margin: 20px;
+            border-radius: 8px;
         }
-      }
-      @media (max-width: 600px) {
-        .div-2 {
-          scale: 0.5;
-          height: 50vh;
+
+        /* Adding hover effect to the button for better user interaction */
+        .generate_resume_button:hover {
+            opacity: 0.7;
+            transition: all 0.6s ease;
+            cursor: pointer;
         }
-      }
+
+        /* Styling for the main section that holds the resume generator content */
+        .main_section {
+            background-color: rgba(233, 230, 230, 1);
+            display: flex;
+            align-items: center;
+            gap: 40px 91px;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            font: 600 18px IBM Plex Sans Hebrew, -apple-system, Roboto, Helvetica,
+                sans-serif;
+        }
+
+        /* Styling for the text area of the main section */
+        .main_section_text {
+            display: flex;
+            min-width: 240px;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            width: 592px;
+            margin: auto 0;
+        }
+
+        /* Styling the logo and heading of the resume generator */
+        .resume_generator_logo_heading {
+            display: flex;
+            width: 337px;
+            max-width: 100%;
+            gap: 9px;
+            font-size: 30px;
+            color: rgba(0, 0, 0, 1);
+            letter-spacing: -0.9px;
+            line-height: 64px;
+        }
+
+        /* Styling for the "Resume Generator" label beside the logo */
+        .resume_generator {
+            flex-grow: 1;
+            width: 258px;
+            margin: auto 0;
+        }
+
+        /* Large heading for the main heading of the page */
+        .h_1 {
+            color: var(--primary, rgba(0, 0, 0, 0.85));
+            font-size: 56px;
+            line-height: 64px;
+            letter-spacing: -1.68px;
+            margin-top: 24px;
+        }
+
+        /* Container for instructions on how to use the resume generator */
+        .usage_directions {
+            display: flex;
+            margin-top: 24px;
+            flex-direction: column;
+            color: var(--secondary, rgba(0, 0, 0, 0.65));
+            font-weight: 400;
+            letter-spacing: -0.72px;
+            justify-content: start;
+        }
+
+        /* User direction one styling */
+        .usage_directions_one {
+            align-self: start;
+            display: flex;
+            align-items: start;
+            gap: 8px;
+            line-height: 1;
+            justify-content: start;
+        }
+
+        /* User direction two styling */
+        .usage_directions_two {
+            display: flex;
+            margin-top: 8px;
+            align-items: start;
+            gap: 8px;
+            line-height: 24px;
+            justify-content: start;
+        }
+
+        /* Media query for screen widths below 1200px */
+        @media (max-width: 1200px) {
+
+            /* Adjust layout for smaller screens */
+            .main_section {
+                padding: 0;
+                margin: 0;
+                height: auto;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+            }
+
+            /* Scale down the text area for better fit on smaller screens */
+            .main_section_text {
+                scale: 0.9;
+                margin: 0;
+                padding: 0;
+                height: 70vh;
+            }
+        }
+
+        /* Media query for screen widths below 600px */
+        @media (max-width: 600px) {
+
+            /* Further scaling down for very small screens */
+            .main_section_text {
+                scale: 0.5;
+                height: 50vh;
+            }
+        }
     </style>
+
     <title>Resume Generator</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="div-2">
-        <div class="div-3">
-          <img src="./images/logo.png" class="img" />
-          <h4 class="resume-generator">Resume Generator</h4>
+</head>
+
+<body>
+    <!-- Main section that holds the content of the resume generator page -->
+    <div class="main_section">
+
+        <!-- Text area that holds the heading, instructions, and button -->
+        <div class="main_section_text">
+
+            <!-- Logo and heading section -->
+            <div class="resume_generator_logo_heading">
+                <img src="./images/logo.png" class="main_logo" />
+                <h4 class="resume_generator">Resume Generator</h4>
+            </div>
+
+            <h2 class="h_1">Professional Resumes in perfect LaTeX</h2> <!-- Main heading of the page -->
+
+            <!-- Instructions for how to use the resume generator tool -->
+            <div class="usage_directions">
+
+                <!-- First instruction: no coding required -->
+                <div class="usage_directions_one">
+                    <img src="./images/static_check_ring.png" />
+                    <p>No code required.</p>
+                </div>
+
+                <!-- Detailed steps for generating the resume -->
+                <div class="usage_directions_two">
+                    <img src="./images/static_check_ring.png" />
+
+                    <p>
+                        Steps to Generate Your Resume:
+                        <br />
+                        Step 1: Click the button below.
+                        <br />
+                        Step 2: Fill in your personal information.
+                        <br />
+                        Step 3: Copy the LaTeX code.
+                        <br />
+                        Step 4: Paste it in a LaTeX editor like Overleaf and Compile.
+                        <br />
+                        Here's a sample resume generated using this tool...
+                    </p>
+                </div>
+            </div>
+
+            <!-- Button to trigger resume generation -->
+            <div class="generate_resume_button" onclick="generateResume()">
+                <span class="span">Generate Resume</span>
+                <img src="./images/generate_resume_expand.png" />
+            </div>
         </div>
-        <h2 class="h-1">Professional Resumes in perfect LaTeX</h2>
-        <div class="div-4">
-          <div class="div-5">
-            <img src="./images/Check_ring.png" class="img-2" />
-            <p>No code required.</p>
-          </div>
-          <div class="div-6">
-            <img src="./images/Check_ring.png" class="img-3" />
-            <p class="steps-to-generate-your-resume">
-              Steps to Generate Your Resume:
-              <br />
-              Step 1: Click the button below.
-              <br />
-              Step 2: Fill in your personal information.
-              <br />
-              Step 3: Copy the LaTeX code.
-              <br />
-              Step 4: Paste it in a LaTeX editor like Overleaf and Compile.
-              <br />
-              Here's a sample resume generated using this tool...
-            </p>
-          </div>
-        </div>
-        <div class="button" onclick="generateResume()" class="btn btn-primary">
-          <span class="span">Generate Resume</span>
-          <img src="./images/expand_right.png" class="img-4" />
-        </div>
-      </div>
-      <img src="./images/right.png" class="img-5" />
+
+        <!-- Image of a sample resume to showcase the tool's output -->
+        <img src="./images/sample_resume.png" class="sample_resume" />
     </div>
 
+    <!-- JavaScript function to redirect to the resume generator page -->
     <script>
-      function generateResume() {
-        // Add your resume generation logic here
-
-        // Navigate to resume.html
-        window.location.href = "resumegenerator.html";
-      }
+        function generateResume() {
+            window.location.href = "resumegenerator.html";
+        }
     </script>
-  </body>
+</body>
+
 </html>
