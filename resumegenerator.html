@@ -720,142 +720,105 @@
         </div>
     </div>
 
-    <!-- Latex Code Begins -->
+    <!-- Latex code begins -->
     <pre id="latexCode" style="display:none;">
-\documentclass[a4paper,10pt]{article}
-% Defines the document class as an article with A4 paper size and 10pt font.
-
-%-----------------------------------------------------------
-\usepackage[top=0.1cm, bottom=0.3cm, left=0.3cm, right=1.1cm, nohead, nofoot]{geometry}
-
-\usepackage{graphicx} % Allows including images.
-\usepackage{url} % For handling URLs in the document.
-\usepackage{palatino} % Sets Palatino font for text.
-\usepackage{booktabs} % For better table formatting.
-\usepackage{hyperref} % Enables hyperlinks in the document.
-
-% Font settings
-\fontfamily{SansSerif}
-\selectfont
+        \documentclass[a4paper,10pt]{article}
+        %-----------------------------------------------------------
+        \usepackage[top=0.1cm, bottom=0.3cm, left=0.3cm, right=1.1cm, nohead, nofoot]{geometry}
+        \usepackage{graphicx}
+        \usepackage{url}
+        \usepackage{palatino}
+        \usepackage{booktabs}
+        \usepackage{hyperref}
+        \fontfamily{SansSerif}
+        \selectfont
+                
+        \usepackage[T1]{fontenc}
+        \usepackage[utf8]{inputenc}
+                
+        \usepackage{color}
+        \definecolor{mygrey}{gray}{0.75}
+        \textheight = 29.1 cm
+        \raggedbottom
+                
+        \setlength{\tabcolsep}{0in}
+        \newcommand{\isep}{-2 pt}
+        \newcommand{\lsep}{-0.6cm}
+        \newcommand{\psep}{-0.6cm}
+        \renewcommand{\labelitemii}{$\circ$}
+                
+        \pagestyle{empty}
+        %-----------------------------------------------------------
+        %Custom commands
+        \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+        \newcommand{\resheading}[1]{{\small \colorbox{mygrey}{\begin{minipage}{0.965\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+        \newcommand{\ressubheading}[3]{
+        \begin{tabular*}{6.62in}{l @{\extracolsep{\fill}} r}
+            \textsc{{\textbf{#1}}} & \textsc{\textit{[#2]}} \\
+        \end{tabular*}\vspace{-9pt}}
+        %-----------------------------------------------------------
+                
+        \begin{document}
+        \hspace{0.75cm}\\[-0.54cm]
         
-% Encoding for special characters and formatting
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+        \textbf{<span id="userEnteredName">Name Here</span>} \\
+        \indent <span id="userEnteredYear">Given</span> \hfill 
+        \href{mailto:<span id="userEnteredEmail">Link</span>}{<span id="userEnteredEmailText">Mail</span>}\\  
+        \indent Discipline of <span id="userEnteredBranch">Branch</span> \hfill  <span id="userEnteredContact">Contact</span> \\
+        \indent Indian Institute of Technology, Gandhinagar  \hfill
+        \underline{\href{<span id="userEnteredLinkedIn">LinkedIn</span>}{LinkedIn}} |
+        \underline{\href{<span id="userEnteredGithub">Branch</span>}{Github}} | \underline{\href{<span id="userEnteredWebsite">Branch</span>}{Website}}
+        \\
+        \indent \resheading{\textbf{ACADEMIC DETAILS} }\\[\lsep]
+        \\ \\
+        %\begin{table}[ht!]
+        %\begin{center}
+        \indent \begin{tabular}{ p{1.7cm} @{\hskip 0.08in} p{5.254cm} @{\hskip 0.08in} p{7.054cm} @{\hskip 0.09in} p{2.554cm} @{\hskip 0.08in} p{1.72cm} }
+        \toprule
+        \textbf{Degree} & \textbf{Specialization} & \textbf{Institute} & \textbf{Year} & \textbf{CPI/\%} \\
+        \midrule
+        <span id="userphd"></span>
+        <span id="usermtech"></span>
+        B.Tech. & \textit{<span id="userEnteredBranch2">Branch</span>} & <span id="userEnteredIns">Branch</span> & <span id="userEnteredYOJ">YOJ</span> & <span id="userEnteredCPI">CPI</span> \\
+        Class XII  & \textit{Physics, Chemistry, Maths} & <span id="userEnteredInstituteTwelve">Branch</span> & <span id="userEnteredYearTwelve">Branch</span> & <span id="userEnteredMarksTwelve">Branch</span>\\
+        Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userEnteredYearTen">Branch</span> & <span id="userEnteredMarksTen">Branch</span>\\
+        \bottomrule
+        \end{tabular}
         
-% Color and style adjustments
-\usepackage{color}
-\definecolor{mygrey}{gray}{0.75} % Defines a custom grey color.
-\textheight = 29.1 cm
-\raggedbottom % Ensures content aligns to the top.
+        <span id="userEnteredInternshipsLatex">
+        \resheading{\textbf{ INTERNSHIPS} }
+        \vspace{-0.4cm}
+        \begin{itemize}\itemsep\isep
+        <span id="userEnteredInternships">DELETE THIS</span>
+        \end{itemize}
+        </span>
         
-% Commands for spacing in tables and lists
-\setlength{\tabcolsep}{0in} % Adjusts table cell spacing.
-\newcommand{\isep}{-2 pt} % Item spacing.
-\newcommand{\lsep}{-0.6cm} % Line spacing.
-\newcommand{\psep}{-0.6cm} % Paragraph spacing.
-\renewcommand{\labelitemii}{$\circ$} % Changes bullet style for nested lists.
-
-% Page style
-\pagestyle{empty} % Removes page numbering.
-%-----------------------------------------------------------
-% Custom LaTeX commands for consistent formatting
-\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}} 
-% Custom item command for reducing vertical space between list items.
-
-\newcommand{\resheading}[1]{{
-    \small \colorbox{mygrey}{\begin{minipage}{0.965\textwidth}
-    {\textbf{#1 \vphantom{p\^{E}}}}
-    \end{minipage}}
-}} 
-% Custom command for section headings with a grey background.
-
-\newcommand{\ressubheading}[3]{
-    \begin{tabular*}{6.62in}{l @{\extracolsep{\fill}} r}
-        \textsc{{\textbf{#1}}} & \textsc{\textit{[#2]}} \\
-    \end{tabular*}\vspace{-9pt}
-    }
-% Custom command for subsection headings with a left-aligned title and right-aligned date.
-
-%-----------------------------------------------------------
-
-% Document content begins here
-\begin{document}
-\hspace{0.75cm}\\[-0.54cm] % Adds horizontal spacing and adjusts vertical position.
-
-% Header: Displays user-entered details dynamically.
-\textbf{<span id="userEnteredName">Name Here</span>} \\
-\indent <span id="userEnteredYear">Given</span> \hfill 
-\href{mailto:<span id="userEnteredEmail">Link</span>}{<span id="userEnteredEmailText">Mail</span>}\\  
-\indent Discipline of <span id="userEnteredBranch">Branch</span> \hfill <span id="userEnteredContact">Contact</span> \\
-\indent Indian Institute of Technology, Gandhinagar \hfill 
-\underline{\href{<span id="userEnteredLinkedIn">https://linkedin.com</span>}{LinkedIn}} | 
-\underline{\href{<span id="userEnteredGithub">https://github.com</span>}{GitHub}} | 
-\underline{\href{<span id="userEnteredWebsite">https://portfolio.com</span>}{Website}} \\
-
-% Academic Details Section
-\resheading{\textbf{ACADEMIC DETAILS}}\\[\lsep]
-
-\\ \\
-
-% Academic details table
-\begin{tabular}
-{ p{2cm} @{\hskip 0.1in} p{5.2cm} @{\hskip 0.1in} p{6.8cm} @{\hskip 0.1in} p{2.5cm} @{\hskip 0.1in} p{2cm} }
-
-\toprule
-\textbf{Degree} & \textbf{Specialization} & \textbf{Institute} & \textbf{Year} & \textbf{CPI/\%} \\
-\midrule
-<span id="userPhD"></span>
-<span id="userMTech"></span>
-B.Tech. & \textit{<span id="userEnteredBranch2">Computer Science</span>} & <span id="userEnteredIns">IIT Gandhinagar</span> & 
-<span id="userEnteredYOJ">2024</span> & <span id="userEnteredCPI">9.8</span> \\
-Class XII  & \textit{Physics, Chemistry, Maths} & <span id="userEnteredInstituteTwelve">XYZ School</span> & 
-<span id="userEnteredYearTwelve">2018</span> & <span id="userEnteredMarksTwelve">92\%</span> \\
-Class X  &  & <span id="userEnteredInstituteTen">ABC School</span> & <span id="userEnteredYearTen">2016</span> & 
-<span id="userEnteredMarksTen">94\%</span>\\
-\bottomrule
-
-\end{tabular}
-
-% Internships Section
-<span id="userEnteredInternshipsLatex">
-\resheading{\textbf{ INTERNSHIPS} }
-\vspace{-0.4cm}
-\begin{itemize}\itemsep\isep
-<span id="userEnteredInternships">DELETE THIS</span>
-\end{itemize}
-</span>
-
-% Projects Section
-\resheading{\textbf{ PROJECTS} }
-\vspace{-0.4cm}
-\begin{itemize}\itemsep\isep
-<span id="userEnteredProjects">DELETE THIS</span>
-\end{itemize}
+        \resheading{\textbf{ PROJECTS} }
+        \vspace{-0.4cm}
+        \begin{itemize}\itemsep\isep
+        <span id="userEnteredProjects">DELETE THIS</span>
+        \end{itemize}
+                
+        \resheading{\textbf{TECHNICAL SKILLS} }
+        \vspace{-0.4cm}
+        \begin{itemize} \itemsep \isep
+        <span id="userEnteredSkills">DELETE THIS</span>
+        \end{itemize}
         
-% Technical Skills Section
-\resheading{\textbf{TECHNICAL SKILLS} }
-\vspace{-0.4cm}
-\begin{itemize} \itemsep \isep
-<span id="userEnteredSkills">DELETE THIS</span>
-\end{itemize}
-
-% Positions of Responsibility Section
-\resheading{\textbf{POSITIONS OF RESPONSIBILITY} }
-\vspace{-0.4cm}
-\begin{itemize} \itemsep \isep
-<span id="userEnteredPORs">DELETE THIS</span>
-\end{itemize}
-
-% Achievements Section
-\resheading{\textbf{ACHIEVEMENTS} }
-\begin{itemize}\itemsep\isep
-<span id="userEnteredAchievements">DELETE THIS</span>
-\end{itemize}
-
-% End of document
-\end{document}
-    </pre>
-    <!-- Latex Code Ends-->
+        \resheading{\textbf{POSITIONS OF RESPONSIBILITY} }
+        \vspace{-0.4cm}
+        \begin{itemize} \itemsep \isep
+        <span id="userEnteredPORs">DELETE THIS</span>
+        \end{itemize}
+        
+        \resheading{\textbf{ACHIEVEMENTS} }
+        \begin{itemize}\itemsep\isep
+        <span id="userEnteredAchievements">DELETE THIS</span>
+        \end{itemize}
+        \end{document}
+            </pre>
+        
+            <!-- Latex code ends-->
 
     <!-- Section: Footer -->
     <footer class="footer">
