@@ -2,20 +2,20 @@
 
 A tool to help students and professionals create polished, professional LaTeX resumes without writing a single line of LaTeX code. Integrated with an AI assistant to enhance the resume! 
 
-### 🌐 **Live Site**: [Resume Generator](https://kishan-ved.github.io/resume_generator/resumegenerator.html)
+### **Live Site**: [Resume Generator](https://kishan-ved.github.io/resume_generator/resumegenerator.html)
 
 This project follows the **CDS IITGN (Placement Cell of IIT Gandhinagar)** template guidelines, ensuring resumes meet professional standards.
 
 ---
 
-## 🎯 **Key Features**
+## **Key Features**
 - Generate professional LaTeX resumes effortlessly.
 - Live preview as you input details.
 - Simple copy-paste process for any LaTeX editor (e.g., Overleaf).
 
 ---
 
-## 🚀 **Steps to Generate Your Resume**
+## **Steps to Generate Your Resume**
 
 - Fill in your personal details.
 - Click **Copy LaTeX Code to Clipboard**.
@@ -23,7 +23,7 @@ This project follows the **CDS IITGN (Placement Cell of IIT Gandhinagar)** templ
 
 ---
 
-## 📸 **Website Tour**
+## **Website Tour**
 
 ### **1. Input Your Details**
 Fill out the form on the left. As you type, your resume will update in real-time on the right-hand side.  
@@ -38,7 +38,7 @@ Paste the LaTeX code into your preferred editor (e.g., Overleaf), compile, and d
 
 ---
 
-## 🎓 **Example Resume**
+## **Example Resume**
 
 Here's a resume that was generated using this tool.
 
@@ -46,7 +46,7 @@ Here's a resume that was generated using this tool.
 
 ---
 
-## 🤝 **Contributing to the Project**
+## **Contributing to the Project**
 
 We welcome contributions to improve the project. Follow these steps to contribute:
 
@@ -66,7 +66,7 @@ We welcome contributions to improve the project. Follow these steps to contribut
 
 ✨ `Pro Tip`: Before starting your work, always switch to the `main` branch and pull the latest changes using the remote `origin_user`. Then, jump right into Steps 5 to 10 to begin contributing!
 
-🎉 Happy Contributing! 💻✨
+Happy Contributing!
 
 ---
 
@@ -115,7 +115,7 @@ if (condition) {
 
 - Separate logical sections with line breaks for readability.
 
-## 🎉 Acknowledgments
+## Acknowledgments
 
 This tool was crafted to simplify resume creation for students and professionals, with inspiration drawn from the CDS template at IIT Gandhinagar.
 
