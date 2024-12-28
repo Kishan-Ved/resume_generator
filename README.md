@@ -70,7 +70,7 @@ Happy Contributing!
 
 ---
 
-## ✍️ Contributor Guidelines
+## Contributor Guidelines
 
 ### Variable Naming Practices
 
