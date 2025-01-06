@@ -1,4 +1,4 @@
-# 📄 Professional LaTeX Resumes, In Minutes!
+# Professional LaTeX Resumes, In Minutes!
 
 A tool to help students and professionals create polished, professional LaTeX resumes without writing a single line of LaTeX code. Integrated with an AI assistant to enhance the resume! 
 
