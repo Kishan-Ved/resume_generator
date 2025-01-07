@@ -6,22 +6,16 @@ A tool to help students and professionals create polished, professional LaTeX re
 
 This project follows the **CDS IITGN (Placement Cell of IIT Gandhinagar)** template guidelines, ensuring resumes meet professional standards.
 
----
-
 ## **Key Features**
 - Generate professional LaTeX resumes effortlessly.
 - Live preview as you input details.
 - Simple copy-paste process for any LaTeX editor (e.g., Overleaf).
-
----
 
 ## **Steps to Generate Your Resume**
 
 - Fill in your personal details.
 - Click **Copy LaTeX Code to Clipboard**.
 - Paste the copied code into a LaTeX editor (e.g., Overleaf) and compile.
-
----
 
 ## **Website Tour**
 
@@ -36,15 +30,11 @@ Once complete, click the **Copy LaTeX Code to Clipboard** button.
 ### **3. Compile Your Resume**
 Paste the LaTeX code into your preferred editor (e.g., Overleaf), compile, and download your professional resume.  
 
----
-
 ## **Example Resume**
 
 Here's a resume that was generated using this tool.
 
 ![image](https://github.com/user-attachments/assets/d603267a-04c2-4a20-95e6-bb9d9babba6b)
-
----
 
 ## **Contributing to the Project**
 
@@ -67,8 +57,6 @@ We welcome contributions to improve the project. Follow these steps to contribut
 ✨ `Pro Tip`: Before starting your work, always switch to the `main` branch and pull the latest changes using the remote `origin_user`. Then, jump right into Steps 5 to 10 to begin contributing!
 
 Happy Contributing!
-
----
 
 ## Contributor Guidelines
 
