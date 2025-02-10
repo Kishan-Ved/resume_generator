@@ -73,6 +73,7 @@ internCheckBox.addEventListener("change", function () {
         document.getElementById("internaddbutton").classList.remove("hidden");
         document.getElementById("internenhancebutton").classList.remove("hidden");
         document.getElementById("internshipDetailR").classList.remove("hidden");
+        document.getElementById("internshipDetailRC").classList.remove("hidden");
         document.getElementById("userEnteredInternshipsLatex").innerHTML = `
         \\resheading{\\textbf{ INTERNSHIPS} }
         \\vspace{-0.4cm}
@@ -83,9 +84,12 @@ internCheckBox.addEventListener("change", function () {
         document.getElementById("internEditComment").classList.add("hidden");
     } else {
         // Hide internship fields and clear the Latex template
+        internships = [];
+        updateInternshipList();
         document.getElementById("internshipDetailL1").classList.add("hidden");
         document.getElementById("internshipDetailL2").classList.add("hidden");
         document.getElementById("internshipDetailR").classList.add("hidden");
+        document.getElementById("internshipDetailRC").classList.add("hidden");
         document.getElementById("userEnteredInternshipsLatex").innerHTML = "";
     }
 
