@@ -2,70 +2,90 @@
 <html lang="en">
 
 <head>
-    <!-- added link for the icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKEW6GTMGN"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-MKEW6GTMGN');
-    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Generator</title>
 
+    <!-- Link to external Font Awesome library for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Link to Bootstrap CSS for responsive design -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Link to custom styles -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Analytics tracking script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKEW6GTMGN"></script>
+
+    <script>
+        // Google Analytics setup
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-MKEW6GTMGN');
+    </script>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
-            <!-- Left Half: CV Form -->
 
+            <!-- Left section: CV Form -->
             <div class="col-md-6 cv-form">
                 <div class="cv-form">
-                    <!-- Your CV Form content -->
+
                     <div class="cv-form">
                         <div class="container-md p-2">
-                            <!-- <img src="images/logo.png" class="rounded mx-auto d-block my-2" style="width: 200px;"> -->
-                                <h1 class="text-center my-2">Indian Institute of Technology Gandhinagar</h1>
-                            <h5 class="text-center my-2">LaTeX Resume Generator</h5>
+
+                            <!-- Header: Institute and form title -->
+                            <h1 class="text-center my-2">Smart LATEX Resumes with AI</h1>
+                            <!-- <h5 class="text-center my-2">LaTeX Resume Generator</h5> -->
                             <div>Enter your details and a preview your resume will be generated live on your right side.
                                 Using a laptop is recommended.<br><br>
+
+                                <!-- Steps to Generate Resume -->
                                 <h3>Steps to Generate Your Resume:</h3>
                                 <ul>
                                     <li>Step 1: Fill in your personal information.</li>
                                     <li>Step 2: Copy the LaTeX code.</li>
                                     <li>Step 3: Paste it in a LaTeX editor like Overleaf and Compile.</li>
+                                    <li>Step 4: You can use the integrated AI assistant to enhance your resume!</li>
                             </div>
+                            If you like this tool, please give a star on GitHub!<br>
+                            <a class="github-button" href="https://github.com/Kishan-Ved/resume_generator" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Kishan-Ved/resume_generator on GitHub">Star</a>
+                            <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+                            <!-- Section: Personal Details -->
                             <div class="form-group">
                                 <h3>Personal Details</h3>
+
+                                <!-- Name input -->
                                 <label for="name" class="fw-bold my-2">Name</label>
                                 <input type="text" placeholder="Enter your name" class="form-control" id="nameF">
+
+                                <!-- Current Year input -->
                                 <label for="year" class="fw-bold my-2">Current Year</label>
                                 <input type="text" placeholder="Eg.: Second Year Undergraduate"
                                     class="form-control my-2" id="CGradF">
+
+                                <!-- Program input -->
                                 <label for="program" class="fw-bold my-2">Program</label>
                                 <input type="text" placeholder="Enter your discipline. Eg: Computer Science Engineering"
                                     class="form-control my-2" id="BranchF">
+
+                                <!-- Email input -->
                                 <label for="email" class="fw-bold my-2">Email Id</label>
                                 <input type="text" placeholder="email id" class="form-control my-2" id="emailF">
+
+                                <!-- Contact number input -->
                                 <label for="number" class="fw-bold my-2">Contact number</label>
                                 <input type="text" placeholder="Enter your number" class="form-control my-2"
                                     id="contactF">
-                                <!-- <label for="" class="fw-bold my-2">Github</label>
-                                <input type="text" placeholder="Paste yout github account link" class="form-control my-2" id="gitF"> -->
-                                <!-- Add IDs to the image containers for easy reference in JavaScript -->
+
+                                <!-- Links Section: GitHub, LinkedIn, Website -->
 
                                 <label for="" class="fw-bold my-2">Github</label>
                                 <input type="text" placeholder="Paste your GitHub account link"
@@ -74,30 +94,36 @@
                                 <label for="" class="fw-bold my-2">LinkedIn</label>
                                 <input type="text" placeholder="Paste your LinkedIn account link"
                                     class="form-control my-2" id="linkedinF">
-                                    
-                                    <label for="" class="fw-bold my-2">Website</label>
-                                    <input type="text" placeholder="Paste your website link" class="form-control my-2"
-                                        id="websiteF">
+
+                                <label for="" class="fw-bold my-2">Website</label>
+                                <input type="text" placeholder="Paste your website link" class="form-control my-2"
+                                    id="websiteF">
+
+                                <!-- jQuery for updating dynamic links using user input -->
                                 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
                                 <script>
                                     $(document).ready(function () {
                                         const gitInput = $("#gitF");
                                         const linkedinInput = $("#linkedinF");
-                                        const websiteInput = $("#websiteF"); 
+                                        const websiteInput = $("#websiteF");
                                         const githubLink = $("#githubLink");
                                         const linkedinLink = $("#linkedinLink");
                                         const websiteLink = $("#websiteLink");
 
+                                        // Update GitHub link dynamically
                                         gitInput.on("input", function () {
                                             const githubUrl = gitInput.val();
                                             githubLink.attr("href", githubUrl);
                                         });
 
+                                        // Update LinkedIn link dynamically
                                         linkedinInput.on("input", function () {
                                             const linkedinUrl = linkedinInput.val();
                                             linkedinLink.attr("href", linkedinUrl);
                                         });
 
+                                        // Update Website link dynamically
                                         websiteInput.on("input", function () {
                                             const websiteUrl = websiteInput.val();
                                             websiteLink.attr("href", websiteUrl);
@@ -105,34 +131,41 @@
                                     });
                                 </script>
 
-
-
+                                <!-- Section: Academic Details -->
                                 <h3>Academic Details</h3>
-                                <label for="name" class="fw-bold my-2">PhD&nbsp;&nbsp;&nbsp;</label><input type="checkbox" id="phdCheckbox" style="accent-color: black;"></input><br>
+
+                                <!-- PhD information fields with toggle Functionality -->
+                                <label for="name" class="fw-bold my-2">PhD&nbsp;&nbsp;&nbsp;</label>
+                                <input type="checkbox" id="phdCheckbox" style="accent-color: black;"></input><br>
+
                                 <div id="phdDiv">
-                                (If you don't want to add this, untick the checkbox above.)
-                                <input type="text" placeholder="Enter Institute name" class="form-control my-2"
-                                    id="institutephdF">
-                                <input type="text" placeholder="Enter Specialization" class="form-control my-2"
-                                    id="specializationphdF">
-                                <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="marksphdF">
-                                <input type="text" placeholder="Year of completion. Ex: 2018-2019"
-                                    class="form-control my-2" id="yearphdF">
+                                    (If you don't want to add this, untick the checkbox above.)
+                                    <input type="text" placeholder="Enter Institute name" class="form-control my-2"
+                                        id="institutephdF">
+                                    <input type="text" placeholder="Enter Specialization" class="form-control my-2"
+                                        id="specializationphdF">
+                                    <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="marksphdF">
+                                    <input type="text" placeholder="Year of completion. Ex: 2018-2019"
+                                        class="form-control my-2" id="yearphdF">
                                 </div>
 
-                                
-                                <label for="name" class="fw-bold my-2">M.Tech&nbsp;&nbsp;&nbsp;</label><input type="checkbox" id="mtechCheckbox" style="accent-color: black;"></input><br>
+                                <!-- MTech information fields with toggle functionality -->
+                                <label for="name" class="fw-bold my-2">M.Tech&nbsp;&nbsp;&nbsp;</label>
+                                <input type="checkbox" id="mtechCheckbox" style="accent-color: black;"></input><br>
+
                                 <div id="mtechDiv">
                                     (If you don't want to add this, untick the checkbox above.)
-                                <input type="text" placeholder="Enter Institute name" class="form-control my-2"
-                                    id="institutemtechF">
-                                <input type="text" placeholder="Enter Specialization" class="form-control my-2"
-                                    id="specializationmtechF">
-                                <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="marksmtechF">
-                                <input type="text" placeholder="Year of completion. Ex: 2018-2019"
-                                    class="form-control my-2" id="yearmtechF">
+                                    <input type="text" placeholder="Enter Institute name" class="form-control my-2"
+                                        id="institutemtechF">
+                                    <input type="text" placeholder="Enter Specialization" class="form-control my-2"
+                                        id="specializationmtechF">
+                                    <input type="text" placeholder="CPI/CGPA" class="form-control my-2"
+                                        id="marksmtechF">
+                                    <input type="text" placeholder="Year of completion. Ex: 2018-2019"
+                                        class="form-control my-2" id="yearmtechF">
                                 </div>
 
+                                <!-- BTech information fields -->
                                 <label for="name" class="fw-bold my-2">B.Tech</label>
                                 <input type="text" placeholder="Enter Institute Name" class="form-control my-2"
                                     id="InsF">
@@ -141,6 +174,8 @@
                                 <input type="text" placeholder="CPI/CGPA" class="form-control my-2" id="CPIF">
                                 <input type="text" placeholder="Years of Degree, Eg: 2022-26" class="form-control my-2"
                                     id="YOJF">
+
+                                <!-- Class 12th information fields -->
                                 <label for="name" class="fw-bold my-2">Class 12th</label>
                                 <input type="text" placeholder="Enter Institute name" class="form-control my-2"
                                     id="institutetwelveF">
@@ -148,6 +183,8 @@
                                     id="markstwelveF">
                                 <input type="text" placeholder="Year of completion. Ex: 2018-2019"
                                     class="form-control my-2" id="yeartwelveF">
+
+                                <!-- Class 10th information fields -->
                                 <label for="name" class="fw-bold my-2">Class 10th</label>
                                 <input type="text" placeholder="Enter Institute name" class="form-control my-2"
                                     id="institutetenF">
@@ -156,59 +193,78 @@
                                 <input type="text" placeholder="Year of completion. Ex: 2018-2019"
                                     class="form-control my-2" id="yeartenF">
 
+                                <!-- Internship section with dynamic addition functionality -->
                                 <div id="interns-container">
 
-                                    <h3>Internships <input type="checkbox" id="internshipCheckBox" style="accent-color: black;"> </h3>
-                                    Click on the check box to add this section.
-                                    <div id="internshipDetailL1" class="hidden">
-                                    <!-- <div>(If you dont want to include this, leave it blank and delete this section from
-                                        the LaTeX code generated.)</div> -->
-                                    <div class="form-group" id="interns">
-                                        <input type="text" placeholder="Intern Title and company name"
-                                            class="form-control internships my-2" id="internTitleF">
-                                        <input type="text"
-                                            placeholder="Company/Role information. Appears in italics under the title."
-                                            class="form-control my-2" id="internInfoF">
-                                        <input type="text" placeholder="Project link " class="form-control my-2"
-                                            id="internLinkF">
-                                        <textarea type="text" placeholder="Enter the description line 1"
-                                            class="form-control my-2" rows="3" id="interndescriptionF"></textarea>
-                                        <textarea type="text" placeholder="Enter the description line 2"
-                                            class="form-control my-2" rows="3" id="interndescription2F"></textarea>
-                                        <input type="text" placeholder="Duration of project Ex: May’22-Dec’22"
-                                            class="form-control my-2" id="yearinternF">
-                                    </div>
-                                    </div>
+                                    <h3>Internships <input type="checkbox" id="internshipCheckBox"
+                                            style="accent-color: black;"></h3>
 
+                                    <p>Click on the check box to add this section.</p>
+
+                                    <div id="internshipDetailL1" class="hidden">
+                                        <div class="form-group" id="interns">
+                                            <input type="text" placeholder="Intern Title and company name"
+                                                class="form-control internships my-2" id="internTitleF">
+                                            <input type="text"
+                                                placeholder="Company/Role information. Appears in italics under the title."
+                                                class="form-control my-2" id="internInfoF">
+                                            <input type="text" placeholder="Project link" class="form-control my-2"
+                                                id="internLinkF">
+                                            <textarea type="text" placeholder="Enter the description line 1"
+                                                class="form-control my-2" rows="3" id="interndescriptionF"></textarea>
+                                            <textarea type="text" placeholder="Enter the description line 2"
+                                                class="form-control my-2" rows="3" id="interndescription2F"></textarea>
+                                            <input type="text" placeholder="Duration of project Ex: May’22-Dec’22"
+                                                class="form-control my-2" id="yearinternF">
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <!-- Buttons for enhancing and updating internships -->
                                 <div id="internshipDetailL2">
 
-                                <button onclick="addNewIntern()" class="btn btn-dark btn-lg hidden" id="internaddbutton">Add
-                                    This</button>
+                                    <!-- Button to add a new internship -->
+                                    <button onclick="addNewIntern()" class="btn btn-dark btn-lg hidden"
+                                        id="internaddbutton">Add This</button>
 
-                                <button onclick="enhanceDescription('internship')" class="btn btn-dark btn-lg hidden" id="internenhancebutton">Enhance using AI</button>
-                                <div>You must click the button to add this to LaTeX code.</div><br>
+                                    <!-- Button to enhance internship descriptions using AI -->
+                                    <button onclick="enhanceDescription('internship')"
+                                        class="btn btn-dark btn-lg hidden" id="internenhancebutton">Enhance using AI
+                                    </button>
 
-
+                                    <!-- Button to update an existing internship -->
                                     <button class="btn btn-dark btn-lg hidden" id="internupdatebutton">Update</button>
+
                                   
                                     <br>
 
-                               
-                                <div class="form-group hidden" id="internEditComment">If you want to edit an internship, click on edit <br> If you want to delete an internship, click on delete</div>
 
-                                <div class="form-group" id="internsEdit">
+                                    <div id="internshipDetailR">
+                                        You must click the button to add this to LaTeX code.
+                                    </div>
 
-                                    
+                                    <br>
+
+                                    <!-- Instructions for editing or deleting internships -->
+                                    <div class="form-group hidden" id="internEditComment">If you want to edit an
+                                        internship, click on edit <br> If you want to delete an internship, click on
+                                        delete
+                                    </div>
+
+                                    <!-- Container for editing internships -->
+                                    <div class="form-group" id="internsEdit"></div>
                                 </div>
-                                </div>
 
-
-
+                                <!-- Section for Projects -->
                                 <div id="projects-container">
                                     <h3>Projects</h3>
-                                    <div>(If you dont want to include this, leave it blank and delete this section from
-                                        the LaTeX code generated.)</div>
+                                    <!-- Instructions for LaTeX code generation -->
+                                    <div>
+                                        (If you dont want to include this, leave it blank and delete this section from
+                                        the LaTeX code generated.)
+                                    </div>
+
+                                    <!-- Form for project details -->
                                     <div class="form-group" id="projects">
                                         <input type="text" placeholder="Project Title" class="form-control my-2"
                                             id="projectTitleF">
@@ -225,52 +281,75 @@
                                     </div>
                                 </div>
 
+                                <!-- Button to add a new project -->
                                 <button onclick="addNewProject()" class="btn btn-dark btn-lg" id="projectaddbutton">Add
                                     This</button>
 
-                                    <button onclick="enhanceDescription('project')" class="btn btn-dark btn-lg">Enhance using AI</button>
+                                <!-- Button to enhance project descriptions using AI -->
+                                <button onclick="enhanceDescription('project')" class="btn btn-dark btn-lg">Enhance
+                                    using AI</button>
 
-                                <button class="btn btn-dark btn-lg hidden" id="projectupdatebutton">Update</button>                                
+                                <!-- Button to update an existing project -->
+                                <button class="btn btn-dark btn-lg hidden" id="projectupdatebutton">Update</button>
 
                                 <div>You must click the button to add this to LaTeX code.</div><br>
 
-                                <div class="form-group hidden" id="projectEditComment">If you want to edit a project, click on edit.<br> If you want to delete a project, click on delete.</div>
-
-                                <div class="form-group" id="projectsEdit">
-
-                                    
+                                <!-- Instructions for editing or deleting projects -->
+                                <div class="form-group hidden" id="projectEditComment">If you want to edit a project,
+                                    click on edit. <br> If you want to delete a project, click on delete.
                                 </div>
 
-                                <!-- edit icons for project start-->
-                                 <div class="form-group hidden" id="projecteditbuttonComment">If you want to edit a project, then click on edit.</div>
-                                <div class="form-group" id="projectsEdit">
+                                <!-- Container for editing projects -->
+                                <div class="form-group" id="projectsEdit"></div>
 
-
+                                <div class="form-group hidden" id="projecteditbuttonComment">If you want to edit a
+                                    project, then click on edit.
                                 </div>
-                                <!-- edit icon fo project end-->
+                                <div class="form-group" id="projectsEdit"></div>
 
+                                <!-- Section for Skills -->
                                 <h3>Skills</h3>
-                                <div>(If you dont want to include this, leave it blank and delete this section from the
-                                    LaTeX code generated.)</div>
-                                <div class="form-group" id="skills">
 
+                                <div>
+                                    (If you dont want to include this, leave it blank and delete this section from the
+                                    LaTeX code generated.)
+                                </div>
+
+                                <!-- Skills Form -->
+                                <div class="form-group" id="skills">
                                     <input type="text" placeholder="Name your skill Ex: Technical, Finance"
                                         class="form-control my-2" id="skilltypeF">
                                     <textarea type="text" placeholder="Enter a brief description of your skill"
                                         class="form-control my-2" rows="1" id="skilldescriptionF"></textarea>
                                 </div>
+
                                 <button onclick="addNewSkill()" class="btn btn-dark btn-lg" id="skillAddButton">Add This</button>
                                 <button onclick="enhanceDescription('skill')" class="btn btn-dark btn-lg">Enhance using AI</button>
-                                <button class="btn btn-dark btn-lg hidden" id="skillUpdateButton">Update</button>
-                                <div>You must click the button to add this to LaTeX code.</div><br>
-                                <div class="form-group hidden" id="skillEditComment">If you want to edit a skill, click on edit.<br> If you want to delete a skill, click on delete.</div>
-                                <div id="skillsEdit">
 
+
+                                <button class="btn btn-dark btn-lg hidden" id="skillUpdateButton">Update</button>
+
+                                <div>You must click the button to add this to LaTeX code.</div>
+
+                                <br>
+
+                                <!-- Instructions for editing or deleting skills -->
+                                <div class="form-group hidden" id="skillEditComment">If you want to edit a skill, click
+                                    on edit. <br> If you want to delete a skill, click on delete.
                                 </div>
 
+                                <!-- Container for editing skills -->
+                                <div id="skillsEdit"></div>
+
+                                <!-- Section for Position of Responsibility -->
                                 <h3>Position of Responsibility</h3>
-                                <div>(If you don't want to include this, leave it blank and delete this section from the
-                                    LaTeX code generated.)</div>
+
+                                <div>
+                                    (If you don't want to include this, leave it blank and delete this section from the
+                                    LaTeX code generated.)
+                                </div>
+
+                                <!-- Position of Responsibility Form -->
                                 <div class="form-group" id="PORs">
                                     <input type="text" placeholder="Name your POR" class="form-control my-2"
                                         id="PORNameF">
@@ -281,51 +360,64 @@
                                     <input type="text" placeholder="Duration of POR Ex: May’22-Dec’22"
                                         class="form-control my-2" id="PORdurationF">
                                 </div>
+
                                 <button onclick="addNewPOR()" class="btn btn-dark btn-lg" id="PORAddButton">Add This</button>
                                 <button onclick="enhanceDescription('por')" class="btn btn-dark btn-lg">Enhance using AI</button>
+
                                 <button class="btn btn-dark btn-lg hidden" id="PORUpdateButton">Update</button>
-                                <div>You must click the button to add this to LaTeX code.</div><br>
-                                <div class="form-group hidden" id="POREditComment">If you want to edit a por, click on edit.<br> If you want to delete a por, click on delete.</div>
-                                <div id="PORsEdit">
 
-                                </div>
+                                <div>You must click the button to add this to LaTeX code.</div>
+                                
+                                <br>
 
+                                <!-- Instructions for editing or deleting PORs -->
+                                <div class="form-group hidden" id="POREditComment">If you want to edit a POR, click on
+                                    edit. <br> If you want to delete a POR, click on delete.</div>
 
+                                <!-- Container for editing POR -->
+                                <div id="PORsEdit"></div>
+
+                                <!-- Section for Achievements -->
                                 <h3>Achievements</h3>
-                                <div>(If you don't want to include this, leave it blank and delete this section from the LaTeX code generated.)</div>
+                                
+                                <div>
+                                    (If you don't want to include this, leave it blank and delete this section from the
+                                    LaTeX code generated.)
+                                </div>
+
+                                <!-- Achievements Form -->
                                 <div class="form-group" id="achievements">
-                                <input type="text" placeholder="Name your achievement" class="form-control my-2" id="achievementNameF">
+                                    <input type="text" placeholder="Name your achievement" class="form-control my-2"
+                                        id="achievementNameF">
                                 </div>
-                                <button onclick="addNewAchievement()" class="btn btn-dark btn-lg" id="achievementAddButton">Add This</button>
+
+                                <!-- Button to add a new Position of Responsibility -->
+                                <button onclick="addNewAchievement()" class="btn btn-dark btn-lg"
+                                    id="achievementAddButton">Add This</button>
+
+                                <!-- Button to update an existing Achievements -->
                                 <button class="btn btn-dark btn-lg hidden" id="achievementUpdateButton">Update</button>
-                                <div>You must click the button to add this to LaTeX code.</div><br>
-                                <div class="form-group hidden" id="achievementEditComment">If you want to edit an achievement, click on edit.<br> If you want to delete an achievement, click on delete.</div>
-                                <div id="achievementsEdit">
 
+                                <div>You must click the button to add this to LaTeX code.</div>
+                                
+                                <br>
+
+                                <!-- Instructions for editing or deleting Achievements -->
+                                <div class="form-group hidden" id="achievementEditComment">If you want to edit an
+                                    achievement, click on edit.<br> If you want to delete an achievement, click on
+                                    delete.
                                 </div>
 
-                                <!-- <div class="form-group">
-                                    <div class="d-grid gap-2 col-6 mx-auto my-4">
-                                        <button onclick="generateCV()" type="button" class="btn btn-dark btn-lg">Generate
-                                            Resume</button>
-                                    </div>
-                                </div> -->
-                                <script>
-
-                                </script>
+                                <!-- Container for editing Achievements -->
+                                <div id="achievementsEdit"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-
             <!-- Right Half: CV Template -->
 
-            <!-- cv template -->
-
-            
             <div class="col-md-6">
                 <div class="cv-template" id="cv-template">
                     <!-- Your CV Template content -->
@@ -359,23 +451,21 @@
                                     Discipline of <span class="text-sm-start my-0" id="BranchT">Disicipline</span>
                                 </div>
                                 <div class="col d-flex justify-content-end p-0">
-                                    <!-- <div class="linkedin p-0">
-                                        <img src="images/linkedin.png" class="rounded mx-0.5 d-block p-0" style="width: 20px;" id="gitT">
-                                    </div> -->
-
-                                    <!-- changed icons to text  -->
-                                    <div class="linkedin p-0">  
-                                        <a id="linkedinLink" href="#" class="text-black no-underline hover:text-gray-500">Linkedin</a>
-                                    </div> 
-                                    <span class="mx-2">|</span>
-                                    <div class="git p-0">
-                                        <a id="githubLink" href="#" class="text-black no-underline hover:text-gray-500">Github</a>
+                                    <div class="linkedin p-0">
+                                        <a id="linkedinLink" href="#"
+                                            class="text-black no-underline hover:text-gray-500">Linkedin</a>
                                     </div>
                                     <span class="mx-2">|</span>
-                                    <div class="website p-0">  
-                                        <a id="websiteLink" href="#" class="text-black no-underline hover:text-gray-500">Website</a>
-                                    </div>  
-                                
+                                    <div class="git p-0">
+                                        <a id="githubLink" href="#"
+                                            class="text-black no-underline hover:text-gray-500">Github</a>
+                                    </div>
+                                    <span class="mx-2">|</span>
+                                    <div class="website p-0">
+                                        <a id="websiteLink" href="#"
+                                            class="text-black no-underline hover:text-gray-500">Website</a>
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -383,6 +473,8 @@
                             <div class="row my-0" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">ACADEMIC DETAILS</p>
                             </div>
+
+                            <!-- Table header row for academic details -->
                             <div class="row lh-sm">
                                 <div class="col-2  p-0">
                                     <p class="text-sm lh-sm fw-bold my-0">Degree</p>
@@ -398,6 +490,8 @@
                                 </div>
                                 <hr class="my-0">
                             </div>
+
+                            <!-- Academic details for Ph.D -->
                             <div class="row" id="phdDivR">
                                 <div class="col-2 p-0">
                                     <p class="text-sm lh-sm my-0">Ph.D</p>
@@ -413,6 +507,7 @@
                                 </div>
                             </div>
 
+                            <!-- Academic details for M.Tech -->
                             <div class="row" id="mtechDivR">
                                 <div class="col-2 p-0">
                                     <p class="text-sm lh-sm my-0">M.Tech</p>
@@ -428,6 +523,7 @@
                                 </div>
                             </div>
 
+                            <!-- Academic details for B.Tech -->
                             <div class="row">
                                 <div class="col-2 p-0">
                                     <p class="text-sm lh-sm my-0">B.Tech</p>
@@ -441,8 +537,9 @@
                                 <div class="col-2 p-0">
                                     <p class="text-sm lh-sm  my-0" id="YOJT">Year</p>
                                 </div>
-
                             </div>
+
+                            <!-- Academic details for Class XII -->
                             <div class="row">
                                 <div class="col-2 p-0">
                                     <p class="text-sm lh-sm my-0">Class XII</p>
@@ -457,6 +554,8 @@
                                     <p class="text-sm lh-sm  my-0" id="yeartwelveT">Year</p>
                                 </div>
                             </div>
+
+                            <!-- Academic details for Class X -->
                             <div class="row">
                                 <div class="col-2 p-0">
                                     <p class="text-sm lh-sm my-0">Class X</p>
@@ -473,75 +572,55 @@
                                 <hr class="my-0">
                             </div>
 
-                            <!--Internship details start here-->
+                            <!-- Internship details start here -->
                             <div id="internshipDetailR">
-                            <div class="row my-0" style="background-color: lightgray;">
-                                <p class="fw-bold my-0 p-0">INTERNSHIPS</p>
-                            </div>
-                            <ul style="list-style-type:none;" class="my-0 p-0" id="internlistT">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-8 p-0">
-                                            <p class="fw-bold my-0" id="internTitleT">Title of Internship, name of
-                                                company</p>
+
+                                <!-- Header row for the Internship section -->
+                                <div class="row my-0" style="background-color: lightgray;">
+                                    <p class="fw-bold my-0 p-0">INTERNSHIPS</p>
+                                </div>
+
+                                <!-- List of internships -->
+                                <ul style="list-style-type:none;" class="my-0 p-0" id="internlistT">
+                                    <li>
+                                        <!-- Internship title and company name with duration -->
+                                        <div class="row">
+                                            <div class="col-8 p-0">
+                                                <p class="fw-bold my-0" id="internTitleT">Title of Internship, name of
+                                                    company</p>
+                                            </div>
+                                            <div class="col-4 p-0">
+                                                <span class="text-sm-end fw-bold my-0" id="yearinternT">[Years of
+                                                    internship]</span>
+                                            </div>
                                         </div>
-                                        <div class="col-4 p-0">
-                                            <span class="text-sm-end fw-bold my-0" id="yearinternT">[Years of
-                                                internship]</span>
+
+                                        <!-- Company or role information -->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <span class="text-sm fst-italic" id="internInfoT">[Company/Role
+                                                    information. Appears in italics under the title.]</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <span class="text-sm fst-italic" id="internInfoT">[Company/Role information. Appears in italics under the title.]</span>
+
+                                        <!-- Internship description -->
+                                        <div class="row">
+                                            <p class="text-sm p-0 my-0 justify-content" id="interndescriptionT">...</p>
+                                            <p class="text-sm p-0 my-0 justify-content" id="interndescription2T">...</p>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <p class="text-sm p-0 my-0 justify-content" id="interndescriptionT">Lorem ipsum
-                                            dolor sit amet
-                                            consectetur, adipisicing
-                                            elit. Explicabo quia et excepturi beatae rerum deserunt qui, repudiandae
-                                            illum in quibusdam
-                                            non
-                                            quaerat adipisci nobis dignissimos iste est. Ad veniam, ducimus odit
-                                            eligendi magni enim
-                                            quod
-                                            consequuntur unde autem vel.</p>
-                                        <p class="text-sm p-0 my-0 justify-content" id="interndescription2T">Lorem ipsum
-                                            dolor sit amet
-                                            consectetur, adipisicing
-                                            elit. Explicabo quia et excepturi beatae rerum deserunt qui, repudiandae
-                                            illum in quibusdam
-                                            non
-                                            quaerat adipisci nobis dignissimos iste est. Ad veniam, ducimus odit
-                                            eligendi magni enim
-                                            quod
-                                            consequuntur unde autem vel.</p>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
                             </div>
 
-                            <!-- <div class="row">
-                                <div class="col-8 p-0">
-                                    <p class="fw-bold my-0">Title of Internship, name of company</p>
-                                </div>
-                                <div class="col-4 p-0">
-                                    <p class="text-sm-end fw-bold my-0">[Years of internship]</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <p class="text-sm p-0 my-0 justify-content">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                    elit. Explicabo quia et excepturi beatae rerum deserunt qui, repudiandae illum in quibusdam non
-                                    quaerat adipisci nobis dignissimos iste est. Ad veniam, ducimus odit eligendi magni enim quod
-                                    consequuntur unde autem vel.</p>
-                            </div> -->
-
-                            <!--Info of Projects-->
+                            <!-- Projects section -->
                             <div class="row my-0" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">PROJECTS</p>
                             </div>
+
+                            <!-- List of projects -->
                             <ul style="list-style-type:none;" class="my-0 p-0" id="projectlist">
                                 <li>
+                                    <!-- Project title and professor name with duration -->
                                     <div class="row">
                                         <div class="col-8 p-0">
                                             <p class="fw-bold my-0" id="projectTitleT">Title of Project, name of
@@ -552,90 +631,56 @@
                                             </p>
                                         </div>
                                     </div>
+
+                                    <!-- Technologies used and project link -->
                                     <div class="row">
-                                        <div class="col-8" id="projectInfoT" >
-                                            <p class="text-sm fst-italic" >[Used Technologies Eg:- HTML, js, CSS ...]</p>
+                                        <div class="col-8" id="projectInfoT">
+                                            <p class="text-sm fst-italic">[Used Technologies Eg:- HTML, JS, CSS ...]</p>
                                         </div>
                                         <div class="col-4" id="projectLinkT">
                                             <p class="text-sm fst-italic">[Project link]</p>
                                         </div>
-                                        
                                     </div>
+
+                                    <!-- Project description -->
                                     <div class="row">
-                                        <p class="text-sm p-0 my-0 justify-content" id="projectDescriptionT">Lorem ipsum
-                                            dolor sit amet
-                                            consectetur, adipisicing
-                                            elit. Explicabo quia et excepturi beatae rerum deserunt qui, repudiandae
-                                            illum in quibusdam non
-                                            quaerat adipisci nobis dignissimos iste est. Ad veniam, ducimus odit
-                                            eligendi magni enim quod
-                                            consequuntur unde autem vel.</p>
-                                        <p class="text-sm p-0 my-0 justify-content" id="projectDescription2T">Lorem
-                                            ipsum dolor sit amet
-                                            consectetur, adipisicing
-                                            elit. Explicabo quia et excepturi beatae rerum deserunt qui, repudiandae
-                                            illum in quibusdam non
-                                            quaerat adipisci nobis dignissimos iste est. Ad veniam, ducimus odit
-                                            eligendi magni enim quod
-                                            consequuntur unde autem vel.</p>
+                                        <p class="text-sm p-0 my-0 justify-content" id="projectDescriptionT">...</p>
+                                        <p class="text-sm p-0 my-0 justify-content" id="projectDescription2T">...</p>
                                     </div>
                                 </li>
                             </ul>
 
-                            <!-- <div class="row">
-                                <div class="col-8 p-0">
-                                    <p class="fw-bold my-0">Title of Project, name of concerned professor</p>
-                                </div>
-                                <div class="col-4 p-0">
-                                    <p class="text-sm-end fw-bold my-0">[Duration of project]</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <p class="text-sm p-0 my-0 justify-content">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                    elit. Explicabo quia et excepturi beatae rerum deserunt qui, repudiandae illum in quibusdam non
-                                    quaerat adipisci nobis dignissimos iste est. Ad veniam, ducimus odit eligendi magni enim quod
-                                    consequuntur unde autem vel.</p>
-                            </div> -->
-
-                            <!--Skill set listed here-->
-                            
+                            <!-- Skills section -->
                             <div class="row my-0" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">SKILLS</p>
                             </div>
+
+                            <!-- List of skills -->
                             <ul style="list-style-type:none;" class="my-0 p-0" id="skillList">
                                 <li>
-
-
+                                    <!-- Skill type -->
                                     <div class="row">
                                         <div class="col-8 p-0">
                                             <p class="fw-bold my-0" id="skilltypeT">Type of Skill</p>
                                         </div>
                                     </div>
+
+                                    <!-- Skill description -->
                                     <div class="row">
-                                        <p class="text-sm p-0 my-0 justify-content" id="skilldescriptionT">Lorem ipsum
-                                            dolor sit amet
-                                            consectetur, adipisicing
-                                            elit. Explicabo quia et excepturi beatae rerum deserunt quia</p>
+                                        <p class="text-sm p-0 my-0 justify-content" id="skilldescriptionT">...</p>
                                     </div>
                                 </li>
-                            </ul> 
-                            <!-- <div class="row">
-                                <div class="col-8 p-0">
-                                    <p class="fw-bold my-0">Type of Skill</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <p class="text-sm p-0 my-0 justify-content">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                    elit. Explicabo quia et excepturi beatae rerum deserunt quia</p>
-                            </div> -->
+                            </ul>
 
-                            <!--POR and descripts-->
+                            <!-- Positions of Responsibility section -->
                             <div class="row my-0" style="background-color: lightgray;">
                                 <p class="fw-bold my-0 p-0">POSITIONS OF RESPONSIBILITY</p>
                             </div>
 
+                            <!-- List of positions -->
                             <ul style="list-style-type:none;" class="my-0 p-0" id="PORList">
                                 <li>
+                                    <!-- Position name and duration -->
                                     <div class="row">
                                         <div class="col-8 p-0">
                                             <p class="fw-bold my-0" id="PORNameT">POR Name</p>
@@ -644,213 +689,212 @@
                                             <p class="text-sm-end fw-bold my-0" id="PORdurationT">[Duration of POR]</p>
                                         </div>
                                     </div>
+
+                                    <!-- Position description -->
                                     <div class="row">
-                                        <p class="text-sm p-0 my-0 justify-content" id="PORdescriptionT">Lorem ipsum
-                                            dolor sit amet consectetur,
-                                            adipisicing
-                                            elit. Explicabo quia et excepturi beatae rerum deserunt quia</p>
-                                        <p class="text-sm p-0 my-0 justify-content" id="PORdescription2T">Lorem ipsum
-                                            dolor sit amet consectetur,
-                                            adipisicing
-                                            elit. Explicabo quia et excepturi beatae rerum deserunt quia</p>
+                                        <p class="text-sm p-0 my-0 justify-content" id="PORdescriptionT">...</p>
+                                        <p class="text-sm p-0 my-0 justify-content" id="PORdescription2T">...</p>
                                     </div>
                                 </li>
                             </ul>
 
-                            <!--Achievements section-->
+                            <!-- Achievements section -->
                             <div class="row my-0" style="background-color: lightgray;">
-                            <p class="fw-bold my-0 p-0">ACHIEVEMENTS</p>
+                                <p class="fw-bold my-0 p-0">ACHIEVEMENTS</p>
                             </div>
+
+                            <!-- List of achievements -->
                             <ul style="list-style-type:none;" class="my-0 p-0" id="achievementList">
                                 <div class="row">
                                     <p class="my-0" id="achievementNameT">Achievement Name</p>
                                 </div>
                             </ul>
-
                         </div>
 
+                        <!-- Button to copy LaTeX code -->
                         <div class="form-group">
                             <div class="d-grid gap-2 col-6 mx-auto my-4">
-                                <!-- <button type="button" class="btn btn-dark btn-lg" id="download">Download
-                                    Resume</button> -->
-                                    
                                 <button class="btn btn-dark btn-lg" onclick="copyToClipboard()">Copy LaTeX Code to
                                     Clipboard</button>
-                                    
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
-    
+
     <!-- Latex code begins -->
     <pre id="latexCode" style="display:none;">
-\documentclass[a4paper,10pt]{article}
-%-----------------------------------------------------------
-\usepackage[top=0.1cm, bottom=0.3cm, left=0.3cm, right=1.1cm, nohead, nofoot]{geometry}
-\usepackage{graphicx}
-\usepackage{url}
-\usepackage{palatino}
-\usepackage{booktabs}
-\usepackage{hyperref}
-\fontfamily{SansSerif}
-\selectfont
+        \documentclass[a4paper,10pt]{article}
+        %-----------------------------------------------------------
+        \usepackage[top=0.1cm, bottom=0.3cm, left=0.3cm, right=1.1cm, nohead, nofoot]{geometry}
+        \usepackage{graphicx}
+        \usepackage{url}
+        \usepackage{palatino}
+        \usepackage{booktabs}
+        \usepackage{hyperref}
+        \fontfamily{SansSerif}
+        \selectfont
+                
+        \usepackage[T1]{fontenc}
+        \usepackage[utf8]{inputenc}
+                
+        \usepackage{color}
+        \definecolor{mygrey}{gray}{0.75}
+        \textheight = 29.1 cm
+        \raggedbottom
+                
+        \setlength{\tabcolsep}{0in}
+        \newcommand{\isep}{-2 pt}
+        \newcommand{\lsep}{-0.6cm}
+        \newcommand{\psep}{-0.6cm}
+        \renewcommand{\labelitemii}{$\circ$}
+                
+        \pagestyle{empty}
+        %-----------------------------------------------------------
+        %Custom commands
+        \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+        \newcommand{\resheading}[1]{{\small \colorbox{mygrey}{\begin{minipage}{0.965\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+        \newcommand{\ressubheading}[3]{
+        \begin{tabular*}{6.62in}{l @{\extracolsep{\fill}} r}
+            \textsc{{\textbf{#1}}} & \textsc{\textit{[#2]}} \\
+        \end{tabular*}\vspace{-9pt}}
+        %-----------------------------------------------------------
+                
+        \begin{document}
+        \hspace{0.75cm}\\[-0.54cm]
         
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+        \textbf{<span id="userEnteredName">Name Here</span>} \\
+        \indent <span id="userEnteredYear">Given</span> \hfill 
+        \href{mailto:<span id="userEnteredEmail">Link</span>}{<span id="userEnteredEmailText">Mail</span>}\\  
+        \indent Discipline of <span id="userEnteredBranch">Branch</span> \hfill  <span id="userEnteredContact">Contact</span> \\
+        \indent Indian Institute of Technology, Gandhinagar  \hfill
+        \underline{\href{<span id="userEnteredLinkedIn">LinkedIn</span>}{LinkedIn}} |
+        \underline{\href{<span id="userEnteredGithub">Branch</span>}{Github}} | \underline{\href{<span id="userEnteredWebsite">Branch</span>}{Website}}
+        \\
+        \indent \resheading{\textbf{ACADEMIC DETAILS} }\\[\lsep]
+        \\ \\
+        %\begin{table}[ht!]
+        %\begin{center}
+        \indent \begin{tabular}{ p{1.7cm} @{\hskip 0.08in} p{5.254cm} @{\hskip 0.08in} p{7.054cm} @{\hskip 0.09in} p{2.554cm} @{\hskip 0.08in} p{1.72cm} }
+        \toprule
+        \textbf{Degree} & \textbf{Specialization} & \textbf{Institute} & \textbf{Year} & \textbf{CPI/\%} \\
+        \midrule
+        <span id="userphd"></span>
+        <span id="usermtech"></span>
+        B.Tech. & \textit{<span id="userEnteredBranch2">Branch</span>} & <span id="userEnteredIns">Branch</span> & <span id="userEnteredYOJ">YOJ</span> & <span id="userEnteredCPI">CPI</span> \\
+        Class XII  & \textit{Physics, Chemistry, Maths} & <span id="userEnteredInstituteTwelve">Branch</span> & <span id="userEnteredYearTwelve">Branch</span> & <span id="userEnteredMarksTwelve">Branch</span>\\
+        Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userEnteredYearTen">Branch</span> & <span id="userEnteredMarksTen">Branch</span>\\
+        \bottomrule
+        \end{tabular}
         
-\usepackage{color}
-\definecolor{mygrey}{gray}{0.75}
-\textheight = 29.1 cm
-\raggedbottom
+        <span id="userEnteredInternshipsLatex">
+        \resheading{\textbf{ INTERNSHIPS} }
+        \vspace{-0.4cm}
+        \begin{itemize}\itemsep\isep
+        <span id="userEnteredInternships">DELETE THIS</span>
+        \end{itemize}
+        </span>
         
-\setlength{\tabcolsep}{0in}
-\newcommand{\isep}{-2 pt}
-\newcommand{\lsep}{-0.6cm}
-\newcommand{\psep}{-0.6cm}
-\renewcommand{\labelitemii}{$\circ$}
+        \resheading{\textbf{ PROJECTS} }
+        \vspace{-0.4cm}
+        \begin{itemize}\itemsep\isep
+        <span id="userEnteredProjects">DELETE THIS</span>
+        \end{itemize}
+                
+        \resheading{\textbf{TECHNICAL SKILLS} }
+        \vspace{-0.4cm}
+        \begin{itemize} \itemsep \isep
+        <span id="userEnteredSkills">DELETE THIS</span>
+        \end{itemize}
         
-\pagestyle{empty}
-%-----------------------------------------------------------
-%Custom commands
-\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{{\small \colorbox{mygrey}{\begin{minipage}{0.965\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
-\newcommand{\ressubheading}[3]{
-\begin{tabular*}{6.62in}{l @{\extracolsep{\fill}} r}
-    \textsc{{\textbf{#1}}} & \textsc{\textit{[#2]}} \\
-\end{tabular*}\vspace{-9pt}}
-%-----------------------------------------------------------
+        \resheading{\textbf{POSITIONS OF RESPONSIBILITY} }
+        \vspace{-0.4cm}
+        \begin{itemize} \itemsep \isep
+        <span id="userEnteredPORs">DELETE THIS</span>
+        \end{itemize}
         
-\begin{document}
-\hspace{0.75cm}\\[-0.54cm]
-
-\textbf{<span id="userEnteredName">Name Here</span>} \\
-\indent <span id="userEnteredYear">Given</span> \hfill 
-\href{mailto:<span id="userEnteredEmail">Link</span>}{<span id="userEnteredEmailText">Mail</span>}\\  
-\indent Discipline of <span id="userEnteredBranch">Branch</span> \hfill  <span id="userEnteredContact">Contact</span> \\
-\indent Indian Institute of Technology, Gandhinagar  \hfill
-\underline{\href{<span id="userEnteredLinkedIn">LinkedIn</span>}{LinkedIn}} |
-\underline{\href{<span id="userEnteredGithub">Branch</span>}{Github}} | \underline{\href{<span id="userEnteredWebsite">Branch</span>}{Website}}
-\\
-\indent \resheading{\textbf{ACADEMIC DETAILS} }\\[\lsep]
-\\ \\
-%\begin{table}[ht!]
-%\begin{center}
-\indent \begin{tabular}{ p{1.7cm} @{\hskip 0.08in} p{5.254cm} @{\hskip 0.08in} p{7.054cm} @{\hskip 0.09in} p{2.554cm} @{\hskip 0.08in} p{1.72cm} }
-\toprule
-\textbf{Degree} & \textbf{Specialization} & \textbf{Institute} & \textbf{Year} & \textbf{CPI/\%} \\
-\midrule
-<span id="userphd"></span>
-<span id="usermtech"></span>
-B.Tech. & \textit{<span id="userEnteredBranch2">Branch</span>} & <span id="userEnteredIns">Branch</span> & <span id="userEnteredYOJ">YOJ</span> & <span id="userEnteredCPI">CPI</span> \\
-Class XII  & \textit{Physics, Chemistry, Maths} & <span id="userEnteredInstituteTwelve">Branch</span> & <span id="userEnteredYearTwelve">Branch</span> & <span id="userEnteredMarksTwelve">Branch</span>\\
-Class X  &  & <span id="userEnteredInstituteTen">Branch</span> & <span id="userEnteredYearTen">Branch</span> & <span id="userEnteredMarksTen">Branch</span>\\
-\bottomrule
-\end{tabular}
-
-<span id="userEnteredInternshipsLatex">
-\resheading{\textbf{ INTERNSHIPS} }
-\vspace{-0.4cm}
-\begin{itemize}\itemsep\isep
-<span id="userEnteredInternships">DELETE THIS</span>
-\end{itemize}
-</span>
-
-\resheading{\textbf{ PROJECTS} }
-\vspace{-0.4cm}
-\begin{itemize}\itemsep\isep
-<span id="userEnteredProjects">DELETE THIS</span>
-\end{itemize}
+        \resheading{\textbf{ACHIEVEMENTS} }
+        \begin{itemize}\itemsep\isep
+        <span id="userEnteredAchievements">DELETE THIS</span>
+        \end{itemize}
+        \end{document}
+            </pre>
         
-\resheading{\textbf{TECHNICAL SKILLS} }
-\vspace{-0.4cm}
-\begin{itemize} \itemsep \isep
-<span id="userEnteredSkills">DELETE THIS</span>
-\end{itemize}
+            <!-- Latex code ends-->
 
-\resheading{\textbf{POSITIONS OF RESPONSIBILITY} }
-\vspace{-0.4cm}
-\begin{itemize} \itemsep \isep
-<span id="userEnteredPORs">DELETE THIS</span>
-\end{itemize}
-
-\resheading{\textbf{ACHIEVEMENTS} }
-\begin{itemize}\itemsep\isep
-<span id="userEnteredAchievements">DELETE THIS</span>
-\end{itemize}
-\end{document}
-    </pre>
-
-    <!-- Latex code ends-->
-  <!-- updating footer -->
-
-  <footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h2>IIT Gandhinagar</h2>
+    <!-- Section: Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer content -->
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>IIT Gandhinagar</h2>
+                </div>
+                <div class="footer-social">
+                    <ul class="social-icons">
+                        <li>
+                            <!-- Email address with envelope icon -->
+                            <i class="fas fa-envelope"></i> kishan.ved@iitgn.ac.in
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-social">
-                <ul class="social-icons">
+
+            <!-- Section: Follow Us on GitHub -->
+            <div class="footer-follow">
+                <p>GitHub</p>
+                <ul class="follow-icons">
                     <li>
-                        <i class="fas fa-envelope"></i> kishan.ved@iitgn.ac.in
+                        <!-- Link to the GitHub repository -->
+                        <a href="https://github.com/Kishan-Ved/resume_generator" target="_blank"><i
+                                class="fab fa-github"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
+
+            <!-- Section: CopyRight and Info -->
+            <div class="footer-bottom">
+                <p>© 2024 Kishan-Ved. All Rights Reserved.</p>
+                <p>To report a bug or add a new feature, use the GitHub link above and make a PR.<br>
+                    Made with &hearts; by <u><a href="https://github.com/Kishan-Ved" style="color: white;"
+                            target="_blank">Kishan Ved</a></u>.
+                </p>
+            </div>
         </div>
+    </footer>
+    <!-- Footer Section Ends -->
 
-        <!-- Centered Follow Us section with GitHub icon -->
-        <div class="footer-follow">
-            <p>GitHub</p>
-            <ul class="follow-icons">
-                <li>
-                    <a href="https://github.com/Kishan-Ved/resume_generator" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+    <!-- Section: JS Tags -->
 
-        <div class="footer-bottom">
-            <p>© 2024 Kishan-Ved. All Rights Reserved.</p>
-            <p>
-                To report a bug or add a new feature, use the GitHub link above and make a PR.
-                <br> Made with &hearts; by <u><a href="https://github.com/Kishan-Ved" style="color: white;" target="_blank">Kishan Ved</a></u>.
-            </p>
-        </div>
-    </div>
-</footer>
-
-
-
-
-
+    <!-- Enables advanced tooltips and popups -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
+
+    <!-- Provides Bootstrap JS for UI components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript for dynamic functionality -->
     <script src="script.js"></script>
+
+    <!-- Module for advanced functionalities -->
     <script type="module" src="groq-script.js"></script>
+
+    <!-- JS library for PDF generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Libraries to capture HTML content as PDF -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-
-
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-
-
+    <!-- JS Tags Section Ends -->
 </body>
 
 </html>
-
-
-<!-- Updated -->
