@@ -1,56 +1,112 @@
-# Professional LaTeX resumes, in minutes!
+# Professional LaTeX Resumes, In Minutes!
 
-Site is live: [Resume Generator](https://kishan-ved.github.io/resume_generator/resumegenerator.html)
+A tool to help students and professionals create polished, professional LaTeX resumes without writing a single line of LaTeX code. Integrated with an AI assistant to enhance the resume! 
 
-This project has been made to help students generate professional LaTeX resumes quickly, without any LaTeX code.
+### **Live Site**: [Resume Generator](https://kishan-ved.github.io/resume_generator/resumegenerator.html)
 
-Resumes follow the template prescribed by CDS IITGN, the placement cell of IIT Gandhinagar.
+This project follows the **CDS IITGN (Placement Cell of IIT Gandhinagar)** template guidelines, ensuring resumes meet professional standards.
 
-## Steps to generate your resume:
+## **Key Features**
+- Generate professional LaTeX resumes effortlessly.
+- Live preview as you input details.
+- Simple copy-paste process for any LaTeX editor (e.g., Overleaf).
 
-- Step 1: Fill in your personal information.
-- Step 2: Copy the LaTeX code.
-- Step 3: Paste it in a LaTeX editor like Overleaf and Compile.
+## **Steps to Generate Your Resume**
 
-## Website tour:
+- Fill in your personal details.
+- Click **Copy LaTeX Code to Clipboard**.
+- Paste the copied code into a LaTeX editor (e.g., Overleaf) and compile.
 
-Fill your details in the form. You can see a live preview of your Resume on the right, as you enter the details on the left.
+## **Website Tour**
 
-![Form](./images/form.png)
+### **1. Input Your Details**
+Fill out the form on the left. As you type, your resume will update in real-time on the right-hand side.  
+![Form](./images/form_preview.png)
 
-Now, click 'Copy Latex Code to Clipboard'
+### **2. Copy LaTeX Code**
+Once complete, click the **Copy LaTeX Code to Clipboard** button.  
+![Form](./images/latex_copy_button.png)
 
-![Form](./images/copy_button.png)
+### **3. Compile Your Resume**
+Paste the LaTeX code into your preferred editor (e.g., Overleaf), compile, and download your professional resume.  
 
-Open any LaTeX editor, like OverLeaf and compile the code.
-
-Done!
-
-## Example Resume:
+## **Example Resume**
 
 Here's a resume that was generated using this tool.
 
 ![image](https://github.com/user-attachments/assets/d603267a-04c2-4a20-95e6-bb9d9babba6b)
 
-## Contribution info:
+## **Contributing to the Project**
 
-Steps for contribution:
+We welcome contributions to improve the project. Follow these steps to contribute:
 
-1. Fork, https://github.com/Kishan-Ved/resume_generator
-2. Execute, `git clone https://github.com/Kishan-Ved/resume_generator.git`
-3. Change your working directory to `../resume_generator`.
-4. Execute, `git remote add origin_user https://github.com/<your-github-username>/resume_generator/`
-5. Execute, `git checkout -b <your-new-branch-for-editing>`.
-6. Make changes to the code.
-7. Execute, `git add .`.
-8. Execute, `git commit -m "your-commit-message"`.
-9. Execute, `git push origin_user <your-current-branch>`.
-10. Make a PR.
+### **Getting Started**
 
-For future contributions just follow steps 5 to 10. Make sure that before starting work, always checkout to main and pull the recent changes using the remote `origin_user` and then start following steps 5 to 10.
+- Fork the repository: `https://github.com/Kishan-Ved/resume_generator`
+- Clone your fork: `git clone https://github.com/<your-github-username>/resume_generator.git`
+- Change your working directory: `cd resume_generator`
+- Execute: `git remote add origin_user https://github.com/<your-github-username>/resume_generator/`
+- Create a new branch for your changes: `git checkout -b <your-new-branch-for-editing>`
+- Make your edits and save the changes.
+- Stage your changes: `git add .`
+- Commit your changes: `git commit -m "Brief description of your changes"`
+- Push your branch to your fork: `git push origin_user <your-feature-branch>`
+- Open a Pull Request (PR) to the main repository.
+
+
+✨ `Pro Tip`: Before starting your work, always switch to the `main` branch and pull the latest changes using the remote `origin_user`. Then, jump right into Steps 5 to 10 to begin contributing!
 
 Happy Contributing!
 
+## Contributor Guidelines
+
+### Variable Naming Practices
+
+- Use **camelCase** for variables (`userInput`, `formPreview`).
+- Prefix IDs and classes with meaningful names (`formInputField`, `copyButton`).
+- Avoid abbreviations unless widely understood (`contactNumber` over `cntNo`).
+
+### Image Naming
+
+- Use descriptive names for images (`form_preview.png`, `resume_example.png`).
+- Separate words with **underscores** for readability.
+
+### Commenting Practices
+
+- Use comments to explain why a piece of code exists, not just what it does.
+- Start with a clear summary for functions:
+
+```
+/**
+ * Copies LaTeX code to clipboard.
+ * - Retrieves user-entered details.
+ * - Populates LaTeX fields.
+ * - Executes clipboard copy command.
+ */
+
+```
+
+- Inline comments should be concise and address complex or non-obvious logic:
+
+``` Check if PhD details are empty; if so, hide the section. ```
+
+### Code Format
+
+- Indent with 2 spaces.
+- Ensure consistent bracket placement:
+
+``` 
+if (condition) {
+  // Code block
+}
+```
+
+- Separate logical sections with line breaks for readability.
+
+## Acknowledgments
+
+This tool was crafted to simplify resume creation for students and professionals, with inspiration drawn from the CDS template at IIT Gandhinagar.
+
 ---
 
-Made with 🩷 by Kishan Ved.
+Made with ❤️ by Kishan Ved.
