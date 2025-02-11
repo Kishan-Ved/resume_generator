@@ -20,6 +20,14 @@ async function enhanceDescription(section) {
 			element1 = document.getElementById("projectdescriptionF")
 			element2 = document.getElementById("projectdescription2F")
 			break;
+		case 'por':
+			element1 = document.getElementById("PORdescriptionF");
+			element2 = document.getElementById("PORdescription2F");
+			break;
+		case 'skill':
+			element1 = document.getElementById("skilldescriptionF");
+			element2 = document.getElementById("skilldescriptionF");
+			break;
 	}
 
 	// Fetching values from the input fields.

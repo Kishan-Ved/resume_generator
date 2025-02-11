@@ -73,6 +73,7 @@ internCheckBox.addEventListener("change", function () {
         document.getElementById("internaddbutton").classList.remove("hidden");
         document.getElementById("internenhancebutton").classList.remove("hidden");
         document.getElementById("internshipDetailR").classList.remove("hidden");
+        document.getElementById("internshipDetailRC").classList.remove("hidden");
         document.getElementById("userEnteredInternshipsLatex").innerHTML = `
         \\resheading{\\textbf{ INTERNSHIPS} }
         \\vspace{-0.4cm}
@@ -83,11 +84,15 @@ internCheckBox.addEventListener("change", function () {
         document.getElementById("internEditComment").classList.add("hidden");
     } else {
         // Hide internship fields and clear the Latex template
+        internships = [];
+        updateInternshipList();
         document.getElementById("internshipDetailL1").classList.add("hidden");
         document.getElementById("internshipDetailL2").classList.add("hidden");
         document.getElementById("internshipDetailR").classList.add("hidden");
+        document.getElementById("internshipDetailRC").classList.add("hidden");
         document.getElementById("userEnteredInternshipsLatex").innerHTML = "";
     }
+
 });
 
 // Function to add a new internship entry
@@ -199,7 +204,7 @@ function confirmEditinternList(intern) {
     document.getElementById("internaddbutton").classList.remove("hidden");
 
     // Update the displayed name of the edited internship
-    document.getElementById(`${intern.id}name`).innerText = `${document.getElementById("internTitleF").value}-${document.getElementById("internInfoF").value}`;
+    document.getElementById(`${intern.id}name`).innerText = `${internships.find(intr => intr.id === intern.id).title}-${internships.find(intr => intr.id === intern.id).year}`;
 }
 
 // Function to refresh and display the updated list of internships
