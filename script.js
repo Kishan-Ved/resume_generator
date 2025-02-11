@@ -403,7 +403,7 @@ function confirmEditProjectList(project){
 
   updateProjectList();
 
-  document.getElementById(`${project.id}name`).innerText = `${document.getElementById("projectTitleF").value}-${document.getElementById("projectInfoF").value}`;
+  document.getElementById(`${project.id}name`).innerText = `${projects.find(pro => pro.id === project.id).title}-${projects.find(pro => pro.id === project.id).year}`;
 
 
 
