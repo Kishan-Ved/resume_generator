@@ -204,7 +204,7 @@ function confirmEditinternList(intern) {
     document.getElementById("internaddbutton").classList.remove("hidden");
 
     // Update the displayed name of the edited internship
-    document.getElementById(`${intern.id}name`).innerText = `${document.getElementById("internTitleF").value}-${document.getElementById("internInfoF").value}`;
+    document.getElementById(`${intern.id}name`).innerText = `${internships.find(intr => intr.id === intern.id).title}-${internships.find(intr => intr.id === intern.id).year}`;
 }
 
 // Function to refresh and display the updated list of internships
