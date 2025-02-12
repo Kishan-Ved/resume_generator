@@ -64,6 +64,7 @@ document.getElementById("userEnteredInternshipsLatex").innerHTML = "";
 const internCheckBox = document.getElementById("internshipCheckBox");
 document.getElementById("internshipDetailR").classList.add("hidden");
 
+
 // Toggle visibility of internship-related fields and UI elements
 internCheckBox.addEventListener("change", function () {
     // Show internship fields and add default content to the Latex template
@@ -92,6 +93,7 @@ internCheckBox.addEventListener("change", function () {
         document.getElementById("internshipDetailRC").classList.add("hidden");
         document.getElementById("userEnteredInternshipsLatex").innerHTML = "";
     }
+
 
 });
 
@@ -397,35 +399,37 @@ function editProjectsList(buttonElP) {
     };
 }
 
-/**
- * Function to confirm and save the changes made to an existing project
- * Updates the project details in the array and the display
- */
-function confirmEditProjectList(project) {
-    // Update the project object with new values
-    project.title = document.getElementById("projectTitleF").value;
-    project.info = document.getElementById("projectInfoF").value;
-    project.link = document.getElementById("projectLinkF").value;
-    project.description = document.getElementById("projectdescriptionF").value;
-    project.description2 = document.getElementById("projectdescription2F").value;
-    project.year = document.getElementById("yearprojectF").value;
+// function to change edits in right side
+function confirmEditProjectList(project){
+  
 
-    updateProjectList(); // Refresh the display
+  project.title = document.getElementById("projectTitleF").value;
+  project.info = document.getElementById("projectInfoF").value;
+  project.link = document.getElementById("projectLinkF").value;
+  project.description = document.getElementById("projectdescriptionF").value;
+  project.description2 = document.getElementById("projectdescription2F").value;
+  project.year = document.getElementById("yearprojectF").value;
 
-    // Update the project name in the edit section
-    document.getElementById(`${project.id}name`).innerText = `${document.getElementById("projectTitleF").value}-${document.getElementById("projectInfoF").value}`;
+  updateProjectList();
 
-    // Clear form fields after updating
-    document.getElementById("projectTitleF").value = "";
-    document.getElementById("projectInfoF").value = "";
-    document.getElementById("projectLinkF").value = "";
-    document.getElementById("projectdescriptionF").value = "";
-    document.getElementById("projectdescription2F").value = "";
-    document.getElementById("yearprojectF").value = "";
+  document.getElementById(`${project.id}name`).innerText = `${projects.find(pro => pro.id === project.id).title}-${projects.find(pro => pro.id === project.id).year}`;
 
-    // Reset button visibility
-    document.getElementById("projectupdatebutton").classList.add("hidden");
-    document.getElementById("projectaddbutton").classList.remove("hidden");
+
+
+
+  document.getElementById("projectTitleF").value = "";
+  document.getElementById("projectInfoF").value = "";
+  document.getElementById("projectLinkF").value = "";
+  document.getElementById("projectdescriptionF").value = "";
+  document.getElementById("projectdescription2F").value = "";
+  document.getElementById("yearprojectF").value = "";
+
+
+
+  document.getElementById("projectupdatebutton").classList.add("hidden");
+  document.getElementById("projectaddbutton").classList.remove("hidden");
+
+
 }
 
 /**
