@@ -54,7 +54,7 @@ We welcome contributions to improve the project. Follow these steps to contribut
 - Open a Pull Request (PR) to the main repository.
 
 
-✨ `Pro Tip`: Before starting your work, always switch to the `main` branch and pull the latest changes using the remote `origin_user`. Then, jump right into Steps 5 to 10 to begin contributing!
+Before starting your work, always switch to the `main` branch and pull the latest changes using the remote `origin_user`. Then, jump right into Steps 5 to 10 to begin contributing!
 
 Happy Contributing!
 
