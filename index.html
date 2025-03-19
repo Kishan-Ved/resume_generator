@@ -222,7 +222,7 @@
             </div>
 
             <!-- Button to trigger resume generation -->
-            <div class="generate_resume_button" onclick="generateResume()">
+            <div class="generate_resume_button" id="generateResume">
                 <span class="span">Generate Resume</span>
                 <img src="./images/generate_resume_expand.png" />
             </div>
@@ -233,9 +233,13 @@
     </div>
 
     <!-- JavaScript function to redirect to the resume generator page -->
-    <script>
-        function generateResume() {
-            window.location.href = "resumegenerator.html";
+    <script type="module">
+        import {signInWithGoogle} from './firebase.config.js'
+        document.getElementById("generateResume").addEventListener("click", generateResume);
+        async function generateResume() {
+            console.log("Generating resume...");
+            await signInWithGoogle();
+            window.location.href = "save.html";
         }
     </script>
 </body>

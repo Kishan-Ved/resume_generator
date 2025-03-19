@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        .resume-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .resume-content {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background: #e9e9e9;
+            border-radius: 5px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .resume-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+        .resume-details {
+            flex-grow: 1;
+        }
+        .resume-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .resume-date {
+            font-size: 14px;
+            color: #555;
+        }
+        .new-resume {
+            background: #d9f7d9;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Resume</h1>
+        <div class="resume-wrapper" id="resume-wrapper"></div>
+        <div class="new-resume" style="margin-top: 15px;" id="navigateToNew">+ Create New Resume</div>
+        <div class="new-resume hidden" style="margin-top: 15px;" id="onlyOne">You can save only one Resume</div>
+    </div>
+    
+    <script type="module">
+        import { getsavedResume, getUser, deleteSavedResume } from './firebase.config.js';
+    
+        async function loadResume() {
+            const user = await getUser();
+            const resumeData = await getsavedResume(user.email);
+            const resumeWrapper = document.getElementById("resume-wrapper");
+    
+            if (resumeData) {
+                resumeData.forEach(resume => {
+                    const resumeElement = document.createElement("div");
+                    resumeElement.classList.add("resume-content");
+    
+                    resumeElement.innerHTML = `
+                        <img src='./images/sample_resume.png' alt='Resume Image' class='resume-image'>
+                        <div class='resume-details'>
+                            <div class='resume-title'>${resume.savedName || 'Untitled Resume'}</div>
+                            <div class='resume-date'>Saved on: ${resume.savedDate || 'Unknown'} ${resume.savedTime || "Unknown"}</div>
+                            <div><button class="delete-btn" data-date="${resume.savedDate || ''}">Delete</button></div>
+                        </div>
+                    `;
+    
+                    // Add event listener for navigation
+                    resumeElement.querySelector('.resume-title').addEventListener('click', () => {
+                        navigateToNew(resume);
+                    });
+    
+                    // Add event listener for delete button
+                    resumeElement.querySelector('.delete-btn').addEventListener('click', async (event) => {
+                        await deleteResume(resume.savedDate);
+                    });
+    
+                    resumeWrapper.appendChild(resumeElement);
+                });
+            }
+            if (resumeData.length === 0) {
+                resumeWrapper.innerHTML = "<div>No resumes found. Create a new resume.</div>";
+                document.getElementById("navigateToNew").classList.remove("hidden");
+                document.getElementById("onlyOne").classList.add("hidden");
+            }
+            if(resumeData.length === 1){
+                document.getElementById("navigateToNew").classList.add("hidden");
+                document.getElementById("onlyOne").classList.remove("hidden");
+            }
+        }
+        const blankResume = {
+            savedName: "",
+            savedDate: "",
+            savedTime: "",
+            name: "",
+            currentYear: "",
+            email: "",
+            contact: "",
+            branch: "",
+            graduationYear: "",
+            git: "",
+            linkedin: "",
+            website: "",
+            BTech: {
+                CPI: "",
+                YOJ: "",
+                institute: "",
+                specialization: ""
+            },
+            Mtech: {
+                CPI: "",
+                YOJ: "",
+                institute: "",
+                specialization: ""
+            },
+            PhD: {
+                CPI: "",
+                YOJ: "",
+                institute: "",
+                specialization: ""
+            },
+            twelfth: {
+                institute: "",
+                marks: "",
+                year: ""
+            },
+            tenth: {
+                institute: "",
+                marks: "",
+                year: ""
+            },
+            skills: [],
+            projects: [],
+            internships: [],
+            achievements: [],
+            PORs: []
+        }
+        document.addEventListener("DOMContentLoaded", loadResume);
+        document.getElementById("navigateToNew").addEventListener("click", () => navigateToNew(blankResume));
+    
+        async function deleteResume(date) {
+            if (confirm("Are you sure you want to delete this resume?")) {
+                console.log("Deleting resume:", date);
+                try {
+                    const user = await getUser();
+                    const response = await deleteSavedResume(user.uid);
+                    if (response) {
+                        console.log("Resume deleted successfully.");
+                        window.location.reload();
+                    } else {
+                        console.error("Failed to delete resume. Check database implementation.");
+                    }
+                } catch (error) {
+                    console.error("Error deleting resume:", error);
+                }
+            }
+        }
+
+    
+        function navigateToNew(resume) {
+            console.log("Navigating to new resume:", resume);
+            localStorage.setItem("resume", JSON.stringify(resume));
+            window.location.href = "resumegenerator.html";
+        }
+    </script>
+    
+</body>
+</html>

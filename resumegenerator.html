@@ -718,6 +718,11 @@
                             <div class="d-grid gap-2 col-6 mx-auto my-4">
                                 <button class="btn btn-dark btn-lg" onclick="copyToClipboard()">Copy LaTeX Code to
                                     Clipboard</button>
+                                    <div style="display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                                        <input type="text" id="savedName" placeholder="Save resume as..">
+                                        <button class="btn btn-dark btn-lg" id="handlesaveResume">Save Resume</button>
+                                        <button class="btn btn-dark btn-lg" id="handleBack">Back</button>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -882,7 +887,7 @@
         crossorigin="anonymous"></script>
 
     <!-- Custom JavaScript for dynamic functionality -->
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
 
     <!-- Module for advanced functionalities -->
     <script type="module" src="groq-script.js"></script>

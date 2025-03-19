@@ -217,7 +217,9 @@ function updateInternshipList() {
 
     // Clear existing content in the list and span
     internList.innerHTML = "";
+    if(internsSpan){
     internsSpan.innerHTML = "";
+    }
 
     // Iterate over the internships array and generate HTML for each entry
     for (let internship of internships) {
@@ -926,81 +928,206 @@ function updateAchievementsList() {
         achievementsSpan.innerHTML += "\\item {" + escapeLaTeX(achievement.name) + "}\\vspace{0.1cm}\n";  // adjust the spacing as needed
     }
 }
+// console.log(Date(Date.now()).toString().split("GMT")[0].slice(16, 21));
+import {getUser, saveResume} from "./firebase.config.js"
+document.getElementById("handlesaveResume").addEventListener("click", handlesaveResume);
+const user = getUser();
+async function handlesaveResume(){
+    if(document.getElementById("savedName").value == ""){
+        alert("Please enter a name to save the resume");
+        return;
+    }
+    const userData = {
+        savedName: document.getElementById("savedName").value || "",
+        savedEmail: user.email || "",
+        savedDate: Date(Date.now()).toString().split("GMT")[0].slice(4, 15),
+        savedTime: Date(Date.now()).toString().split("GMT")[0].slice(16, 21),
+        name: document.getElementById("nameF").value || "",
+        currentYear: document.getElementById("CGradF").value || "",
+        email: document.getElementById("emailF").value || "",
+        contact: document.getElementById("contactF").value || "",
+        branch: document.getElementById("BranchF").value || "",
+        graduationYear: document.getElementById("CGradF").value || "",
+        git: document.getElementById("gitF").value || "",
+        linkedin: document.getElementById("linkedinF").value || "",
+        website: document.getElementById("websiteF").value || "",
+        BTech: {
+            CPI: document.getElementById("CPIF").value || "",
+            YOJ: document.getElementById("YOJF").value || "",
+            institute: document.getElementById("InsF").value || "",
+            specialization: document.getElementById("SpecF").value || "",
+
+        },
+        Mtech: {
+            CPI: document.getElementById("marksmtechF").value || "",
+            YOJ: document.getElementById("yearmtechF").value || "",
+            institute: document.getElementById("institutemtechF").value || "",
+            specialization: document.getElementById("specializationmtechF").value || "",
+        },
+        PhD: {
+            CPI: document.getElementById("marksphdF").value || "",
+            YOJ: document.getElementById("yearphdF").value || "",
+            institute: document.getElementById("institutephdF").value || "",
+            specialization: document.getElementById("specializationphdF").value || "",
+        },
+        twelfth: {
+            institute: document.getElementById("institutetwelveF").value || "",
+            marks: document.getElementById("markstwelveF").value || "",
+            year: document.getElementById("yeartwelveF").value || "",
+        },
+        tenth: {
+            institute: document.getElementById("InsF").value || "",
+            marks: document.getElementById("markstenF").value || "",
+            year: document.getElementById("yeartenF").value || "",
+        },
+        skills: skills,
+        internships: internships,
+        projects: projects,
+        PORs: PORs,
+        achievements: achievements,
+    }
+
+    try {
+        const result = await saveResume(userData, user.uid); 
+        if (result) {
+            alert("Data Saved Successfully");
+            localStorage.setItem("resume", JSON.stringify({}));
+            window.location.href = `./save.html`;
+        } else {
+            alert("Error saving data. Please try again.");
+        }
+    } catch (e) {
+        alert("Data not saved due to an error.");
+        console.error(e);
+    }
+}
+
+document.getElementById("handleBack").addEventListener("click", handleBack);
+function handleBack(){
+    localStorage.setItem("resume", JSON.stringify({}));
+    window.location.href = "./save.html";
+}
+
+const fillValues = () => {
+    let data = localStorage.getItem("resume") || "{}";
+    data = JSON.parse(data);
+    console.log(data);
+    document.getElementById("nameF").value = data?.name || "";
+    document.getElementById("CGradF").value = data?.currentYear || "";
+    document.getElementById("emailF").value = data?.email || "";
+    document.getElementById("contactF").value = data?.contact || "";
+    document.getElementById("BranchF").value = data?.branch || "";
+    document.getElementById("CGradF").value = data?.graduationYear || "";
+    document.getElementById("gitF").value = data?.git || "";
+    document.getElementById("linkedinF").value = data?.linkedin || "";
+    document.getElementById("websiteF").value = data?.website || "";
+    document.getElementById("CPIF").value = data.BTech?.CPI || "";
+    document.getElementById("YOJF").value = data.BTech?.YOJ || "";
+    document.getElementById("InsF").value = data.BTech?.institute || "";
+    document.getElementById("SpecF").value = data.BTech?.specialization || "";
+    document.getElementById("marksmtechF").value = data?.Mtech?.CPI || "";
+    document.getElementById("yearmtechF").value = data?.Mtech?.YOJ || "";
+    document.getElementById("institutemtechF").value = data?.Mtech?.institute || "";
+    document.getElementById("specializationmtechF").value = data?.Mtech?.specialization || "";
+    document.getElementById("marksphdF").value = data?.PhD?.CPI || "";
+    document.getElementById("yearphdF").value = data?.PhD?.YOJ || "";
+    document.getElementById("institutephdF").value = data?.PhD?.institute || "";
+    document.getElementById("specializationphdF").value = data?.PhD?.specialization || "";
+    document.getElementById("institutetwelveF").value = data?.twelfth?.institute || "";
+    document.getElementById("markstwelveF").value = data?.twelfth?.marks || "";
+    document.getElementById("yeartwelveF").value = data?.twelfth?.year || "";
+    document.getElementById("institutetenF").value = data?.tenth?.institute || "";
+    document.getElementById("markstenF").value = data?.tenth?.marks || "";
+    document.getElementById("yeartenF").value = data?.tenth?.year || "";
+    skills = data?.skills || [];
+    internships = data?.internships || [];
+    projects = data?.projects || [];
+    PORs = data?.PORs || [];
+    achievements = data?.achievements || [];
+    document.getElementById("savedName").value = data?.savedName;
+    updateSkillList();
+    updateInternshipList();
+    updateProjectList();
+    updatePORList();
+    updateAchievementsList();
+}
+
+fillValues();
 
 // Function to generate the CV template with user-provided input values
 function generateCV() {
     // Personal Details Section
     // Retrieves and updates the user's name, graduation year, branch, email, and contact.
-    let nameField = document.getElementById("nameF").value;
+    let nameField = document.getElementById("nameF")?.value;
     document.getElementById("nameT").innerHTML = nameField;
 
-    let GradField = document.getElementById("CGradF").value;
+    let GradField = document.getElementById("CGradF")?.value;
     document.getElementById("CGradT").innerHTML = GradField;
 
-    document.getElementById("BranchT").innerHTML = document.getElementById("BranchF").value;
-    document.getElementById("emailT").innerHTML = document.getElementById("emailF").value;
-    document.getElementById("contactT").innerHTML = document.getElementById("contactF").value;
+    document.getElementById("BranchT").innerHTML = document.getElementById("BranchF")?.value;
+    document.getElementById("emailT").innerHTML = document.getElementById("emailF")?.value;
+    document.getElementById("contactT").innerHTML = document.getElementById("contactF")?.value;
     
     // Academic Details Section
     // Updates academic details for PhD, M.Tech, B.Tech, 12th, and 10th qualifications.
 
     // PhD
-    document.getElementById("PCPIT").innerHTML = document.getElementById("marksphdF").value;
-    document.getElementById("PYOJT").innerHTML = document.getElementById("yearphdF").value;
-    document.getElementById("PINST").innerHTML = document.getElementById("institutephdF").value;
+    document.getElementById("PCPIT").innerHTML = document.getElementById("marksphdF")?.value;
+    document.getElementById("PYOJT").innerHTML = document.getElementById("yearphdF")?.value;
+    document.getElementById("PINST").innerHTML = document.getElementById("institutephdF")?.value;
 
     // M.Tech
-    document.getElementById("MCPIT").innerHTML = document.getElementById("marksmtechF").value;
-    document.getElementById("MYOJT").innerHTML = document.getElementById("yearmtechF").value;
-    document.getElementById("MINST").innerHTML = document.getElementById("institutemtechF").value;
+    document.getElementById("MCPIT").innerHTML = document.getElementById("marksmtechF")?.value;
+    document.getElementById("MYOJT").innerHTML = document.getElementById("yearmtechF")?.value;
+    document.getElementById("MINST").innerHTML = document.getElementById("institutemtechF")?.value;
 
     // B.Tech
-    document.getElementById("CPIT").innerHTML = document.getElementById("CPIF").value;
-    document.getElementById("YOJT").innerHTML = document.getElementById("YOJF").value;
-    document.getElementById("INST").innerHTML = document.getElementById("InsF").value;
+    document.getElementById("CPIT").innerHTML = document.getElementById("CPIF")?.value;
+    document.getElementById("YOJT").innerHTML = document.getElementById("YOJF")?.value;
+    document.getElementById("INST").innerHTML = document.getElementById("InsF")?.value;
 
     // Class 12th
-    document.getElementById("institutetwelveT").innerHTML = document.getElementById("institutetwelveF").value;
-    document.getElementById("markstwelveT").innerHTML = document.getElementById("markstwelveF").value;
-    document.getElementById("yeartwelveT").innerHTML = document.getElementById("yeartwelveF").value;
+    document.getElementById("institutetwelveT").innerHTML = document.getElementById("institutetwelveF")?.value;
+    document.getElementById("markstwelveT").innerHTML = document.getElementById("markstwelveF")?.value;
+    document.getElementById("yeartwelveT").innerHTML = document.getElementById("yeartwelveF")?.value;
 
     // Class 10th
-    document.getElementById("institutetenT").innerHTML = document.getElementById("institutetenF").value;
-    document.getElementById("markstenT").innerHTML = document.getElementById("markstenF").value;
-    document.getElementById("yeartenT").innerHTML = document.getElementById("yeartenF").value;
+    document.getElementById("institutetenT").innerHTML = document.getElementById("institutetenF")?.value;
+    document.getElementById("markstenT").innerHTML = document.getElementById("markstenF")?.value;
+    document.getElementById("yeartenT").innerHTML = document.getElementById("yeartenF")?.value;
 
     // Internship Details Section
     // Updates the internship title, information, description, and year.
-    document.getElementById("internTitleT").innerHTML = document.getElementById("internTitleF").value;
-    document.getElementById("internInfoT").innerHTML = document.getElementById("internInfoF").value;
-    document.getElementById("interndescriptionT").innerHTML = document.getElementById("interndescriptionF").value;
-    document.getElementById("interndescription2T").innerHTML = document.getElementById("interndescription2F").value;
-    document.getElementById("yearinternT").innerHTML = document.getElementById("yearinternF").value;
+    document.getElementById("internTitleT").innerHTML = document.getElementById("internTitleF")?.value || "";
+    document.getElementById("internInfoT").innerHTML = document.getElementById("internInfoF")?.value || "";
+    document.getElementById("interndescriptionT").innerHTML = document.getElementById("interndescriptionF")?.value || "";
+    document.getElementById("interndescription2T").innerHTML = document.getElementById("interndescription2F")?.value || "";
+    document.getElementById("yearinternT").innerHTML = document.getElementById("yearinternF")?.value || "";
 
     // Project Details Section
     // Updates the project title, information, link, and description.
-    document.getElementById("projectTitleT").innerHTML = document.getElementById("projectTitleF").value;
-    document.getElementById("projectInfoT").innerHTML = document.getElementById("projectInfoF").value;
-    document.getElementById("projectLinkT").innerHTML = document.getElementById("projectLinkF").value;
-    document.getElementById("projectDescriptionT").innerHTML = document.getElementById("projectdescriptionF").value;
-    document.getElementById("projectDescription2T").innerHTML = document.getElementById("projectdescription2F").value;
-    document.getElementById("yearprojectT").innerHTML = document.getElementById("yearprojectF").value;
+    document.getElementById("projectTitleT").innerHTML = document.getElementById("projectTitleF")?.value;
+    document.getElementById("projectInfoT").innerHTML = document.getElementById("projectInfoF")?.value;
+    document.getElementById("projectLinkT").innerHTML = document.getElementById("projectLinkF")?.value;
+    document.getElementById("projectDescriptionT").innerHTML = document.getElementById("projectdescriptionF")?.value;
+    document.getElementById("projectDescription2T").innerHTML = document.getElementById("projectdescription2F")?.value;
+    document.getElementById("yearprojectT").innerHTML = document.getElementById("yearprojectF")?.value;
 
     // Skills Section
     // Updates the skill type and description.
-    document.getElementById("skilltypeT").innerHTML = document.getElementById("skilltypeF").value;
-    document.getElementById("skilldescriptionT").innerHTML = document.getElementById("skilldescriptionF").value;
+    document.getElementById("skilltypeT").innerHTML = document.getElementById("skilltypeF")?.value;
+    document.getElementById("skilldescriptionT").innerHTML = document.getElementById("skilldescriptionF")?.value;
 
     // Positions of Responsibility (POR) Section
     // Updates POR details including name, duration, and description.
-    document.getElementById("PORNameT").innerHTML = document.getElementById("PORNameF").value;
-    document.getElementById("PORdurationT").innerHTML = document.getElementById("PORdurationF").value;
-    document.getElementById("PORdescriptionT").innerHTML = document.getElementById("PORdescriptionF").value;
-    document.getElementById("PORdescription2T").innerHTML = document.getElementById("PORdescription2F").value;
+    document.getElementById("PORNameT").innerHTML = document.getElementById("PORNameF")?.value;
+    document.getElementById("PORdurationT").innerHTML = document.getElementById("PORdurationF")?.value;
+    document.getElementById("PORdescriptionT").innerHTML = document.getElementById("PORdescriptionF")?.value;
+    document.getElementById("PORdescription2T").innerHTML = document.getElementById("PORdescription2F")?.value;
 
     // Achievements Section
     // Updates the achievements.
-    document.getElementById("achievementNameT").innerHTML = document.getElementById("achievementNameF").value;
+    document.getElementById("achievementNameT").innerHTML = document.getElementById("achievementNameF")?.value;
 
     // Switches the display to show the CV template and hide the input form.
     document.getElementById("cv-form").style.display = "none";
