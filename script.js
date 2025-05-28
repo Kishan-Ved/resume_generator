@@ -861,6 +861,11 @@ function deleteachievementsList(buttonElA) {
             document.getElementById("achievementEditComment").classList.add("hidden");
         }
 
+        // Reset the form and button state
+        document.getElementById("achievementNameF").value = "";
+        document.getElementById("achievementUpdateButton").classList.add("hidden");
+        document.getElementById("achievementAddButton").classList.remove("hidden");
+
         // Update the achievements list displayed on the webpage
         updateAchievementsList();
     }
