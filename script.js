@@ -1010,113 +1010,170 @@ function generateCV() {
 /**
  * This function copies the LaTeX representation of the CV to the clipboard.
  */
-function copyToClipboard() {
-    // Retrieve and populate various user-entered details into the LaTeX format fields.
-    let userName = document.getElementById("nameF").value;
-    let userYear = document.getElementById("CGradF").value;
-    let userEmail = document.getElementById("emailF").value;
-    let userBranch = document.getElementById("BranchF").value;
-    let userContact = document.getElementById("contactF").value;
-    let userGithub = document.getElementById("gitF").value;
-    let userLinkedIn = document.getElementById("linkedinF").value;
-    let userWebsite = document.getElementById("websiteF").value;
 
-    // Update corresponding placeholders in the LaTeX CV template with user-entered values.
-    document.getElementById("userEnteredYear").innerText = userYear;
-    document.getElementById("userEnteredEmail").innerText = userEmail;
-    document.getElementById("userEnteredEmailText").innerText = userEmail;
-    document.getElementById("userEnteredContact").innerText = userContact;
-    document.getElementById("userEnteredGithub").innerText = userGithub;
-    document.getElementById("userEnteredLinkedIn").innerText = userLinkedIn;
-    document.getElementById("userEnteredWebsite").innerText = userWebsite;
-    document.getElementById("userEnteredName").innerText = userName;
-    document.getElementById("userEnteredBranch").innerText = userBranch;
+async function copyToClipboard() {
+    // 1. Read personal details from the form
+    const userName = document.getElementById("nameF").value;
+    const userYear = document.getElementById("CGradF").value;
+    const userEmail = document.getElementById("emailF").value;
+    const userBranch = document.getElementById("BranchF").value;
+    const userContact = document.getElementById("contactF").value;
+    const userGithub = document.getElementById("gitF").value;
+    const userLinkedIn = document.getElementById("linkedinF").value;
+    const userWebsite = document.getElementById("websiteF").value;
 
-    // Fetch and populate PhD-related details, if provided.
-    let userInstitutephd = document.getElementById("institutephdF").value;
-    let userSpecializationphd = document.getElementById("specializationphdF").value;
-    let userCPIphd = document.getElementById("marksphdF").value;
-    let userYOJphd = document.getElementById("yearphdF").value;
+    // 2. Update the existing hidden HTML fields
+    document.getElementById("userEnteredYear").textContent = userYear;
+    document.getElementById("userEnteredEmail").textContent = userEmail;
+    document.getElementById("userEnteredEmailText").textContent = userEmail;
+    document.getElementById("userEnteredContact").textContent = userContact;
+    document.getElementById("userEnteredGithub").textContent = userGithub;
+    document.getElementById("userEnteredLinkedIn").textContent = userLinkedIn;
+    document.getElementById("userEnteredWebsite").textContent = userWebsite;
+    document.getElementById("userEnteredName").textContent = userName;
+    document.getElementById("userEnteredBranch").textContent = userBranch;
 
-    // If no PhD details are entered, clear the corresponding LaTeX section.
-    if (userInstitutephd === "") {
-        document.getElementById("userphd").innerText = "";
+    // 3. Update PhD details
+    const userInstitutephd = document.getElementById("institutephdF").value;
+    const userSpecializationphd = document.getElementById("specializationphdF").value;
+    const userCPIphd = document.getElementById("marksphdF").value;
+    const userYOJphd = document.getElementById("yearphdF").value;
+
+    document.getElementById("userphd").textContent = userInstitutephd === ""
+        ? ""
+        : "PhD & \\textit{" + userSpecializationphd + "} & " +
+          userInstitutephd + " & " + userYOJphd + " & " +
+          userCPIphd + " \\\\";
+
+    // 4. Update M.Tech details
+    const userInstituteMtech = document.getElementById("institutemtechF").value;
+    const userSpecializationMtech = document.getElementById("specializationmtechF").value;
+    const userCPIMtech = document.getElementById("marksmtechF").value;
+    const userYOJMtech = document.getElementById("yearmtechF").value;
+
+    document.getElementById("usermtech").textContent = userInstituteMtech === ""
+        ? ""
+        : "M.Tech. & \\textit{" + userSpecializationMtech + "} & " +
+          userInstituteMtech + " & " + userYOJMtech + " & " +
+          userCPIMtech + " \\\\";
+
+    // 5. Update B.Tech details
+    document.getElementById("userEnteredCPI").textContent =
+        document.getElementById("CPIF").value;
+    document.getElementById("userEnteredIns").textContent =
+        document.getElementById("InsF").value;
+    document.getElementById("userEnteredYOJ").textContent =
+        document.getElementById("YOJF").value;
+    document.getElementById("userEnteredBranch2").textContent =
+        document.getElementById("SpecF").value;
+
+    // 6. Update Class XII details
+    document.getElementById("userEnteredInstituteTwelve").textContent =
+        document.getElementById("institutetwelveF").value;
+    document.getElementById("userEnteredMarksTwelve").textContent =
+        document.getElementById("markstwelveF").value;
+    document.getElementById("userEnteredYearTwelve").textContent =
+        document.getElementById("yeartwelveF").value;
+
+    // 7. Update Class X details
+    document.getElementById("userEnteredInstituteTen").textContent =
+        document.getElementById("institutetenF").value;
+    document.getElementById("userEnteredMarksTen").textContent =
+        document.getElementById("markstenF").value;
+    document.getElementById("userEnteredYearTen").textContent =
+        document.getElementById("yeartenF").value;
+
+    try {
+        // 8. Load the external LaTeX template
+        const response = await fetch("resume_template.tex");
+
+        if (!response.ok) {
+            throw new Error("Could not load resume_template.tex");
+        }
+
+        let latexCode = await response.text();
+
+        // 9. Read the generated LaTeX from the existing HTML fields
+        const getText = (id) =>
+            document.getElementById(id)?.textContent ?? "";
+
+        const placeholders = {
+            userEnteredName: getText("userEnteredName"),
+            userEnteredYear: getText("userEnteredYear"),
+            userEnteredEmail: getText("userEnteredEmail"),
+            userEnteredEmailText: getText("userEnteredEmailText"),
+            userEnteredBranch: getText("userEnteredBranch"),
+            userEnteredContact: getText("userEnteredContact"),
+            userEnteredLinkedIn: getText("userEnteredLinkedIn"),
+            userEnteredGithub: getText("userEnteredGithub"),
+            userEnteredWebsite: getText("userEnteredWebsite"),
+
+            userphd: getText("userphd"),
+            usermtech: getText("usermtech"),
+            userEnteredBranch2: getText("userEnteredBranch2"),
+            userEnteredIns: getText("userEnteredIns"),
+            userEnteredYOJ: getText("userEnteredYOJ"),
+            userEnteredCPI: getText("userEnteredCPI"),
+
+            userEnteredInstituteTwelve:
+                getText("userEnteredInstituteTwelve"),
+            userEnteredMarksTwelve:
+                getText("userEnteredMarksTwelve"),
+            userEnteredYearTwelve:
+                getText("userEnteredYearTwelve"),
+
+            userEnteredInstituteTen:
+                getText("userEnteredInstituteTen"),
+            userEnteredMarksTen:
+                getText("userEnteredMarksTen"),
+            userEnteredYearTen:
+                getText("userEnteredYearTen"),
+
+            userEnteredProjects: getText("userEnteredProjects").replace("DELETE THIS", ""),
+            userEnteredSkills: getText("userEnteredSkills").replace("DELETE THIS", ""),
+            userEnteredPORs: getText("userEnteredPORs").replace("DELETE THIS", ""),
+            userEnteredAchievements: getText("userEnteredAchievements").replace("DELETE THIS", "")
+        };
+
+        // 10. Replace template placeholders with their values
+        for (const [key, value] of Object.entries(placeholders)) {
+            latexCode = latexCode.split(`{{${key}}}`).join(value);
+        }
+
+        // 11. Check for placeholders that were not replaced
+        if (/\{\{[^{}]+\}\}/.test(latexCode)) {
+            throw new Error(
+                "Some template placeholders were not replaced. " +
+                "Check resume_template.tex and the placeholder names."
+            );
+        }
+
+        // 12. Copy the generated LaTeX
+        const tempTextarea = document.createElement("textarea");
+        tempTextarea.value = latexCode;
+        document.body.appendChild(tempTextarea);
+        tempTextarea.select();
+
+        const copied = document.execCommand("copy");
+        document.body.removeChild(tempTextarea);
+
+        if (!copied) {
+            throw new Error("Copying to clipboard failed.");
+        }
+
+        alert(
+            "Copied LaTeX code to clipboard. " +
+            "Paste it into a LaTeX editor, such as Overleaf."
+        );
+
+    } catch (error) {
+        console.error("Error generating LaTeX:", error);
+        alert(
+            "Could not generate or copy the LaTeX. " +
+            "Check the browser console for details. " +
+            "Make sure the website is running through a local server."
+        );
     }
-    else {
-        // Update the LaTeX template with PhD details.
-        document.getElementById("userphd").innerText = "PhD & \\textit{" + userSpecializationphd + "} & " + userInstitutephd + " & " + userYOJphd + " & " + userCPIphd + " \\\\";
-    }
-
-    // Fetch and populate M.Tech-related details, if provided.
-    let userInstituteMtech = document.getElementById("institutemtechF").value;
-    let userSpecializationMtech = document.getElementById("specializationmtechF").value;
-    let userCPIMtech = document.getElementById("marksmtechF").value;
-    let userYOJMtech = document.getElementById("yearmtechF").value;
-
-    // If no M.Tech details are entered, clear the corresponding LaTeX section.
-    if (userInstituteMtech === "") {
-        document.getElementById("usermtech").innerText = "";
-    }
-    else {
-         // Update the LaTeX template with M.Tech details.
-        document.getElementById("usermtech").innerText = "M.Tech. & \\textit{" + userSpecializationMtech + "} & " + userInstituteMtech + " & " + userYOJMtech + " & " + userCPIMtech + " \\\\";
-    }
-
-    // Fetch and populate B.Tech-related details.
-    let userCPI = document.getElementById("CPIF").value;
-    let userIns = document.getElementById("InsF").value;
-    let userYOJ = document.getElementById("YOJF").value;
-    let userSpec = document.getElementById("SpecF").value;
-
-    // Update the LaTeX template with B.Tech details
-    document.getElementById("userEnteredCPI").innerText = userCPI;
-    document.getElementById("userEnteredIns").innerText = userIns;
-    document.getElementById("userEnteredYOJ").innerText = userYOJ;
-    document.getElementById("userEnteredBranch2").innerText = userSpec;
-
-    // Fetch and populate Class 12th-related details.
-    let userInstituteTwelve = document.getElementById("institutetwelveF").value;
-    let userMarksTwelve = document.getElementById("markstwelveF").value;
-    let userYearTwelve = document.getElementById("yeartwelveF").value;
-
-    // Update the LaTeX template with Class 12th details.
-    document.getElementById("userEnteredInstituteTwelve").innerText = userInstituteTwelve;
-    document.getElementById("userEnteredMarksTwelve").innerText = userMarksTwelve;
-    document.getElementById("userEnteredYearTwelve").innerText = userYearTwelve;
-
-    // Fetch and populate Class 10th-related details.
-    let userInstituteTen = document.getElementById("institutetenF").value;
-    let userMarksTen = document.getElementById("markstenF").value;
-    let userYearTen = document.getElementById("yeartenF").value;
-
-    // Update the LaTeX template with Class 10th details.
-    document.getElementById("userEnteredInstituteTen").innerText = userInstituteTen;
-    document.getElementById("userEnteredMarksTen").innerText = userMarksTen;
-    document.getElementById("userEnteredYearTen").innerText = userYearTen;
-
-    // Get the updated LaTeX code from the template.
-    let latexCode = document.getElementById("latexCode").innerText;
-
-    // Create a temporary textarea element to hold the LaTeX code for copying.
-    var tempTextarea = document.createElement("textarea");
-
-    // Set the textarea value to the updated LaTeX code.
-    tempTextarea.value = latexCode;
-
-    // Append the textarea element to the DOM to make it accessible.
-    document.body.appendChild(tempTextarea);
-
-    // Select the text in the textarea for copying.
-    tempTextarea.select();
-
-    // Execute the "copy" command to copy the LaTeX code to the clipboard.
-    document.execCommand("copy");
-
-    // Remove the temporary textarea element from the DOM.
-    document.body.removeChild(tempTextarea);
-
-    // Optionally, provide feedback to the user about the successful copy action.
-    alert("Copied LaTeX code to clipboard. Paste in any LaTeX editor. Eg: Overleaf.");
 }
 
 // Continuously updates the CV fields in real-time (if applicable).
