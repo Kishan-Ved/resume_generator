@@ -1085,10 +1085,10 @@ async function copyToClipboard() {
 
     try {
         // 8. Load the external LaTeX template
-        const response = await fetch("resume_template.tex");
+        const response = await fetch("assets/latex/templates/resume_template.tex");
 
         if (!response.ok) {
-            throw new Error("Could not load resume_template.tex");
+            throw new Error("Could not load assets/latex/templates/resume_template.tex");
         }
 
         let latexCode = await response.text();
@@ -1128,6 +1128,8 @@ async function copyToClipboard() {
                 getText("userEnteredMarksTen"),
             userEnteredYearTen:
                 getText("userEnteredYearTen"),
+            userEnteredInternshipsLatex: 
+                getText("userEnteredInternshipsLatex"),
 
             userEnteredProjects: getText("userEnteredProjects").replace("DELETE THIS", ""),
             userEnteredSkills: getText("userEnteredSkills").replace("DELETE THIS", ""),
@@ -1141,10 +1143,13 @@ async function copyToClipboard() {
         }
 
         // 11. Check for placeholders that were not replaced
-        if (/\{\{[^{}]+\}\}/.test(latexCode)) {
+        const remainingPlaceholders = latexCode.match(/\{\{[^{}]+\}\}/g);
+
+        if (remainingPlaceholders) {
+            console.error("Unreplaced placeholders:", remainingPlaceholders);
             throw new Error(
-                "Some template placeholders were not replaced. " +
-                "Check resume_template.tex and the placeholder names."
+                "Some template placeholders were not replaced: " +
+                remainingPlaceholders.join(", ")
             );
         }
 
