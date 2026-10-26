@@ -1,0 +1,186 @@
+\documentclass[a4paper,10pt]{article}
+
+%-----------------------------------------------------------
+% Packages
+%-----------------------------------------------------------
+\usepackage[
+    top=0.1cm,
+    bottom=0.3cm,
+    left=0.3cm,
+    right=1.1cm,
+    nohead,
+    nofoot
+]{geometry}
+
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{palatino}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+
+%-----------------------------------------------------------
+% Formatting
+%-----------------------------------------------------------
+\fontfamily{SansSerif}
+\selectfont
+
+\definecolor{mygrey}{gray}{0.75}
+
+\textheight = 29.1cm
+\raggedbottom
+\setlength{\tabcolsep}{0in}
+
+\newcommand{\isep}{-2pt}
+\newcommand{\lsep}{-0.6cm}
+\newcommand{\psep}{-0.6cm}
+
+\renewcommand{\labelitemii}{$\circ$}
+\pagestyle{empty}
+
+%-----------------------------------------------------------
+% Custom commands
+%-----------------------------------------------------------
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+
+\newcommand{\resheading}[1]{%
+    {\small
+        \colorbox{mygrey}{%
+            \begin{minipage}{0.965\textwidth}
+                \textbf{#1 \vphantom{p\^{E}}}
+            \end{minipage}%
+        }%
+    }%
+}
+
+\newcommand{\ressubheading}[3]{%
+    \begin{tabular*}{6.62in}{l @{\extracolsep{\fill}} r}
+        \textsc{\textbf{#1}} &
+        \textsc{\textit{[#2]}} \\
+    \end{tabular*}
+    \vspace{-9pt}%
+}
+
+%-----------------------------------------------------------
+% Document
+%-----------------------------------------------------------
+\begin{document}
+
+\hspace{0.75cm}\\[-0.54cm]
+
+%-----------------------------------------------------------
+% Personal Details
+%-----------------------------------------------------------
+\textbf{{{userEnteredName}}} \\
+
+\indent {{userEnteredYear}}
+\hfill
+\href{mailto:{{userEnteredEmail}}}{{userEnteredEmailText}} \\
+
+\indent Discipline of {{userEnteredBranch}}
+\hfill
+{{userEnteredContact}} \\
+
+\indent Indian Institute of Technology, Gandhinagar
+\hfill
+\underline{\href{ {{userEnteredLinkedIn}} }{LinkedIn}} |
+\underline{\href{ {{userEnteredGithub}} }{Github}} |
+\underline{\href{ {{userEnteredWebsite}} }{Website}}
+\\
+
+%-----------------------------------------------------------
+% Academic Details
+%-----------------------------------------------------------
+\indent \resheading{ACADEMIC DETAILS}\\[\lsep]
+
+\indent
+\begin{tabular}{
+    p{1.7cm}
+    @{\hskip 0.08in} p{5.254cm}
+    @{\hskip 0.08in} p{7.054cm}
+    @{\hskip 0.09in} p{2.554cm}
+    @{\hskip 0.08in} p{1.72cm}
+}
+\toprule
+\textbf{Degree} &
+\textbf{Specialization} &
+\textbf{Institute} &
+\textbf{Year} &
+\textbf{CPI/\%} \\
+\midrule
+
+{{userphd}}
+{{usermtech}}
+
+B.Tech. &
+\textit{{{userEnteredBranch2}}} &
+{{userEnteredIns}} &
+{{userEnteredYOJ}} &
+{{userEnteredCPI}} \\
+
+Class XII &
+\textit{Physics, Chemistry, Maths} &
+{{userEnteredInstituteTwelve}} &
+{{userEnteredYearTwelve}} &
+{{userEnteredMarksTwelve}} \\
+
+Class X &
+&
+{{userEnteredInstituteTen}} &
+{{userEnteredYearTen}} &
+{{userEnteredMarksTen}} \\
+
+\bottomrule
+\end{tabular}
+
+%-----------------------------------------------------------
+% Internships
+%-----------------------------------------------------------
+{{userEnteredInternshipsLatex}}
+
+%-----------------------------------------------------------
+% Projects
+%-----------------------------------------------------------
+\resheading{PROJECTS}
+\vspace{-0.4cm}
+
+\begin{itemize}
+    \itemsep\isep
+    {{userEnteredProjects}}
+\end{itemize}
+
+%-----------------------------------------------------------
+% Technical Skills
+%-----------------------------------------------------------
+\resheading{TECHNICAL SKILLS}
+\vspace{-0.4cm}
+
+\begin{itemize}
+    \itemsep\isep
+    {{userEnteredSkills}}
+\end{itemize}
+
+%-----------------------------------------------------------
+% Positions of Responsibility
+%-----------------------------------------------------------
+\resheading{POSITIONS OF RESPONSIBILITY}
+\vspace{-0.4cm}
+
+\begin{itemize}
+    \itemsep\isep
+    {{userEnteredPORs}}
+\end{itemize}
+
+%-----------------------------------------------------------
+% Achievements
+%-----------------------------------------------------------
+\resheading{ACHIEVEMENTS}
+
+\begin{itemize}
+    \itemsep\isep
+    {{userEnteredAchievements}}
+\end{itemize}
+
+\end{document}
